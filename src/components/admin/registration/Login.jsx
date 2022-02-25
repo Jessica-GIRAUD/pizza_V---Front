@@ -1,26 +1,25 @@
 import React, { useState } from "react";
+import { loginIn } from "../../../services/Authentification";
+import eye from "../../images/yeux.png";
+import invisible from "../../images/invisible.png";
 import "./Register.css";
-import { createAccount } from "../../services/authentification";
-import eye from "../images/yeux.png";
-import invisible from "../images/invisible.png";
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Login = () => {
+  const navigate = useNavigate();
+
   const [formValues, setFormValues] = useState({
-    lastname: "",
-    firstname: "",
     email: "",
     password: "",
-    confirmedPassword: "",
   });
+
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState({
     hasError: false,
     input: null,
     message: null,
   });
-
-  const [passwordShown, setPasswordShown] = useState(false);
-  const [confirmedPasswordShown, setConfirmedPasswordShown] = useState(false);
 
   const handleChange = (event) => {
     const {
@@ -37,9 +36,11 @@ const Register = () => {
   };
 
   const handleSubmit = (event) => {
-    createAccount(formValues).then((res) => {
+    loginIn(formValues).then((res) => {
+      console.log("res", res);
       if (res.status === 200) {
         console.log("tout est ok redirection vers blbalblabla");
+        navigate("/admin/dashboard");
       } else {
         setErrorMessage({
           hasError: true,
@@ -48,42 +49,19 @@ const Register = () => {
         });
       }
     });
+    console.log("logged in");
     event.preventDefault();
   };
 
-  const toggleShowPassword = (origin) => {
-    if (origin === "password") {
-      setPasswordShown(!passwordShown);
-    } else {
-      setConfirmedPasswordShown(!confirmedPasswordShown);
-    }
-  };
-
   return (
-    <div className="registration">
-      <div className="left">
+    <div className="login">
+      <div className="login-left">
         <div className="header">
-          <h2 className="animation a1">Bienvenue chez Pizza Vera</h2>
-          <h4 className="animation a2">Créez-vous un compte</h4>
+          <h2 className="animation a1">Bienvenue chez Pizza Kika</h2>
+          <h4 className="animation a2">Identifiez-vous</h4>
         </div>
 
         <form className="form">
-          <input
-            type="text"
-            name="lastname"
-            id="lastname"
-            placeholder="Nom"
-            className="animation a3"
-            onChange={(event) => handleChange(event)}
-          />
-          <input
-            type="text"
-            id="firstname"
-            name="firstname"
-            placeholder="Prénom"
-            className="animation a3"
-            onChange={(event) => handleChange(event)}
-          />
           <input
             type="email"
             id="email"
@@ -107,23 +85,7 @@ const Register = () => {
             <img
               src={passwordShown ? invisible : eye}
               alt={passwordShown ? "invisible" : "eye"}
-              onClick={() => toggleShowPassword("password")}
-            />
-          </div>
-
-          <div className="pass-wrapper animation a5">
-            <input
-              className={`${errorMessage.input === "password" ? "error" : ""}`}
-              type={confirmedPasswordShown ? "text" : "password"}
-              id="confirmedPassword"
-              name="confirmedPassword"
-              placeholder="Confirmation du mot de passe"
-              onChange={(event) => handleChange(event)}
-            />
-            <img
-              src={confirmedPasswordShown ? invisible : eye}
-              alt={confirmedPasswordShown ? "invisible" : "eye"}
-              onClick={() => toggleShowPassword("confirmedPassword")}
+              onClick={() => setPasswordShown(!passwordShown)}
             />
           </div>
 
@@ -145,4 +107,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
