@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../images/logo.png";
-import "./navbar.css";
+import "./styles/navbar.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { push as Menu } from "react-burger-menu";
 import { HashLink as Link } from "react-router-hash-link";
@@ -9,7 +9,7 @@ const HeaderNavbar = () => {
   const { hash } = useLocation();
   const navigate = useNavigate();
 
-  // state for navbar
+  // state for mobile navbar
   const [isOpen, setOpen] = useState(false);
 
   // handle open for menu burger
@@ -22,7 +22,7 @@ const HeaderNavbar = () => {
     setOpen(false);
   };
 
-  // change url while scrolling
+  /*   // change url while scrolling
   window.addEventListener("load", () => {
     const sections = document.querySelectorAll("section");
     const accueilSection = document.getElementById("accueil");
@@ -39,7 +39,7 @@ const HeaderNavbar = () => {
         }
       });
     });
-  });
+  }); */
 
   const navbarItems = [
     { title: "Accueil", path: "/#accueil", hashed: "#accueil" },
@@ -53,16 +53,8 @@ const HeaderNavbar = () => {
   ];
 
   return (
-    <header className="navbar-container background">
-      <Link
-        to="/#accueil"
-        style={{
-          height: "200px",
-          display: "flex",
-          justifyContent: "center",
-          width: "50%",
-        }}
-      >
+    <header className="navbar-container">
+      <Link to="/#accueil" className="logo-link">
         <img src={logo} alt="Pizza Kika" id="logo" className="logo" />
       </Link>
 

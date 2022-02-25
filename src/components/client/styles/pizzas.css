@@ -1,0 +1,5 @@
+.pizzas-page {
+  height: 100vh;
+  background-image: url("../../images/ardoise.jpg");
+  background-size: cover;
+}

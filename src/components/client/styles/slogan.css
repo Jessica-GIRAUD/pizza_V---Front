@@ -1,0 +1,88 @@
+.slogan {
+  width: 80%;
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.slogan > h1 {
+  width: 100%;
+  font-size: 4.5rem;
+  margin: 10px 0 10px 30%;
+}
+
+.slogan > p {
+  font-size: 1.8rem;
+}
+
+.slogan > a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+.slogan > h1:after {
+  content: "Profiter";
+  color: #ff6233;
+  animation: topToBottom 8s infinite 0s;
+}
+
+@keyframes topToBottom {
+  10% {
+    content: "Profiter";
+  }
+  30% {
+    content: "Partager";
+  }
+  50% {
+    content: "Rire";
+  }
+  70% {
+    content: "Sortir";
+  }
+  90% {
+    content: "Vivre";
+  }
+}
+
+.disappeared {
+  animation: disappear 1s forwards;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .slogan {
+    width: 90%;
+    top: 45%;
+  }
+
+  .slogan > h1 {
+    width: 90%;
+    font-size: 1.4rem;
+    margin: 0 0 0 40px;
+  }
+
+  .slogan > p {
+    font-size: 1rem;
+  }
+
+  .slogan > a {
+    font-size: 1.5rem;
+  }
+}
