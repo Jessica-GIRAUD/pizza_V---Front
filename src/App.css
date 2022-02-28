@@ -1,0 +1,14 @@
+h1,
+h2,
+h4,
+h4 {
+  color: #ffffffe1;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+p {
+  color: #ffffffe1;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+}

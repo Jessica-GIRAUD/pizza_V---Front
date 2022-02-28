@@ -1,5 +1,87 @@
 .pizzas-page {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: url("../../images/ardoise.jpg");
   background-size: cover;
+}
+
+.pizzas-page > h1 {
+  font-size: 4rem;
+  padding-top: 70px;
+}
+
+.pizzas-page > p {
+  margin: 20px auto 0 auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.creme > h1,
+.tomato > h1,
+.originale > h1 {
+  padding-top: 60px;
+  margin-top: 0;
+  font-style: italic;
+  text-align: center;
+  font-size: 4rem;
+}
+.tomato-container,
+.cream-container,
+.originale-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+.pizza-container {
+  width: 40%;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+
+  background-color: rgba(0, 0, 0, 0.432);
+}
+
+.pizza-container-1 {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.pizza-container-1 > h2 {
+  color: #ffffffe1;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  margin: 5px 0;
+  font-size: 2rem;
+}
+
+.pizza-container-1 > p {
+  color: #ffffffe1;
+  margin: 5px 0;
+}
+
+.pizza-container-2 {
+  width: 20%;
+  text-align: center;
+  margin: auto;
+}
+
+.pizza-container-2 > h4 {
+  color: #ff6233;
+  font-size: 1.6rem;
+  font-family: cursive;
+}
+
+.tomato {
+  background-image: url("../../images/1.png");
+
+  background-size: cover;
+}
+
+.originale {
+  background-image: url("../../images/2.png");
 }

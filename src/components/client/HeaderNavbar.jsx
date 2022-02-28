@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import logo from "../images/logo.png";
 import "./styles/navbar.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { push as Menu } from "react-burger-menu";
 import { HashLink as Link } from "react-router-hash-link";
 
 const HeaderNavbar = () => {
   const { hash } = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // state for mobile navbar
   const [isOpen, setOpen] = useState(false);
@@ -63,7 +63,14 @@ const HeaderNavbar = () => {
           {navbarItems.map(({ title, path, hashed = "" }, index) => {
             return (
               <li key={index} className={hash === hashed ? "active" : ""}>
-                <Link to={path}>{title}</Link>
+                <Link
+                  to={path}
+                  scroll={(el) =>
+                    el.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                >
+                  {title}
+                </Link>
               </li>
             );
           })}

@@ -1,0 +1,50 @@
+.container-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.container-contact > h1 {
+  font-size: 4rem;
+  margin-top: 0;
+}
+
+.container-contact > h4 {
+  font-size: 1.8rem;
+}
+
+/* CONTACT PAGE */
+
+.container-contact h4 {
+  margin-bottom: 1%;
+}
+
+.container-contact p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.container-contact a {
+  text-decoration: none;
+  color: #c2ab90;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .container-contact {
+    width: 85%;
+    margin: 0 0 40px 0;
+  }
+
+  .iframe {
+    width: 85%;
+    height: 250px;
+  }
+
+  .tel-container {
+    flex-direction: column;
+    width: 75%;
+    align-items: center;
+  }
+}

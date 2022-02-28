@@ -1,29 +1,31 @@
 .slogan {
   width: 80%;
-  color: white;
+  height: 100vh;
+
+  margin: auto;
+
+  color: #ffffffe1;
   font-family: "Playfair Display", serif;
   font-style: italic;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  margin: auto;
-  display: flex;
   justify-content: center;
 }
 
 .slogan > h1 {
-  width: 100%;
+  width: 80%;
   font-size: 4.5rem;
-  margin: 10px 0 10px 30%;
+  margin: 0 auto;
 }
 
-.slogan > p {
+.slogan > h4 {
   font-size: 1.8rem;
 }
 
 .slogan > a {
-  color: white;
+  color: #ffffffe1;
   font-weight: bold;
   text-decoration: none;
   font-size: 2.5rem;
@@ -64,6 +66,122 @@
   100% {
     opacity: 0;
   }
+}
+
+.container-arrows {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.arrows,
+.arrows2,
+.arrows3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.arrows path {
+  stroke: #ffffffe1;
+  fill: transparent;
+  stroke-width: 3px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+.arrows2 path {
+  stroke: #ff6233;
+  fill: transparent;
+  stroke-width: 3px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+svg {
+  width: 70px;
+  height: 90px;
+}
+
+.arrows3 path {
+  stroke: #2e5227;
+  fill: transparent;
+  stroke-width: 3px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+h4 {
+  color: #ffffffe1;
+  margin: 10px auto 20px auto;
+}
+
+.type,
+.type:visited {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.486);
+  font-weight: bold;
+}
+.cream-arrow:hover {
+  box-shadow: 1px 1px 4px #ffffffe1;
+}
+
+.tomato-arrow:hover {
+  box-shadow: 1px 1px 4px #ff6233;
+}
+
+.original-arrow:hover {
+  box-shadow: 1px 1px 4px #2e5227;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+path.a1 {
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s; /* Safari 和 Chrome */
+}
+
+path.a2 {
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s; /* Safari 和 Chrome */
+}
+
+path.a3 {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s; /* Safari 和 Chrome */
 }
 
 @media (max-width: 768px) {
