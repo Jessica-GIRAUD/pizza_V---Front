@@ -15,9 +15,11 @@
 }
 
 .slogan > h1 {
-  width: 80%;
+  width: 90%;
   font-size: 4.5rem;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .slogan > h4 {
@@ -35,6 +37,7 @@
   content: "Profiter";
   color: #ff6233;
   animation: topToBottom 8s infinite 0s;
+  width: 200px;
 }
 
 @keyframes topToBottom {
@@ -126,7 +129,9 @@ h4 {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.486);
   font-weight: bold;
+  font-size: 1.2em;
 }
+
 .cream-arrow:hover {
   box-shadow: 1px 1px 4px #ffffffe1;
 }

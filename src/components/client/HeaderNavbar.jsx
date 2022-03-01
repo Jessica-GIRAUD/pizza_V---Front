@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../images/logo.png";
 import "./styles/navbar.css";
 import { useLocation } from "react-router-dom";
@@ -43,11 +43,6 @@ const HeaderNavbar = () => {
 
   const navbarItems = [
     { title: "Accueil", path: "/#accueil", hashed: "#accueil" },
-    {
-      title: "A propos de nous",
-      path: "/#aproposdemoi",
-      hashed: "#aproposdemoi",
-    },
     { title: "Nos Pizzas", path: "/#pizzas", hashed: "#pizzas" },
     { title: "Contact", path: "/#contact", hashed: "#contact" },
   ];
@@ -57,25 +52,6 @@ const HeaderNavbar = () => {
       <Link to="/#accueil" className="logo-link">
         <img src={logo} alt="Pizza Kika" id="logo" className="logo" />
       </Link>
-
-      <nav className="navbar">
-        <ul className="navbar-list">
-          {navbarItems.map(({ title, path, hashed = "" }, index) => {
-            return (
-              <li key={index} className={hash === hashed ? "active" : ""}>
-                <Link
-                  to={path}
-                  scroll={(el) =>
-                    el.scrollIntoView({ behavior: "smooth", block: "start" })
-                  }
-                >
-                  {title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
 
       <nav className="mobile-menu">
         <Menu
@@ -92,7 +68,17 @@ const HeaderNavbar = () => {
                   className={hash === hashed ? "active" : ""}
                   onClick={closeSideBar}
                 >
-                  <Link to={path}>{title}</Link>
+                  <Link
+                    to={path}
+                    scroll={(el) =>
+                      el.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      })
+                    }
+                  >
+                    {title}
+                  </Link>
                 </li>
               );
             })}

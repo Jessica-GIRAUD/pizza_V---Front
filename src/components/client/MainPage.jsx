@@ -6,7 +6,7 @@ import Originale from "./Originale";
 import Tomato from "./Tomate";
 import { getAllPizzas } from "../../services/Pizzas";
 import ScrollArrow from "./ScrollArrow";
-import Footer from "./Footer";
+
 const HomePage = () => {
   // state for scrolling navbar
   const [disappear, setDisappear] = useState();

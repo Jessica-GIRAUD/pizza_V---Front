@@ -17,9 +17,7 @@ const Footer = () => {
               Accueil
             </Link>
           </li>
-          <li className="list-inline-item">
-            <Link to="/#aproposdenous">A propos de nous</Link>
-          </li>
+
           <li className="list-inline-item">
             <Link
               to="/#pizzas"

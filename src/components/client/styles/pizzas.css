@@ -7,13 +7,13 @@
 }
 
 .pizzas-page > h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   padding-top: 70px;
 }
 
 .pizzas-page > p {
   margin: 20px auto 0 auto;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -24,7 +24,7 @@
   margin-top: 0;
   font-style: italic;
   text-align: center;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .tomato-container,
 .cream-container,
@@ -36,13 +36,17 @@
   justify-content: center;
   padding-bottom: 70px;
 }
+
+.originale-container {
+  padding-bottom: 30px;
+}
+
 .pizza-container {
   width: 40%;
   padding: 20px;
   margin: 10px;
   display: flex;
-
-  background-color: rgba(0, 0, 0, 0.432);
+  background-color: #0000006e;
 }
 
 .pizza-container-1 {
@@ -56,7 +60,7 @@
   font-family: "Playfair Display", serif;
   font-style: italic;
   margin: 5px 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .pizza-container-1 > p {
@@ -78,10 +82,14 @@
 
 .tomato {
   background-image: url("../../images/1.png");
-
   background-size: cover;
 }
 
 .originale {
   background-image: url("../../images/2.png");
+  background-position: 20% 0%;
+}
+
+#originale > div.originale-container > div:nth-child(4) {
+  background: linear-gradient(to left, #000000c7, #0000006e);
 }
