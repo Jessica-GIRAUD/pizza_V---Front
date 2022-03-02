@@ -11,13 +11,18 @@ const Contact = () => {
           <h4>Horaires d'ouverture</h4>
           <p>
             Du mardi au samedi de 11h30 à 13h30 et de 17h30 à 21h30 <br />
-            Le dimanche de 17h30 à 21h30 <br /> Fermé le lundi
+            Le dimanche de 17h30 à 21h30 <br /> <br />
+            Fermé le lundi
           </p>
         </div>
 
         <div className="adresse">
           <h4>Adresse</h4>
-          <a href="waze://?q=52+avenue+de+la+République+31530+Lévignac+France">
+          <a
+            href="https://ul.waze.com/ul?place=ChIJtRvCRN5SqRIRfmL-ZdigGl4&ll=43.66648280%2C1.19464110&navigate=yes&utm_campaign=waze_website&utm_source=waze_website&utm_medium=lm_share_location"
+            target="_blank"
+            rel="noreferrer"
+          >
             <p>
               52 Avenue de la République <br />
               31530 LEVIGNAC

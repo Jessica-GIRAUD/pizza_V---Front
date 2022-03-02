@@ -96,9 +96,6 @@
 }
 
 @media (max-width: 768px) {
-  .pizzas-page {
-    background-size: contain;
-  }
   .pizzas-page > h1 {
     padding-top: 90px;
     font-size: 2rem;
@@ -113,6 +110,7 @@
   .tomato > h1,
   .originale > h1 {
     font-size: 2.5rem;
+    padding-top: 90px;
   }
   /* Box ombragée pour chaque pizza */
   .pizza-container {
@@ -127,6 +125,9 @@
 
   .pizza-container-1 > p {
     font-size: 0.8rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
   }
 
   .pizza-container-1 {
@@ -148,5 +149,12 @@
     background-image: url("../../images/1mobile.png");
     background-size: cover;
     background-position-x: right;
+  }
+
+  .originale {
+    background-image: url("../../images/2mobile.png");
+
+    background-position: 40% 117
+    %;
   }
 }
