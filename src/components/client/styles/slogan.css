@@ -1,3 +1,11 @@
+.background {
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("../../images/part.jpg");
+}
+
 .slogan {
   width: 80%;
   height: 100vh;
@@ -190,15 +198,26 @@ path.a3 {
 }
 
 @media (max-width: 768px) {
+  .slogan > h1:after {
+    content: "Profiter";
+    color: #ff6233;
+    animation: topToBottom 8s infinite 0s;
+    width: 60px;
+  }
+
   .slogan {
     width: 90%;
-    top: 45%;
+    bottom: 6%;
+    position: relative;
   }
 
   .slogan > h1 {
     width: 90%;
     font-size: 1.4rem;
-    margin: 0 0 0 40px;
+  }
+
+  .slogan h4 {
+    font-size: 1rem;
   }
 
   .slogan > p {
@@ -207,5 +226,23 @@ path.a3 {
 
   .slogan > a {
     font-size: 1.5rem;
+  }
+
+  .container-arrows {
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .arrows,
+  .arrows2,
+  .arrows3 {
+    width: 30%;
+  }
+
+  .type {
+    font-size: 0.8em;
+    text-align: center;
   }
 }

@@ -62,25 +62,39 @@
 
 @media (max-width: 768px) {
   .container-contact {
-    width: 85%;
-    margin: 0 0 40px 0;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 40px;
   }
 
-  .iframe {
-    width: 85%;
-    height: 250px;
+  .horaire-adresse {
+    width: 100%;
+    margin-top: 20px;
+
+    flex-direction: column;
+    align-items: center;
   }
 
   .tel-container {
-    flex-direction: column;
-    width: 75%;
-    align-items: center;
+    margin: 20px;
+  }
+  .container-contact h1 {
+    font-size: 2.5rem;
+  }
 
-    padding: 15px;
+  .container-contact h4 {
+    font-size: 1em;
     margin-bottom: 20px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.486);
-    font-weight: bold;
-    font-size: 1.2em;
+  }
+
+  .adresse p,
+  .horaire p {
+    margin: 0 5px;
+    font-size: 0.8rem;
+  }
+
+  .adresse,
+  .horaire {
+    width: 100%;
   }
 }

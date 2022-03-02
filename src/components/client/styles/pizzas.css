@@ -41,6 +41,7 @@
   padding-bottom: 30px;
 }
 
+/* Box ombragée pour chaque pizza */
 .pizza-container {
   width: 40%;
   padding: 20px;
@@ -92,4 +93,60 @@
 
 #originale > div.originale-container > div:nth-child(4) {
   background: linear-gradient(to left, #000000c7, #0000006e);
+}
+
+@media (max-width: 768px) {
+  .pizzas-page {
+    background-size: contain;
+  }
+  .pizzas-page > h1 {
+    padding-top: 90px;
+    font-size: 2rem;
+  }
+
+  .pizzas-page > p {
+    font-size: 0.8rem;
+    width: 90%;
+  }
+
+  .creme > h1,
+  .tomato > h1,
+  .originale > h1 {
+    font-size: 2.5rem;
+  }
+  /* Box ombragée pour chaque pizza */
+  .pizza-container {
+    width: 30%;
+    margin: 5px;
+    flex-direction: column;
+  }
+
+  .pizza-container-1 > h2 {
+    font-size: 1.4rem;
+  }
+
+  .pizza-container-1 > p {
+    font-size: 0.8rem;
+  }
+
+  .pizza-container-1 {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pizza-container-2 {
+    width: 100%;
+    height: 30px;
+  }
+  .pizza-container-2 > h4 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .tomato {
+    background-image: url("../../images/1mobile.png");
+    background-size: cover;
+    background-position-x: right;
+  }
 }

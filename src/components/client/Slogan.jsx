@@ -4,7 +4,7 @@ import "./styles/slogan.css";
 
 const Slogan = ({ disappear }) => {
   return (
-    <div id="accueil">
+    <div id="accueil" className="background">
       <div className={disappear ? "slogan disappeared" : "slogan"}>
         <h1>Prenez un moment pour </h1>
         <h4>Commandez vite vos pizzas cuites au feu de bois</h4>

@@ -77,7 +77,7 @@
 
 @media (max-width: 768px) {
   .footer {
-    height: 100px;
+    height: 75px;
     padding: 30px 0;
   }
   .footer ul {

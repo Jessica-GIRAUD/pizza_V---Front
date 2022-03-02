@@ -39,7 +39,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="background">
+    <div>
       <HeaderNavbar />
 
       <Slogan disappear={disappear} />
