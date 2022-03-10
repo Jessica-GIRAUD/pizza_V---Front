@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { loginIn } from "../../../services/Authentification";
+import React, { useState, useContext } from "react";
+import { isLogged, loggin } from "../../../services/Authentification";
 import eye from "../../images/yeux.png";
 import invisible from "../../images/invisible.png";
-import "./Register.css";
+import "../styles//Register.css";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../services/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setAuthState } = useContext(AuthContext);
 
   const [formValues, setFormValues] = useState({
     email: "",
@@ -36,11 +38,16 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
-    loginIn(formValues).then((res) => {
-      console.log("res", res);
+    loggin(formValues).then((res) => {
       if (res.status === 200) {
-        console.log("tout est ok redirection vers blbalblabla");
-        navigate("/admin/dashboard");
+        isLogged()
+          .then((res) => {
+            setAuthState(res.data);
+          })
+          .then(() => {
+            console.log("redirection");
+            navigate("/admin/dashboard");
+          });
       } else {
         setErrorMessage({
           hasError: true,
@@ -49,13 +56,12 @@ const Login = () => {
         });
       }
     });
-    console.log("logged in");
     event.preventDefault();
   };
 
   return (
     <div className="login">
-      <div className="login-left">
+      <div className="login-form animation a1">
         <div className="header">
           <h2 className="animation a1">Bienvenue chez Pizza Kika</h2>
           <h4 className="animation a2">Identifiez-vous</h4>
@@ -72,22 +78,22 @@ const Login = () => {
             }`}
             onChange={(event) => handleChange(event)}
           />
-
-          <div className="pass-wrapper animation a5">
-            <input
-              className={`${errorMessage.input === "password" ? "error" : ""}`}
-              type={passwordShown ? "text" : "password"}
-              id="password"
-              name="password"
-              placeholder="Mot de passe"
-              onChange={(event) => handleChange(event)}
-            />
-            <img
-              src={passwordShown ? invisible : eye}
-              alt={passwordShown ? "invisible" : "eye"}
-              onClick={() => setPasswordShown(!passwordShown)}
-            />
-          </div>
+          <input
+            className={`${
+              errorMessage.input === "password" ? "error" : "animation a5"
+            }`}
+            type={passwordShown ? "text" : "password"}
+            id="password"
+            name="password"
+            placeholder="Mot de passe"
+            onChange={(event) => handleChange(event)}
+          />
+          <img
+            className="eye"
+            src={passwordShown ? eye : invisible}
+            alt={passwordShown ? "eye" : "invisible"}
+            onClick={() => setPasswordShown(!passwordShown)}
+          />
 
           {errorMessage.message ? (
             <span className="error-message">{errorMessage.message}</span>
@@ -98,11 +104,10 @@ const Login = () => {
             className="animation a6"
             type="submit"
           >
-            S'inscrire
+            Se connecter
           </button>
         </form>
       </div>
-      <div className="right"></div>
     </div>
   );
 };

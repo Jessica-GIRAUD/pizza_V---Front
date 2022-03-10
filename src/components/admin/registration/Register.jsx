@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "../styles//Register.css";
 import { createAccount } from "../../../services/Authentification";
 import { useNavigate } from "react-router-dom";
 import eye from "../../images/yeux.png";
@@ -64,7 +64,7 @@ const Register = () => {
 
   return (
     <div className="registration">
-      <div className="left">
+      <div className="registration-form animation a1">
         <div className="header">
           <h2 className="animation a1">Bienvenue chez Pizza Kika</h2>
           <h4 className="animation a2">Créez-vous un compte</h4>
@@ -109,8 +109,8 @@ const Register = () => {
             />
             <img
               className="eye"
-              src={passwordShown ? invisible : eye}
-              alt={passwordShown ? "invisible" : "eye"}
+              src={passwordShown ? eye : invisible}
+              alt={passwordShown ? "eye" : "invisible"}
               onClick={() => toggleShowPassword("password")}
             />
           </div>
@@ -126,8 +126,8 @@ const Register = () => {
             />
             <img
               className="eye"
-              src={confirmedPasswordShown ? invisible : eye}
-              alt={confirmedPasswordShown ? "invisible" : "eye"}
+              src={confirmedPasswordShown ? eye : invisible}
+              alt={confirmedPasswordShown ? "eye" : "invisible"}
               onClick={() => toggleShowPassword("confirmedPassword")}
             />
           </div>
@@ -145,7 +145,6 @@ const Register = () => {
           </button>
         </form>
       </div>
-      <div className="right"></div>
     </div>
   );
 };

@@ -49,7 +49,16 @@ const HeaderNavbar = () => {
 
   return (
     <header className="navbar-container">
-      <Link to="/#accueil" className="logo-link">
+      <Link
+        to="/#accueil"
+        scroll={(el) =>
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+        }
+        className="logo-link"
+      >
         <img src={logo} alt="Pizza Kika" id="logo" className="logo" />
       </Link>
 

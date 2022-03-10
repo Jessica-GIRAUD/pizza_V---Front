@@ -1,10 +1,10 @@
 import React from "react";
-import { HashLink } from "react-router-hash-link";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Arrows = () => {
   return (
     <div className="container-arrows">
-      <HashLink
+      <Link
         className="arrows"
         to="/#creme"
         scroll={(el) =>
@@ -18,8 +18,8 @@ const Arrows = () => {
           <path className="a2" d="M0 20 L30 52 L60 20"></path>
           <path className="a3" d="M0 40 L30 72 L60 40"></path>
         </svg>
-      </HashLink>
-      <HashLink
+      </Link>
+      <Link
         className="arrows2"
         to="/#tomate"
         scroll={(el) =>
@@ -32,8 +32,8 @@ const Arrows = () => {
           <path className="a2" d="M0 20 L30 52 L60 20"></path>
           <path className="a3" d="M0 40 L30 72 L60 40"></path>
         </svg>
-      </HashLink>
-      <HashLink
+      </Link>
+      <Link
         className="arrows3"
         to="/#originale"
         scroll={(el) =>
@@ -46,7 +46,7 @@ const Arrows = () => {
           <path className="a2" d="M0 20 L30 52 L60 20"></path>
           <path className="a3" d="M0 40 L30 72 L60 40"></path>
         </svg>
-      </HashLink>
+      </Link>
     </div>
   );
 };

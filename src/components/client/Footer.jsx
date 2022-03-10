@@ -8,14 +8,7 @@ const Footer = () => {
       <footer>
         <ul className="list-inline">
           <li className="list-inline-item">
-            <Link
-              to="/#accueil"
-              scroll={(el) =>
-                el.scrollIntoView({ behavior: "smooth", block: "start" })
-              }
-            >
-              Accueil
-            </Link>
+            <Link to={{ pathname: "/", hash: "#accueil" }}>Accueil</Link>
           </li>
 
           <li className="list-inline-item">
