@@ -1,33 +1,36 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Register from "./components/admin/registration/Register";
-import Login from "./components/admin/registration/Login";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Register from "./components/admin/authentification/Register";
+import Login from "./components/admin/authentification/Login";
 import HomePage from "./components/client/MainPage";
 import Dashboard from "./components/admin/features/Dashboard";
-import { AuthProvider } from "./services/AuthContext";
-import { PrivateRoute, PrivateRouteLogin } from "./services/PrivateRoute";
 import React from "react";
+import Layout from "./components/admin/features/Layout";
+import RequireAuth from "./components/admin/authentification/RequireAuth";
+import PersistLogin from "./components/admin/authentification/PersistLogin";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+    <Routes>
+      {/* Website */}
+      <Route path="/" element={<HomePage />} />
 
-          <Route element={<PrivateRouteLogin />}>
-            <Route path="/admin" element={<Login />} />
+      <Route path="/admin" element={<Layout />}>
+        {/* Public routes*/}
+        <Route path="/admin" element={<Login />} />
+
+        {/* Protected Routes */}
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="register" element={<Register />} />
           </Route>
+        </Route>
 
-          <Route element={<PrivateRoute />}>
-            <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/register" element={<Register />} />
-          </Route>
-
-          <Route path="*" element={<Navigate to="/admin" />} />
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+        {/* Catch All */}
+        <Route path="*" element={<Navigate to="/admin" />} />
+      </Route>
+    </Routes>
   );
 };
 

@@ -14,7 +14,7 @@
 .login-form,
 .registration-form {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   width: 35%;
@@ -30,17 +30,20 @@
   height: 550px;
 }
 
-.header {
+.register-header,
+.login-header {
   width: 80%;
   margin: 0 auto;
 }
-.header > h2 {
+.register-header > h2,
+.login-header > h2 {
   font-size: 2.2em;
   margin: 0;
   color: #ff6233;
 }
 
-.header > h4 {
+.register-header > h4,
+.login-header > h4 {
   margin-top: 10px;
   font-weight: 600;
   font-size: 1.2em;

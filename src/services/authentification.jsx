@@ -1,11 +1,10 @@
-import axios from "axios";
-const url = "http://localhost:5001";
+import axios from "./Axios";
 
 axios.defaults.withCredentials = true;
 
-export const createAccount = async (data) => {
+export const register = async (data, axiosPrivate) => {
   try {
-    const response = await axios.post(`${url}/admin/register`, data);
+    const response = await axiosPrivate.post(`/auth/register`, data);
     if (response.status === 201) {
       return response;
     }
@@ -14,20 +13,9 @@ export const createAccount = async (data) => {
   }
 };
 
-export const loggin = async (data) => {
+export const login = async (data) => {
   try {
-    const response = await axios.post(`${url}/admin/login`, data);
-    if (response.status === 200) {
-      return response;
-    }
-  } catch (err) {
-    return err.response;
-  }
-};
-
-export const isLogged = async () => {
-  try {
-    const response = await axios.get(`${url}/admin/profile`);
+    const response = await axios.post(`/auth/login`, data);
     if (response.status === 200) {
       return response;
     }
@@ -38,7 +26,7 @@ export const isLogged = async () => {
 
 export const logout = async () => {
   try {
-    const response = await axios.get(`${url}/admin/logout`);
+    const response = await axios.get(`/auth/logout`);
     if (response.status === 200) {
       return response;
     }
