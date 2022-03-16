@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaArrowCircleUp } from "react-icons/fa";
+import { ArrowUpOutlined } from "@ant-design/icons";
 import "./styles/scrollArrow.css";
 
 const ScrollArrow = () => {
@@ -20,15 +20,18 @@ const ScrollArrow = () => {
   window.addEventListener("scroll", checkScrollTop);
 
   return (
-    <FaArrowCircleUp
-      className="scrollTop"
-      onClick={scrollTop}
-      style={{
-        height: 40,
-        width: "50px",
-        display: showScroll ? "flex" : "none",
-      }}
-    />
+    <div onClick={scrollTop}>
+      <ArrowUpOutlined
+        className="scrollTop"
+        style={{
+          height: 40,
+          width: "50px",
+          color: "white",
+          fontSize: "40px",
+          display: showScroll ? "flex" : "none",
+        }}
+      />
+    </div>
   );
 };
 
