@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../styles//Register.css";
 import { useNavigate } from "react-router-dom";
-import eye from "../../images/yeux.png";
-import invisible from "../../images/invisible.png";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const Register = () => {
@@ -77,7 +76,7 @@ const Register = () => {
             name="lastname"
             id="lastname"
             placeholder="Nom"
-            className="animation a3"
+            className="input animation a3"
             onChange={(event) => handleChange(event)}
           />
           <input
@@ -85,7 +84,7 @@ const Register = () => {
             id="firstname"
             name="firstname"
             placeholder="Prénom"
-            className="animation a3"
+            className="input animation a3"
             onChange={(event) => handleChange(event)}
           />
           <input
@@ -93,7 +92,7 @@ const Register = () => {
             id="email"
             name="email"
             placeholder="E-mail"
-            className={`animation a4 ${
+            className={`input animation a4 ${
               errorMessage.input === "email" ? "error" : ""
             }`}
             onChange={(event) => handleChange(event)}
@@ -101,36 +100,64 @@ const Register = () => {
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`${errorMessage.input === "password" ? "error" : ""}`}
+              className={`input ${
+                errorMessage.input === "password" ? "error" : ""
+              }`}
               type={passwordShown ? "text" : "password"}
               id="password"
               name="password"
               placeholder="Mot de passe"
               onChange={(event) => handleChange(event)}
             />
-            <img
-              className="eye"
-              src={passwordShown ? eye : invisible}
-              alt={passwordShown ? "eye" : "invisible"}
-              onClick={() => toggleShowPassword("password")}
-            />
+            {passwordShown ? (
+              <div
+                onClick={() => toggleShowPassword("password")}
+                style={{ height: "100%" }}
+              >
+                <EyeOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            ) : (
+              <div onClick={() => toggleShowPassword("password")}>
+                <EyeInvisibleOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            )}
           </div>
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`${errorMessage.input === "password" ? "error" : ""}`}
+              className={`input ${
+                errorMessage.input === "password" ? "error" : ""
+              }`}
               type={confirmedPasswordShown ? "text" : "password"}
               id="confirmedPassword"
               name="confirmedPassword"
               placeholder="Confirmation du mot de passe"
               onChange={(event) => handleChange(event)}
             />
-            <img
-              className="eye"
-              src={confirmedPasswordShown ? eye : invisible}
-              alt={confirmedPasswordShown ? "eye" : "invisible"}
-              onClick={() => toggleShowPassword("confirmedPassword")}
-            />
+            {confirmedPasswordShown ? (
+              <div
+                onClick={() => toggleShowPassword("confirmedPassword")}
+                style={{ height: "100%" }}
+              >
+                <EyeOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            ) : (
+              <div onClick={() => toggleShowPassword("confirmedPassword")}>
+                <EyeInvisibleOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            )}
           </div>
 
           {errorMessage.message ? (

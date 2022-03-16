@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { login } from "../../../services/Authentification";
-import eye from "../../images/yeux.png";
-import invisible from "../../images/invisible.png";
 import "../styles//Register.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { useEffect } from "react";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 const Login = () => {
-  const { setAuth, auth } = useAuth();
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/admin/dashboard";
@@ -25,10 +23,6 @@ const Login = () => {
     input: null,
     message: null,
   });
-
-  useEffect(() => {
-    if (auth) return navigate("/admin/dashboard");
-  }, []);
 
   const handleChange = (event) => {
     const {
@@ -74,27 +68,42 @@ const Login = () => {
             id="email"
             name="email"
             placeholder="E-mail"
-            className={`animation a4 ${
+            className={`input animation a4 ${
               errorMessage.input === "email" ? "error" : ""
-            }`}
+            } `}
             onChange={(event) => handleChange(event)}
           />
-          <input
-            className={`${
-              errorMessage.input === "password" ? "error" : "animation a5"
-            }`}
-            type={passwordShown ? "text" : "password"}
-            id="password"
-            name="password"
-            placeholder="Mot de passe"
-            onChange={(event) => handleChange(event)}
-          />
-          <img
-            className="eye"
-            src={passwordShown ? eye : invisible}
-            alt={passwordShown ? "eye" : "invisible"}
-            onClick={() => setPasswordShown(!passwordShown)}
-          />
+
+          <div className="pass-wrapper animation a5">
+            <input
+              className={`input ${
+                errorMessage.input === "password" ? "error " : "animation a5"
+              }`}
+              type={passwordShown ? "text" : "password"}
+              id="password"
+              name="password"
+              placeholder="Mot de passe"
+              onChange={(event) => handleChange(event)}
+            />
+            {passwordShown ? (
+              <div
+                onClick={() => setPasswordShown(!passwordShown)}
+                style={{ height: "100%" }}
+              >
+                <EyeOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            ) : (
+              <div onClick={() => setPasswordShown(!passwordShown)}>
+                <EyeInvisibleOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            )}
+          </div>
 
           {errorMessage.message ? (
             <span className="error-message">{errorMessage.message}</span>

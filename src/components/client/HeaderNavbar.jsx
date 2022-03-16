@@ -59,7 +59,7 @@ const HeaderNavbar = () => {
         }
         className="logo-link"
       >
-        <img src={logo} alt="Pizza Kika" id="logo" className="logo" />
+        <img src={logo} alt="Pizza Kika" id="logo" className="navbar-logo" />
       </Link>
 
       <nav className="mobile-menu">

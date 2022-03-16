@@ -57,7 +57,7 @@
   margin: 0 auto;
 }
 
-input {
+.input {
   height: 45px;
   padding: 0 16px;
   border: 2px solid #ddd;
@@ -70,12 +70,12 @@ input {
   color: white;
 }
 
-input::placeholder {
+.input::placeholder {
   color: white;
   font-size: 1em;
 }
 
-input:focus {
+.input:focus {
   border-color: #ff6233;
 }
 
@@ -87,7 +87,7 @@ input:focus {
   margin-top: 20px;
 }
 /* show password input */
-.pass-wrapper > input {
+.pass-wrapper > .input {
   margin-top: 0px;
   width: 100%;
 }
@@ -95,8 +95,8 @@ input:focus {
 .eye {
   position: absolute;
   width: 20px;
-  top: 35%;
-  right: 8%;
+  top: 34%;
+  right: 5%;
   opacity: 0.6;
 }
 .eye:hover {
