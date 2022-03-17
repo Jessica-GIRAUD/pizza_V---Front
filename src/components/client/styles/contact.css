@@ -25,9 +25,13 @@
   margin: 0;
 }
 
+.horaire-adresse h4 {
+  font-weight: 600;
+}
+
 .container-contact h4 {
   font-size: 1.5rem;
-  margin-bottom: 1%;
+  margin-bottom: 3%;
 }
 
 /* CONTACT PAGE */
@@ -37,6 +41,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   padding: 0 15px;
+  margin-bottom: 0;
 }
 
 .tel-container {

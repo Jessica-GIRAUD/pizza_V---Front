@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Register from "./components/admin/authentification/Register";
 import Login from "./components/admin/authentification/Login";
@@ -8,6 +7,8 @@ import React from "react";
 import Layout from "./components/admin/features/Layout";
 import RequireAuth from "./components/admin/authentification/RequireAuth";
 import PersistLogin from "./components/admin/authentification/PersistLogin";
+import "./App.css";
+import "antd/dist/antd.less";
 
 const App = () => {
   return (

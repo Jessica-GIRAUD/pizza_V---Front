@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./components/admin/context/AuthContext";
-import "antd/dist/antd.css";
 
 const rootElement = document.getElementById("root");
 render(

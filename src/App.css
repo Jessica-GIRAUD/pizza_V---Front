@@ -1,6 +1,6 @@
 h1,
 h2,
-h4,
+h3,
 h4 {
   color: #ffffffe1;
   font-family: "Playfair Display", serif;
@@ -11,4 +11,8 @@ p {
   color: #ffffffe1;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 500;
+  margin-bottom: 0;
+  font-size: 15px;
 }
+
+
