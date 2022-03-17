@@ -42,7 +42,7 @@ const Register = () => {
   const handleSubmit = (event) => {
     axiosPrivate.post(`/auth/register`, formValues).then((res) => {
       if (res.status === 201) {
-        navigate("/admin/dashboard");
+        navigate("/admin/dashboard/pizzas");
       } else {
         setErrorMessage({
           hasError: true,

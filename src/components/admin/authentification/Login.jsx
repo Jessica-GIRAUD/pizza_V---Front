@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { login } from "../../../services/Authentification";
+import { login } from "../../../services/authentification";
 import "../styles//Register.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
@@ -9,7 +9,7 @@ const Login = () => {
   const { setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state?.from?.pathname || "/admin/dashboard";
+  const from = location?.state?.from?.pathname || "/admin/dashboard/pizzas";
 
   const [formValues, setFormValues] = useState({
     email: "",

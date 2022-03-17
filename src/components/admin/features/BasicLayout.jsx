@@ -1,5 +1,4 @@
 import React from "react";
-import useAuth from "../hooks/useAuth";
 
 import "../styles/Dashboard.css";
 
@@ -7,12 +6,11 @@ import { Layout } from "antd";
 
 import SideBar from "./layout/SideBar";
 import HeaderBar from "./layout/Header";
+import { Outlet } from "react-router-dom";
 
 const { Content } = Layout;
 
-const Dashboard = () => {
-  const { auth } = useAuth();
-
+const BasicLayout = () => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <SideBar />
@@ -27,19 +25,11 @@ const Dashboard = () => {
             minHeight: 280,
           }}
         >
-          <h1 style={{ color: "black" }}>
-            Bienvenue sur le dashboard Pizza Kika
-          </h1>
-          <h1
-            style={{ color: "black" }}
-          >{`Utilisateur : ${auth.user.firstname} ${auth.user.lastname} `}</h1>
-          <h1
-            style={{ color: "black" }}
-          >{`Adresse email : ${auth.user.email}`}</h1>
+          <Outlet />
         </Content>
       </Layout>
     </Layout>
   );
 };
 
-export default Dashboard;
+export default BasicLayout;

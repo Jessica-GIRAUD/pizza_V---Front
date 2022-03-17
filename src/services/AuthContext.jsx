@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
-import { isLogged } from "./Authentification";
+import { isLogged } from "./authentification";
 
 const AuthContext = createContext();
 

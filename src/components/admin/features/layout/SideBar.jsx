@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Menu } from "antd";
 import { ToolOutlined, UserOutlined } from "@ant-design/icons";
 import logo from "../../../images/logo.png";
+import { Link } from "react-router-dom";
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -17,12 +18,20 @@ const SideBar = () => {
         theme="dark"
       >
         <SubMenu key="sub1" icon={<ToolOutlined />} title="Configuration">
-          <Menu.Item key="1">Actualités</Menu.Item>
-          <Menu.Item key="2">Pizzas</Menu.Item>
-          <Menu.Item key="3">Contact</Menu.Item>
+          <Menu.Item key="1">
+            <Link to="/admin/dashboard/actualites"> Actualités</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/admin/dashboard/pizzas"> Pizzas</Link>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Link to="/admin/dashboard/contact"> Contact</Link>
+          </Menu.Item>
         </SubMenu>
-        <SubMenu key="subZ" icon={<UserOutlined />} title="Profil">
-          <Menu.Item key="4">Modifier le profil</Menu.Item>
+        <SubMenu key="sub2" icon={<UserOutlined />} title="Profil">
+          <Menu.Item key="4">
+            <Link to="/profile"> Modifier le profil</Link>
+          </Menu.Item>
         </SubMenu>
       </Menu>
     </Sider>

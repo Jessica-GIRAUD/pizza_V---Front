@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { isLogged, loggin } from "../../../services/Authentification";
+import { isLogged, loggin } from "../../../services/authentification";
 import eye from "../../images/yeux.png";
 import invisible from "../../images/invisible.png";
 import "../styles//Register.css";
@@ -46,7 +46,7 @@ const Login = () => {
           })
           .then(() => {
             console.log("redirection");
-            navigate("/admin/dashboard");
+            navigate("/admin/dashboard/pizzas");
           });
       } else {
         setErrorMessage({

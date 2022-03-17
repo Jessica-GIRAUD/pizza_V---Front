@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../../../../services/Authentification";
+import { logout } from "../../../../services/authentification";
 import useAuth from "../../hooks/useAuth";
 import { LogoutOutlined } from "@ant-design/icons";
-import { Layout, Button } from "antd";
+import { Layout } from "antd";
 
 const { Header } = Layout;
 
@@ -21,7 +21,6 @@ const HeaderBar = () => {
       <div onClick={() => onLogOutClick()} className="disconnect">
         <LogoutOutlined style={{ marginRight: "10px" }} /> Se déconnecter{" "}
       </div>
-      <Button type="primary">Button</Button>
     </Header>
   );
 };
