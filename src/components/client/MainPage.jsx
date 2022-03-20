@@ -4,10 +4,11 @@ import Pizzas from "./Pizzas";
 import Slogan from "./Slogan";
 import Originale from "./Originale";
 import Tomato from "./Tomate";
-import { getAllPizzas } from "../../services/Pizzas";
 import ScrollArrow from "./ScrollArrow";
+import useAuth from "../admin/hooks/useAuth";
 
 const HomePage = () => {
+  const { resources } = useAuth();
   // state for scrolling navbar
   const [disappear, setDisappear] = useState();
 
@@ -26,26 +27,14 @@ const HomePage = () => {
     window.addEventListener("scroll", changeBackground);
   });
 
-  const [allPizzas, setAllPizzas] = useState();
-
-  const fetchPizza = () => {
-    getAllPizzas().then((res) => {
-      setAllPizzas(res.data);
-    });
-  };
-
-  useEffect(() => {
-    fetchPizza();
-  }, []);
-
   return (
     <div>
       <HeaderNavbar />
 
       <Slogan disappear={disappear} />
-      <Pizzas allPizzas={allPizzas} />
-      <Tomato allPizzas={allPizzas} />
-      <Originale allPizzas={allPizzas} />
+      <Pizzas allPizzas={resources} />
+      <Tomato allPizzas={resources} />
+      <Originale allPizzas={resources} />
 
       <ScrollArrow />
     </div>

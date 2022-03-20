@@ -17,12 +17,10 @@ export const PrivateRoute = () => {
     isLoggedIn();
   }, []);
 
-  console.log("authState", authState);
   return authState?.loggedIn ? <Outlet /> : <Navigate to="/admin" />;
 };
 
 export const PrivateRouteLogin = ({ children }) => {
-  console.log("children", children);
   const { authState } = useContext(AuthContext);
 
   return !authState?.loggedIn ? <Outlet /> : <Navigate to="/admin/dashboard" />;

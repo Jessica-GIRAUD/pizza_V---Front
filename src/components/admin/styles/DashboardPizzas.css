@@ -1,0 +1,15 @@
+.ant-table-thead > tr > th {
+  color: black !important;
+}
+
+.title {
+  color: black;
+  margin: 0 20px 30px 20px;
+  font-size: 2.2rem;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

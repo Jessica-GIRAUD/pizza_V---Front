@@ -11,7 +11,7 @@ module.exports = {
               "@primary-color": "#ff6233",
               "@secondary-color": "#ff6233",
               "@heading-color": "#ffffffe1", // heading text color
-              "@text-color": "#ffffffe1", // major text color
+
               "@link-color": "#ffffffe1",
             },
             javascriptEnabled: true,

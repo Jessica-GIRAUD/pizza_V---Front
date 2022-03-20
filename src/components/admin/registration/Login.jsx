@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
-import { isLogged, loggin } from "../../../services/authentification";
+import { isLogged, loggin } from "../../../services/Authentification";
 import eye from "../../images/yeux.png";
 import invisible from "../../images/invisible.png";
 import "../styles//Register.css";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../services/AuthContext";
+import AuthContext from "../context/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { setAuthState } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
 
   const [formValues, setFormValues] = useState({
     email: "",
@@ -42,7 +42,7 @@ const Login = () => {
       if (res.status === 200) {
         isLogged()
           .then((res) => {
-            setAuthState(res.data);
+            setAuth(res.data);
           })
           .then(() => {
             console.log("redirection");

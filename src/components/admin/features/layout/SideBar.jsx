@@ -30,7 +30,7 @@ const SideBar = () => {
         </SubMenu>
         <SubMenu key="sub2" icon={<UserOutlined />} title="Profil">
           <Menu.Item key="4">
-            <Link to="/profile"> Modifier le profil</Link>
+            <Link to="/admin/dashboard/profile"> Modifier le profil</Link>
           </Menu.Item>
         </SubMenu>
       </Menu>
