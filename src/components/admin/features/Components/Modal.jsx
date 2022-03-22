@@ -3,7 +3,16 @@ import { createRef, useState } from "react";
 import Draggable from "react-draggable";
 import CustomForm from "./Form";
 
-const CustomModal = ({ openModal, setOpenModal, title, okText, purpose }) => {
+const CustomModal = ({
+  openModal,
+  setOpenModal,
+  title,
+  purpose,
+  fields,
+  topic,
+  setResources,
+}) => {
+  console.log("topic", topic);
   const [options, setOptions] = useState({
     disabled: true,
     bounds: { left: 0, top: 0, bottom: 0, right: 0 },
@@ -77,9 +86,12 @@ const CustomModal = ({ openModal, setOpenModal, title, okText, purpose }) => {
       >
         <CustomForm
           purpose={purpose}
-          okText={okText}
+          okText={purpose.purpose === "edit" ? "Modifier" : "Valider"}
           openModal={openModal}
           setOpenModal={setOpenModal}
+          fields={fields}
+          topic={topic}
+          setResources={setResources}
         />
       </Modal>
     </>

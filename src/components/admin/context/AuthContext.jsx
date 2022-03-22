@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAllPizzas } from "../../../services/Pizzas";
+import { getAllPizzas } from "../../../services/Routes";
 
 const AuthContext = createContext({});
 
@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     getAllPizzas().then((res) => {
       setResources(
         res.data
-          .map(({ idpizza, ...d }) => ({ ...d, key: idpizza }))
+          .map(({ id, ...d }) => ({ ...d, key: id }))
           .sort((a, b) => a.name.localeCompare(b.name))
       );
     });
@@ -19,10 +19,18 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     fetchPizza();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, resources, setResources }}>
+    <AuthContext.Provider
+      value={{
+        auth,
+        setAuth,
+        resources,
+        setResources,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

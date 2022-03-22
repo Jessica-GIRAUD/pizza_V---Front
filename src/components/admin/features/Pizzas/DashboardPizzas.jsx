@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Table, Button, AutoComplete, message } from "antd";
 import columns from "./columns";
-import "../../styles/DashboardPizzas.css";
+import "../../styles/Dashboard.css";
 import { PlusOutlined } from "@ant-design/icons";
 import CustomModal from "../Components/Modal";
-import { deletePizza } from "../../../../services/Pizzas";
+import { deleteOne } from "../../../../services/Routes";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import { basicFields } from "./fields";
 
 const DashboardPizzas = () => {
   const { resources, setResources } = useAuth();
@@ -30,18 +31,16 @@ const DashboardPizzas = () => {
   };
 
   const onDeletePizza = (key) => {
-    deletePizza(key, axiosPrivate).then((res) => {
+    deleteOne(key, axiosPrivate).then((res) => {
       if (res.status === 200) {
         setResources(
           res.data
-            .map(({ idpizza, ...d }) => ({ ...d, key: idpizza }))
+            .map(({ id, ...d }) => ({ ...d, key: id }))
             .sort((a, b) => a.name.localeCompare(b.name))
         );
-        message.success("Votre pizza a bien été supprimée.");
+        message.success("Suppression réalisée avec succès.");
       } else {
-        message.error(
-          "Un problème est survenu lors de la suppression de la pizza."
-        );
+        message.error("Un problème est survenu lors de la suppression.");
       }
     });
   };
@@ -88,7 +87,9 @@ const DashboardPizzas = () => {
                 ? "Modifier une pizza"
                 : "Créer une nouvelle pizza"
             }
-            okText={purpose.purpose === "edit" ? "Modifier" : "Valider"}
+            fields={basicFields}
+            setResources={setResources}
+            topic="pizzas"
           />
         )}
       </div>

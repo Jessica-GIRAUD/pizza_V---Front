@@ -13,3 +13,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+.box-actu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
