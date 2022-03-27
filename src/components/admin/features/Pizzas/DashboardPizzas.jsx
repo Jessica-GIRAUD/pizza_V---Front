@@ -31,7 +31,7 @@ const DashboardPizzas = () => {
   };
 
   const onDeletePizza = (key) => {
-    deleteOne(key, axiosPrivate).then((res) => {
+    deleteOne(key, axiosPrivate, "pizzas").then((res) => {
       if (res.status === 200) {
         setResources(
           res.data

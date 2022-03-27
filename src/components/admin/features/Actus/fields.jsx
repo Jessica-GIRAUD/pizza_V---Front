@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "antd";
+import { Input, InputNumber } from "antd";
 
 const { TextArea } = Input;
 
@@ -29,5 +29,17 @@ export const basicFields = [
       },
     ],
     input: <TextArea rows={3} />,
+  },
+  {
+    label: "Ordre",
+    name: "priority",
+    rules: [
+      {
+        required: true,
+        message:
+          "Merci de renseigner un chiffre (1 étant le plus prioritaire).",
+      },
+    ],
+    input: <InputNumber min={0} max={50} style={{ width: "100%" }} />,
   },
 ];

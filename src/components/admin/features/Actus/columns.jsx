@@ -5,8 +5,15 @@ import {
   QuestionCircleOutlined,
 } from "@ant-design/icons";
 
-const columns = (setOpenModal, openModal, setPurpose, onDeletePizza) => {
+const columns = (setOpenModal, openModal, setPurpose, onDeleteActu) => {
   return [
+    {
+      title: "Ordre",
+      dataIndex: "priority",
+      key: "priority",
+      sorter: (a, b) => a.priority - b.priority,
+      defaultSortOrder: "ascend",
+    },
     {
       title: "Nom",
       dataIndex: "name",
@@ -45,10 +52,10 @@ const columns = (setOpenModal, openModal, setPurpose, onDeletePizza) => {
 
           <Divider type="vertical" />
           <Popconfirm
-            title="Êtes-vous sûr de vouloir supprimer cette pizza ?"
+            title="Êtes-vous sûr de vouloir supprimer cette actualité ?"
             okText="Supprimer"
             okButtonProps={{ type: "danger" }}
-            onConfirm={() => onDeletePizza(key)}
+            onConfirm={() => onDeleteActu(key)}
             icon={<QuestionCircleOutlined />}
           >
             <Tooltip title="Supprimer">

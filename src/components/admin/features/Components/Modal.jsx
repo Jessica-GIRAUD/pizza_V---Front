@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import { createRef, useState } from "react";
 import Draggable from "react-draggable";
 import CustomForm from "./Form";
-
+import "../../styles/Form.css";
 const CustomModal = ({
   openModal,
   setOpenModal,
@@ -43,6 +43,7 @@ const CustomModal = ({
   return (
     <>
       <Modal
+        className={topic === "contact" ? "contact-modal" : ""}
         title={
           <div
             style={{

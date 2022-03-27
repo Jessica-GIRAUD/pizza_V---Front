@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Register from "./components/admin/authentification/Register";
+import ResetPassword from "./components/admin/authentification/ResetPassword";
 import Login from "./components/admin/authentification/Login";
 import HomePage from "./components/client/MainPage";
 import BasicLayout from "./components/admin/features/Layout/BasicLayout";
@@ -23,6 +23,7 @@ const App = () => {
       <Route path="/admin" element={<Layout />}>
         {/* Public routes*/}
         <Route path="/admin" element={<Login />} />
+        <Route path="/admin/register" element={<ResetPassword />} />
 
         {/* Protected Routes */}
         <Route element={<PersistLogin />}>
@@ -33,7 +34,6 @@ const App = () => {
               <Route path="dashboard/contact" element={<DashboardContact />} />
               <Route path="dashboard/profile" element={<DashboardProfile />} />
             </Route>
-            <Route path="register" element={<Register />} />
           </Route>
         </Route>
 

@@ -37,6 +37,7 @@ const CustomForm = ({
   };
 
   const updateResource = (values) => {
+    console.log("values", values);
     const { id } = values;
     updateOne(id, values, axiosPrivate, topic).then((res) => {
       if (res.status === 200) {
@@ -54,6 +55,7 @@ const CustomForm = ({
   };
 
   const handleSubmit = async (values) => {
+    console.log("values", values);
     if (purpose.purpose === "edit") await updateResource(values);
     if (purpose.purpose === "create") await createResource(values);
   };
@@ -81,12 +83,12 @@ const CustomForm = ({
   return (
     <Form
       form={form}
-      name="basic"
+      name={topic}
       labelCol={{
-        span: 6,
+        span: 7,
       }}
       wrapperCol={{
-        span: 16,
+        span: 15,
       }}
       initialValues={{
         remember: true,

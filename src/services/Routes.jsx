@@ -2,13 +2,14 @@ import axios from "axios";
 
 const url = "http://localhost:5001";
 
-export const getAllPizzas = async () => {
+export const getAllPublic = async (topic) => {
   try {
-    const response = await axios.get(`${url}/pizzas`);
+    const response = await axios.get(`${url}/${topic}`);
     if (response.status === 200) {
       return response;
     }
   } catch (err) {
+    console.log(err);
     return err.response;
   }
 };
@@ -20,20 +21,19 @@ export const getAll = async (axiosPrivate, topic) => {
       return response;
     }
   } catch (err) {
+    console.log(err);
     return err.response;
   }
 };
 
 export const getOne = async (id, axiosPrivate, topic) => {
-  console.log("topic", topic);
-  console.log("id", id);
   try {
     const response = await axiosPrivate.get(`${url}/${topic}/${id}`);
-    console.log("response", response);
     if (response.status === 200) {
       return response;
     }
   } catch (err) {
+    console.log(err);
     return err.response;
   }
 };
@@ -46,11 +46,11 @@ export const createOne = async (data, axiosPrivate, topic) => {
     }
   } catch (err) {
     console.log(err);
+    return err.response;
   }
 };
 
 export const updateOne = async (id, data, axiosPrivate, topic) => {
-  console.log("data", data);
   try {
     const response = await axiosPrivate.put(
       `${url}/${topic}/update/${id}`,
@@ -61,6 +61,7 @@ export const updateOne = async (id, data, axiosPrivate, topic) => {
     }
   } catch (err) {
     console.log(err);
+    return err.response;
   }
 };
 
@@ -72,5 +73,6 @@ export const deleteOne = async (id, axiosPrivate, topic) => {
     }
   } catch (err) {
     console.log(err);
+    return err.response;
   }
 };

@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "../styles//Register.css";
 import { useNavigate } from "react-router-dom";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import axios from "axios";
 
-const Register = () => {
+const url = "http://localhost:5001";
+
+const ResetPassword = () => {
   const navigate = useNavigate();
-  const axiosPrivate = useAxiosPrivate();
 
   const [formValues, setFormValues] = useState({
     lastname: "",
@@ -18,7 +19,6 @@ const Register = () => {
 
   const [errorMessage, setErrorMessage] = useState({
     hasError: false,
-    input: null,
     message: null,
   });
 
@@ -32,7 +32,6 @@ const Register = () => {
 
     setErrorMessage({
       hasError: false,
-      input: null,
       message: null,
     });
 
@@ -40,13 +39,12 @@ const Register = () => {
   };
 
   const handleSubmit = (event) => {
-    axiosPrivate.post(`/auth/register`, formValues).then((res) => {
-      if (res.status === 201) {
+    axios.post(`${url}/auth/register`, formValues).then((res) => {
+      if (res.status === 200) {
         navigate("/admin/dashboard/pizzas");
       } else {
         setErrorMessage({
           hasError: true,
-          input: res.data.input,
           message: res.data.message,
         });
       }
@@ -67,7 +65,7 @@ const Register = () => {
       <div className="registration-form animation a1">
         <div className="register-header">
           <h2 className="animation a1">Bienvenue chez Pizza Kika</h2>
-          <h4 className="animation a2">Créez-vous un compte</h4>
+          <h4 className="animation a2">Modifier votre compte</h4>
         </div>
 
         <form className="form">
@@ -93,20 +91,18 @@ const Register = () => {
             name="email"
             placeholder="E-mail"
             className={`input animation a4 ${
-              errorMessage.input === "email" ? "error" : ""
+              errorMessage.hasError ? "error" : ""
             }`}
             onChange={(event) => handleChange(event)}
           />
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`input ${
-                errorMessage.input === "password" ? "error" : ""
-              }`}
+              className={`input ${errorMessage.hasError ? "error" : ""}`}
               type={passwordShown ? "text" : "password"}
               id="password"
               name="password"
-              placeholder="Mot de passe"
+              placeholder="Nouveau mot de passe"
               onChange={(event) => handleChange(event)}
             />
             {passwordShown ? (
@@ -131,13 +127,11 @@ const Register = () => {
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`input ${
-                errorMessage.input === "password" ? "error" : ""
-              }`}
+              className={`input ${errorMessage.hasError ? "error" : ""}`}
               type={confirmedPasswordShown ? "text" : "password"}
               id="confirmedPassword"
               name="confirmedPassword"
-              placeholder="Confirmation du mot de passe"
+              placeholder="Confirmation du nouveau mot de passe"
               onChange={(event) => handleChange(event)}
             />
             {confirmedPasswordShown ? (
@@ -177,4 +171,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default ResetPassword;

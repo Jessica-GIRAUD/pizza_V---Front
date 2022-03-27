@@ -14,9 +14,12 @@
   justify-content: space-between;
 }
 
-
 .box-actu {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+.ant-modal-title {
+  color: black !important;
 }

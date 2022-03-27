@@ -9,7 +9,7 @@ const Originale = ({ allPizzas }) => {
   );
   return (
     <div className="originale" id="originale">
-      <h1 id="contact">Les Originales</h1>
+      <h1>Les Originales</h1>
       <div className="originale-container">
         {filteredOriginalPizza?.map(({ description, key, name, price }) => {
           return (

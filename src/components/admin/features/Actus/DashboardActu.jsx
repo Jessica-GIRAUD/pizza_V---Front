@@ -3,10 +3,10 @@ import { Table, Button, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import "../../styles/Dashboard.css";
 import CustomModal from "../Components/Modal";
-import { deleteActu, getAllActus } from "../../../../services/Actualites";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import columns from "./columns";
 import { basicFields } from "./fields";
+import { deleteOne, getAll } from "../../../../services/Routes";
 
 const DashboardActu = () => {
   const [dataTable, setDataTable] = useState();
@@ -14,10 +14,9 @@ const DashboardActu = () => {
   const axiosPrivate = useAxiosPrivate();
   const [openModal, setOpenModal] = useState(false);
   const [purpose, setPurpose] = useState({ purpose: "", id: null });
-  console.log("purpose", purpose);
 
   const fetchActus = () => {
-    getAllActus(axiosPrivate).then((res) => {
+    getAll(axiosPrivate, "actus").then((res) => {
       setDataTable(res.data.map(({ id, ...d }) => ({ ...d, key: id })));
     });
   };
@@ -28,7 +27,7 @@ const DashboardActu = () => {
   }, []);
 
   const onDeleteActu = (key) => {
-    deleteActu(key, axiosPrivate, "actus").then((res) => {
+    deleteOne(key, axiosPrivate, "actus").then((res) => {
       if (res.status === 200) {
         setDataTable(
           res.data

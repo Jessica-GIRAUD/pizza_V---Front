@@ -14,7 +14,7 @@ const HeaderBar = () => {
 
   const onLogOutClick = () => {
     setAuth({});
-    logout().then(() => navigate("/admin"));
+    logout().then(() => navigate("/"));
   };
   return (
     <Header className="site-layout-background header">

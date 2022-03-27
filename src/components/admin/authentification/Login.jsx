@@ -20,7 +20,6 @@ const Login = () => {
 
   const [errorMessage, setErrorMessage] = useState({
     hasError: false,
-    input: null,
     message: null,
   });
 
@@ -31,7 +30,6 @@ const Login = () => {
 
     setErrorMessage({
       hasError: false,
-      input: null,
       message: null,
     });
 
@@ -46,7 +44,6 @@ const Login = () => {
       } else {
         setErrorMessage({
           hasError: true,
-          input: res.data.input,
           message: res.data.message,
         });
       }
@@ -69,15 +66,15 @@ const Login = () => {
             name="email"
             placeholder="E-mail"
             className={`input animation a4 ${
-              errorMessage.input === "email" ? "error" : ""
+              errorMessage.hasError ? "error" : ""
             } `}
             onChange={(event) => handleChange(event)}
           />
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`input ${
-                errorMessage.input === "password" ? "error " : "animation a5"
+              className={`input animation a5 ${
+                errorMessage.hasError ? "error " : ""
               }`}
               type={passwordShown ? "text" : "password"}
               id="password"
@@ -104,6 +101,17 @@ const Login = () => {
               </div>
             )}
           </div>
+          <a
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "10px",
+            }}
+            className="animation a5"
+            href="/admin/register"
+          >
+            Mot de passe oublié ?
+          </a>
 
           {errorMessage.message ? (
             <span className="error-message">{errorMessage.message}</span>

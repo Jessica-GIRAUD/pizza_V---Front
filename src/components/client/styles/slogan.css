@@ -8,7 +8,7 @@
 
 .slogan {
   width: 80%;
-  height: 100vh;
+  height: 80vh;
 
   margin: auto;
 
@@ -246,5 +246,77 @@ path.a3 {
   .type {
     font-size: 0.8em;
     text-align: center;
+  }
+}
+
+/* Défilement de droite à gauche */
+
+.position {
+  position: relative;
+  top: 170px;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.bandeau {
+  width: 100%;
+  overflow: hidden;
+
+  background-color: rgba(0, 0, 0, 0.486);
+  height: 70px;
+}
+
+.actu {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  white-space: nowrap;
+
+  padding-left: 100%;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: actu;
+  animation-name: actu;
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+}
+
+.actu:hover {
+  animation-play-state: paused; /* met en pause le défilement */
+}
+
+.actu_titre {
+  display: inline-block;
+  padding: 0 200px;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+@-webkit-keyframes actu {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes actu {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
 }
