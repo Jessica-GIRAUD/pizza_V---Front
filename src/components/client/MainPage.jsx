@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeaderNavbar from "./HeaderNavbar";
 import Pizzas from "./Pizzas";
-import Slogan from "./Slogan";
+import Accueil from "./Accueil";
 import Originale from "./Originale";
 import Tomato from "./Tomate";
 import ScrollArrow from "./ScrollArrow";
@@ -31,7 +31,7 @@ const HomePage = () => {
     <div>
       <HeaderNavbar />
 
-      <Slogan disappear={disappear} />
+      <Accueil disappear={disappear} />
       <Pizzas allPizzas={resources} />
       <Tomato allPizzas={resources} />
       <Originale allPizzas={resources} />

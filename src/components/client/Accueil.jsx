@@ -3,7 +3,7 @@ import useAuth from "../admin/hooks/useAuth";
 import Arrows from "./Arrows";
 import "./styles/slogan.css";
 
-const Slogan = ({ disappear }) => {
+const Accueil = ({ disappear }) => {
   const { contact, format, actus } = useAuth();
 
   const { phone } = contact;
@@ -11,7 +11,7 @@ const Slogan = ({ disappear }) => {
   return (
     <div id="accueil" className="background">
       {actus.length && (
-        <div className="position bandeau ">
+        <div className="position bandeau">
           <div className="actu">
             {actus?.map(({ description, name }, index) => (
               <div className="actu_titre" key={index}>
@@ -35,4 +35,4 @@ const Slogan = ({ disappear }) => {
   );
 };
 
-export default Slogan;
+export default Accueil;

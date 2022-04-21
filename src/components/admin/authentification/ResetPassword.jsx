@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "../styles//Register.css";
 import { useNavigate } from "react-router-dom";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
-import axios from "axios";
-
-const url = "http://localhost:5001";
+import { register } from "../../../services/Authentification";
+import { message } from "antd";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -33,19 +32,22 @@ const ResetPassword = () => {
     setErrorMessage({
       hasError: false,
       message: null,
+      input: null,
     });
 
     setFormValues({ ...formValues, [name]: value });
   };
 
   const handleSubmit = (event) => {
-    axios.post(`${url}/auth/register`, formValues).then((res) => {
+    register(formValues).then((res) => {
       if (res.status === 200) {
-        navigate("/admin/dashboard/pizzas");
+        navigate("/admin");
+        message.success("Votre compte a bien été modifié.");
       } else {
         setErrorMessage({
           hasError: true,
           message: res.data.message,
+          input: res.data.input,
         });
       }
     });
@@ -74,7 +76,11 @@ const ResetPassword = () => {
             name="lastname"
             id="lastname"
             placeholder="Nom"
-            className="input animation a3"
+            className={`input animation a3 ${
+              errorMessage.hasError && errorMessage.input !== "password"
+                ? "error"
+                : ""
+            }`}
             onChange={(event) => handleChange(event)}
           />
           <input
@@ -82,7 +88,11 @@ const ResetPassword = () => {
             id="firstname"
             name="firstname"
             placeholder="Prénom"
-            className="input animation a3"
+            className={`input animation a3 ${
+              errorMessage.hasError && errorMessage.input !== "password"
+                ? "error"
+                : ""
+            }`}
             onChange={(event) => handleChange(event)}
           />
           <input
@@ -91,14 +101,20 @@ const ResetPassword = () => {
             name="email"
             placeholder="E-mail"
             className={`input animation a4 ${
-              errorMessage.hasError ? "error" : ""
+              errorMessage.hasError && errorMessage.input !== "password"
+                ? "error"
+                : ""
             }`}
             onChange={(event) => handleChange(event)}
           />
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`input ${errorMessage.hasError ? "error" : ""}`}
+              className={`input ${
+                errorMessage.hasError && errorMessage.input === "password"
+                  ? "error"
+                  : ""
+              }`}
               type={passwordShown ? "text" : "password"}
               id="password"
               name="password"
@@ -127,7 +143,11 @@ const ResetPassword = () => {
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`input ${errorMessage.hasError ? "error" : ""}`}
+              className={`input ${
+                errorMessage.hasError && errorMessage.input === "password"
+                  ? "error"
+                  : ""
+              }`}
               type={confirmedPasswordShown ? "text" : "password"}
               id="confirmedPassword"
               name="confirmedPassword"

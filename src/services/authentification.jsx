@@ -2,10 +2,10 @@ import axios from "./Axios";
 
 axios.defaults.withCredentials = true;
 
-export const register = async (data, axiosPrivate) => {
+export const register = async (data) => {
   try {
-    const response = await axiosPrivate.post(`/auth/register`, data);
-    if (response.status === 201) {
+    const response = await axios.post(`/auth/register`, data);
+    if (response.status === 200) {
       return response;
     }
   } catch (err) {

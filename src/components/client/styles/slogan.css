@@ -262,9 +262,8 @@ path.a3 {
 .bandeau {
   width: 100%;
   overflow: hidden;
-
   background-color: rgba(0, 0, 0, 0.486);
-  height: 70px;
+  height: 100px;
 }
 
 .actu {
@@ -291,7 +290,7 @@ path.a3 {
 .actu_titre {
   display: inline-block;
   padding: 0 200px;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
   font-weight: 600;
   font-family: "Josefin Sans", sans-serif;

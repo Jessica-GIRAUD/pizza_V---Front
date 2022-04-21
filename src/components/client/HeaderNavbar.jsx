@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import logo from "../images/logo.png";
 import "./styles/navbar.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { push as Menu } from "react-burger-menu";
 import { HashLink as Link } from "react-router-hash-link";
 
 const HeaderNavbar = () => {
   const { hash } = useLocation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // state for mobile navbar
   const [isOpen, setOpen] = useState(false);
@@ -22,7 +22,7 @@ const HeaderNavbar = () => {
     setOpen(false);
   };
 
-  /*   // change url while scrolling
+  // change url while scrolling
   window.addEventListener("load", () => {
     const sections = document.querySelectorAll("section");
     const accueilSection = document.getElementById("accueil");
@@ -39,7 +39,7 @@ const HeaderNavbar = () => {
         }
       });
     });
-  }); */
+  });
 
   const navbarItems = [
     { title: "Accueil", path: "/#accueil", hashed: "#accueil" },

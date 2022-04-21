@@ -31,7 +31,9 @@ const Contact = () => {
         <div className="adresse">
           <h4>Adresse</h4>
           <a
-            href="https://ul.waze.com/ul?place=ChIJtRvCRN5SqRIRfmL-ZdigGl4&ll=43.66648280%2C1.19464110&navigate=yes&utm_campaign=waze_website&utm_source=waze_website&utm_medium=lm_share_location"
+            href={`http://maps.google.com/?daddr=${address
+              ?.split(" ")
+              ?.join("+")}+${post_code}+${city}+FRANCE`}
             target="_blank"
             rel="noreferrer"
           >
