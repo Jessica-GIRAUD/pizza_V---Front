@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Menu } from "antd";
 import { ToolOutlined, UserOutlined } from "@ant-design/icons";
 import logo from "../../../images/logo.png";
@@ -7,9 +7,28 @@ import { Link } from "react-router-dom";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 const SideBar = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const onCollapse = (collapsed) => {
+    setCollapsed(collapsed);
+  };
+
   return (
-    <Sider width={250} className="site-layout-background" theme="dark">
-      <img src={logo} alt="Pizza Kika" id="logo" className="logo" />
+    <Sider
+      breakpoint="lg"
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      width={250}
+      className="site-layout-background"
+      theme="dark"
+    >
+      <img
+        src={logo}
+        alt="Pizza Kika"
+        id="logo"
+        className={collapsed ? "logo collapsed" : "logo"}
+      />
       <Menu
         mode="inline"
         defaultSelectedKeys={["2"]}

@@ -2,6 +2,10 @@
   color: black !important;
 }
 
+.ant-layout-sider-trigger {
+  background: transparent;
+}
+
 .title {
   color: black;
   margin: 0 20px 30px 20px;
@@ -23,3 +27,5 @@
 .ant-modal-title {
   color: black !important;
 }
+
+@media (max-width: 768px) {}

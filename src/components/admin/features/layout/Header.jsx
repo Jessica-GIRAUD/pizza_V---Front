@@ -18,11 +18,10 @@ const HeaderBar = () => {
   };
   return (
     <Header className="site-layout-background header">
-      <span style={{ marginRight: "30px" }}>
-        {`Bienvenue, ${auth?.user.firstname} ${auth?.user.lastname}`}
-      </span>
+      <span>{`Bienvenue, ${auth?.user.firstname} ${auth?.user.lastname}`}</span>
       <div onClick={() => onLogOutClick()} className="disconnect">
-        <LogoutOutlined style={{ marginRight: "10px" }} /> Se déconnecter
+        <LogoutOutlined style={{ marginRight: "10px" }} />
+        <span className="disconnect-txt">Se déconnecter</span>
       </div>
     </Header>
   );

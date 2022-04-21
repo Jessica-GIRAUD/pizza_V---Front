@@ -178,3 +178,21 @@
     transform: translateY(0);
   }
 }
+
+
+@media (max-width: 768px) {
+
+  .login-form, .registration-form {
+    width: 80%;
+    height: 75vh;
+    margin: auto;
+  }
+
+  .form > button {
+    width: 50%;
+  }
+
+  .error-message {
+ font-size: 12px;
+  }
+}

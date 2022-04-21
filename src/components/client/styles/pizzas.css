@@ -94,7 +94,7 @@
 
 .originale {
   background-image: url("../../images/2.png");
-  background-position: 20% 0%;
+  background-size: cover;
 }
 
 #originale > div.originale-container > div:nth-child(4) {
@@ -120,7 +120,7 @@
   }
   /* Box ombragée pour chaque pizza */
   .pizza-container {
-    width: 30%;
+    width: 40%;
     margin: 5px;
     flex-direction: column;
   }
@@ -131,7 +131,7 @@
 
   .pizza-container-1 > p {
     font-size: 0.8rem;
-    min-height: 60px;
+    min-height: 100px;
     display: flex;
     align-items: center;
   }
@@ -159,7 +159,12 @@
 
   .originale {
     background-image: url("../../images/2mobile.png");
-
     background-position: 40% 117%;
+    background-size: inherit;
   }
+}
+
+@media  (orientation: landscape) {
+  .pizza-container {
+    width: 30%;}
 }

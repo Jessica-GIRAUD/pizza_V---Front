@@ -29,6 +29,7 @@
   display: flex;
   font-weight: 500;
   justify-content: space-evenly;
+  
 }
 
 .slogan > h4 {
@@ -199,55 +200,7 @@ path.a3 {
   -webkit-animation-delay: 0s; /* Safari 和 Chrome */
 }
 
-@media (max-width: 768px) {
-  .slogan > h1:after {
-    content: "Profiter";
-    color: #ff6233;
-    animation: topToBottom 8s infinite 0s;
-    width: 60px;
-  }
 
-  .slogan {
-    width: 90%;
-    bottom: 6%;
-    position: relative;
-  }
-
-  .slogan > h1 {
-    width: 90%;
-    font-size: 1.4rem;
-  }
-
-  .slogan h4 {
-    font-size: 1rem;
-  }
-
-  .slogan > p {
-    font-size: 1rem;
-  }
-
-  .slogan > a {
-    font-size: 1.5rem;
-  }
-
-  .container-arrows {
-    width: 90%;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-
-  .arrows,
-  .arrows2,
-  .arrows3 {
-    width: 30%;
-  }
-
-  .type {
-    font-size: 0.8em;
-    text-align: center;
-  }
-}
 
 /* Défilement de droite à gauche */
 
@@ -319,3 +272,103 @@ path.a3 {
     transform: translate3d(-100%, 0, 0);
   }
 }
+
+
+@media (max-width: 768px) {
+  .slogan > h1:after {
+    content: "Profiter";
+    color: #ff6233;
+    animation: topToBottom 8s infinite 0s;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .slogan {
+    width: 90%;
+    bottom: 6%;
+    position: relative;
+  }
+
+  .slogan > h1 {
+    width: 90%;
+    font-size: 1.8rem;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .slogan h4 {
+    font-size: 1rem;
+  }
+
+  .slogan > p {
+    font-size: 1rem;
+  }
+
+  .slogan > a {
+    font-size: 1.5rem;
+  }
+
+  .container-arrows {
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .arrows,
+  .arrows2,
+  .arrows3 {
+    width: 30%;
+  }
+
+  .type {
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  .bandeau {
+    height: 60px;
+  }
+
+  .position {
+    top: 110px;
+  }
+
+  .actu_titre {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .slogan {
+    bottom: 2%;
+  }
+
+  .slogan > h1 {
+     padding-bottom: 0px;
+    flex-direction: row;
+  }
+
+  .slogan > h1:after {
+    width: 30%;}
+
+    .position {
+      top: 90px;
+  }
+
+  .bandeau {
+    height: 40px;
+  }
+
+  .svg {
+    height: 75px;
+}
+
+.type, .type:visited {
+  padding: 5px;
+  margin-bottom: 5px;
+}}
