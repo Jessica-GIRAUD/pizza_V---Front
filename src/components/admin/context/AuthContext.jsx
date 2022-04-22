@@ -12,16 +12,16 @@ export const AuthProvider = ({ children }) => {
   const fetchAllRessources = () => {
     getAllPublic("pizzas").then((res) => {
       setResources(
-        res.data
-          .map(({ id, ...d }) => ({ ...d, key: id }))
-          .sort((a, b) => a.name.localeCompare(b.name))
+        res?.data
+          ?.map(({ id, ...d }) => ({ ...d, key: id }))
+          ?.sort((a, b) => a?.name?.localeCompare(b?.name))
       );
     });
     getAllPublic("contact").then((res) => {
-      setContact(res.data[0]);
+      setContact(res?.data[0]);
     });
     getAllPublic("actus").then((res) => {
-      setActus(res.data);
+      setActus(res?.data);
     });
   };
 
