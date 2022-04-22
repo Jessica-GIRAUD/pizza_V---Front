@@ -11,19 +11,20 @@ const Tomato = ({ allPizzas }) => {
       <h1>Base tomate</h1>
 
       <div className="tomato-container">
-        {filteredTomatoPizza?.map(({ description, key, name, price }) => {
-          return (
-            <div key={key} className="pizza-container">
-              <div className="pizza-container-1">
-                <h2>{name}</h2>
-                <p>{description}</p>
+        {filteredTomatoPizza ||
+          [].map(({ description, key, name, price }) => {
+            return (
+              <div key={key} className="pizza-container">
+                <div className="pizza-container-1">
+                  <h2>{name}</h2>
+                  <p>{description}</p>
+                </div>
+                <div className="pizza-container-2">
+                  <h4>{price.toFixed(2)} €</h4>
+                </div>
               </div>
-              <div className="pizza-container-2">
-                <h4>{price.toFixed(2)} €</h4>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </div>
   );

@@ -15,14 +15,15 @@ const Contact = () => {
         <div className="horaire">
           <h4>Horaires d'ouverture</h4>
           <p>
-            {open?.split("\\n").map((item, idx) => {
-              return (
-                <React.Fragment key={idx}>
-                  {item}
-                  <br />
-                </React.Fragment>
-              );
-            })}
+            {open?.split("\\n") ||
+              [].map((item, idx) => {
+                return (
+                  <React.Fragment key={idx}>
+                    {item}
+                    <br />
+                  </React.Fragment>
+                );
+              })}
             <br />
             {close}
           </p>
