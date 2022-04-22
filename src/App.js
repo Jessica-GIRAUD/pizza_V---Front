@@ -13,6 +13,7 @@ import DashboardPizzas from "./components/admin/features/Pizzas/DashboardPizzas"
 import DashboardContact from "./components/admin/features/Contact/DashboardContact";
 import DashboardActu from "./components/admin/features/Actus/DashboardActu";
 import DashboardProfile from "./components/admin/features/Profil/DashboardProfile";
+import ErrorPage from "./components/admin/features/ErrorPage";
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="*" element={<Navigate to="/admin/dashboard/pizzas" />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/error" element={<ErrorPage />} />
     </Routes>
   );
 };

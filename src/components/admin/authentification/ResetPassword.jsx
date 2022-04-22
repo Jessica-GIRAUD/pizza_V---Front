@@ -43,6 +43,9 @@ const ResetPassword = () => {
       if (res.status === 200) {
         navigate("/admin");
         message.success("Votre compte a bien été modifié.");
+      }
+      if (res.status === 500) {
+        navigate("/error");
       } else {
         setErrorMessage({
           hasError: true,

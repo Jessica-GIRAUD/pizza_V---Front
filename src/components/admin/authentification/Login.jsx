@@ -41,6 +41,9 @@ const Login = () => {
       if (res.status === 200) {
         setAuth(res?.data);
         navigate(from, { replace: true });
+      }
+      if (res.status === 500) {
+        navigate("/error");
       } else {
         setErrorMessage({
           hasError: true,
