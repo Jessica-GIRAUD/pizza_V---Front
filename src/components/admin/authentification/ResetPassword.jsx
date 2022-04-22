@@ -19,6 +19,7 @@ const ResetPassword = () => {
   const [errorMessage, setErrorMessage] = useState({
     hasError: false,
     message: null,
+    input: null,
   });
 
   const [passwordShown, setPasswordShown] = useState(false);
