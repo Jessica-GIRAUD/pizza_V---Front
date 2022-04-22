@@ -39,8 +39,8 @@ const Contact = () => {
             rel="noreferrer"
           >
             <p>
-              {address} <br />
-              {`${post_code} ${city}`}
+              {address ? address : ""} <br />
+              {`${post_code ? post_code : ""} ${city ? city : ""}`}
             </p>
           </a>
         </div>

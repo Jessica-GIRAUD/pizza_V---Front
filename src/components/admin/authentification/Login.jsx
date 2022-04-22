@@ -110,7 +110,7 @@ const Login = () => {
               justifyContent: "flex-end",
               marginTop: "10px",
             }}
-            className="animation a5"
+            className="animation a5 forgetPassword"
             href="/admin/register"
           >
             Mot de passe oublié ?
