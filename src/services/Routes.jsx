@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5001";
+const url = "https://pizza-kika.herokuapp.com";
 
 export const getAllPublic = async (topic) => {
   try {
