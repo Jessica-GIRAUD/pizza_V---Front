@@ -7,7 +7,9 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
   const [resources, setResources] = useState([]);
   const [contact, setContact] = useState({});
-  const [actus, setActus] = useState([]);
+  const [actus, setActus] = useState([
+    { description: null, name: null, priority: null },
+  ]);
 
   const fetchAllRessources = () => {
     getAllPublic("pizzas").then((res) => {
