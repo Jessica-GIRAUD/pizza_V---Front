@@ -13,14 +13,15 @@ const Accueil = ({ disappear }) => {
       {actus.length && (
         <div className="position bandeau">
           <div className="actu">
-            {actus?.map(({ description, name }, index) => (
-              <div className="actu_titre" key={index}>
-                <span style={{ color: "#ff6233", paddingRight: "20px" }}>
-                  {name?.toUpperCase()}
-                </span>
-                {description}
-              </div>
-            ))}
+            {actus ||
+              [].map(({ description, name }, index) => (
+                <div className="actu_titre" key={index}>
+                  <span style={{ color: "#ff6233", paddingRight: "20px" }}>
+                    {name?.toUpperCase()}
+                  </span>
+                  {description}
+                </div>
+              ))}
           </div>
         </div>
       )}

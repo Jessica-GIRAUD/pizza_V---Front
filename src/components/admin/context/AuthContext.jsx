@@ -7,16 +7,15 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
   const [resources, setResources] = useState([]);
   const [contact, setContact] = useState({});
-  const [actus, setActus] = useState([
-    { description: null, name: null, priority: null },
-  ]);
+  const [actus, setActus] = useState([]);
 
   const fetchAllRessources = () => {
     getAllPublic("pizzas").then((res) => {
       setResources(
-        res?.data
-          ?.map(({ id, ...d }) => ({ ...d, key: id }))
-          ?.sort((a, b) => a?.name?.localeCompare(b?.name))
+        res?.data ||
+          []
+            .map(({ id, ...d }) => ({ ...d, key: id }))
+            .sort((a, b) => a?.name?.localeCompare(b?.name))
       );
     });
     getAllPublic("contact").then((res) => {
