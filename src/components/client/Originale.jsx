@@ -4,9 +4,8 @@ import Footer from "./Footer";
 import "./styles/pizzas.css";
 
 const Originale = ({ allPizzas }) => {
-  const filteredOriginalPizza = allPizzas?.filter(
-    ({ base_name }) => base_name === "originale"
-  );
+  const filteredOriginalPizza =
+    allPizzas || [].filter(({ base_name }) => base_name === "originale");
   return (
     <div className="originale" id="originale">
       <h1>Les Originales</h1>

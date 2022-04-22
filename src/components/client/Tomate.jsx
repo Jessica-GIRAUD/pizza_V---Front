@@ -2,9 +2,8 @@ import React from "react";
 import "./styles/pizzas.css";
 
 const Tomato = ({ allPizzas }) => {
-  const filteredTomatoPizza = allPizzas?.filter(
-    ({ base_name }) => base_name === "tomate"
-  );
+  const filteredTomatoPizza =
+    allPizzas || [].filter(({ base_name }) => base_name === "tomate");
 
   return (
     <div className="tomato" id="tomate">
