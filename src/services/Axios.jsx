@@ -9,6 +9,7 @@ export default axios.create({
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Origin": "https://pizza-kika.netlify.app",
   },
+  withCredentials: true,
 });
 
 export const axiosPrivate = axios.create({
