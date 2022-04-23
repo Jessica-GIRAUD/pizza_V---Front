@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       setResources(
         res?.data ||
           []
-            .map(({ id, ...d }) => ({ ...d, key: id }))
+            .map(({ id, ...d }) => [{ ...d, key: id }])
             .sort((a, b) => a?.name?.localeCompare(b?.name))
       );
     });
