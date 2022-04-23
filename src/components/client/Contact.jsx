@@ -6,8 +6,6 @@ import useAuth from "../admin/hooks/useAuth";
 const Contact = () => {
   const { contact, format } = useAuth();
 
-  const { address, post_code, city, phone, open, close } = contact;
-
   return (
     <div className="container-contact" id="contact">
       <h1>Contact</h1>
@@ -15,7 +13,7 @@ const Contact = () => {
         <div className="horaire">
           <h4>Horaires d'ouverture</h4>
           <p>
-            {open?.split("\\n")?.map((item, idx) => {
+            {contact?.open?.split("\\n")?.map((item, idx) => {
               return (
                 <React.Fragment key={idx}>
                   {item}
@@ -24,22 +22,24 @@ const Contact = () => {
               );
             })}
             <br />
-            {close}
+            {contact?.close}
           </p>
         </div>
 
         <div className="adresse">
           <h4>Adresse</h4>
           <a
-            href={`http://maps.google.com/?daddr=${address
+            href={`http://maps.google.com/?daddr=${contact?.address
               ?.split(" ")
-              ?.join("+")}+${post_code}+${city}+FRANCE`}
+              ?.join("+")}+${contact?.post_code}+${contact?.city}+FRANCE`}
             target="_blank"
             rel="noreferrer"
           >
             <p>
-              {address ? address : ""} <br />
-              {`${post_code ? post_code : ""} ${city ? city : ""}`}
+              {contact?.address ? contact?.address : ""} <br />
+              {`${contact?.post_code ? contact?.post_code : ""} ${
+                contact?.city ? contact?.city : ""
+              }`}
             </p>
           </a>
         </div>
@@ -62,8 +62,8 @@ const Contact = () => {
               alignItems: "center  ",
             }}
           />
-          <a href={`tel:+33${phone}`}>
-            <p>{format(phone)}</p>
+          <a href={`tel:+33${contact?.phone}`}>
+            <p>{format(contact?.phone)}</p>
           </a>
         </div>
       </div>

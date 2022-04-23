@@ -6,11 +6,9 @@ import "./styles/slogan.css";
 const Accueil = ({ disappear }) => {
   const { contact, format, actus } = useAuth();
 
-  const { phone } = contact;
-
   return (
     <div id="accueil" className="background">
-      {actus.length && (
+      {actus?.length && (
         <div className="position bandeau">
           <div className="actu">
             {actus?.map((actu, index) => {
@@ -30,7 +28,7 @@ const Accueil = ({ disappear }) => {
       <div className={disappear ? "slogan disappeared" : "slogan"}>
         <h1>Prenez un moment pour </h1>
         <h4>Commandez vite vos pizzas cuites au feu de bois</h4>
-        <a href={`tel:+33${phone}`}>{format(phone)}</a>
+        <a href={`tel:+33${contact?.phone}`}>{format(contact?.phone)}</a>
       </div>
 
       <Arrows />
