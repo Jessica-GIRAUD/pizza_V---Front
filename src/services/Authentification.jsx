@@ -17,6 +17,7 @@ export const login = async (data) => {
   try {
     const response = await axios.post(`/auth/login`, data);
     if (response.status === 200) {
+
       return response;
     }
   } catch (err) {
@@ -27,6 +28,7 @@ export const login = async (data) => {
 export const logout = async () => {
   try {
     const response = await axios.get(`/auth/logout`);
+
     if (response.status === 200) {
       return response;
     }
