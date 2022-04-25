@@ -1,7 +1,5 @@
 import axios from "./Axios";
 
-axios.defaults.withCredentials = true;
-
 export const register = async (data) => {
   try {
     const response = await axios.post(`/auth/register`, data);
