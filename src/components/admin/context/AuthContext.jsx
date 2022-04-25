@@ -12,10 +12,9 @@ export const AuthProvider = ({ children }) => {
   const fetchAllRessources = () => {
     getAllPublic("pizzas").then((res) => {
       setResources(
-        res?.data ||
-          []
-            .map(({ id, ...d }) => ({ ...d, key: id }))
-            .sort((a, b) => a?.name?.localeCompare(b?.name))
+        res?.data
+          ?.map(({ id, ...d }) => ({ ...d, key: id }))
+          ?.sort((a, b) => a?.name?.localeCompare(b?.name))
       );
     });
     getAllPublic("contact").then((res) => {
