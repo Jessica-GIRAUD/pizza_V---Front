@@ -8,10 +8,10 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 100px;
   width: 100%;
   padding: 40px 0;
   color: #4b4c4d;
+  box-sizing: initial !important;
 }
 
 .footer ul {

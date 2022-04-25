@@ -1,0 +1,206 @@
+.registration,
+.login {
+  display: flex;
+  height: 100vh;
+  background-image: url("../../images/2.png");
+  background-position-x: 80%;
+  background-size: cover;
+
+  animation-name: move;
+  animation-duration: 1s;
+  animation-delay: 0s;
+}
+
+.login-form,
+.registration-form {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  margin-left: 140px;
+  height: 60%;
+  margin: auto 140px;
+  padding: 20px;
+  background-color: #0000006e;
+  border-radius: 3px;
+}
+
+.registration-form {
+  height: 550px;
+}
+
+.register-header,
+.login-header {
+  width: 80%;
+  margin: 0 auto;
+}
+.register-header > h2,
+.login-header > h2 {
+  font-size: 2.2em;
+  margin: 0;
+  color: #ff6233;
+}
+
+.register-header > h4,
+.login-header > h4 {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: white;
+}
+
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.input {
+  height: 45px;
+  padding: 0 16px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: "Rubik", sans-serif;
+  outline: 0;
+  transition: 0.2s;
+  margin-top: 20px;
+  background-color: transparent;
+  color: white;
+}
+
+.input::placeholder {
+  color: white;
+  font-size: 1em;
+}
+
+.input:focus {
+  border-color: #ff6233;
+}
+
+/* show password div */
+.pass-wrapper {
+  position: relative;
+  display: flex;
+  height: 45px;
+  margin-top: 20px;
+}
+/* show password input */
+.pass-wrapper > .input {
+  margin-top: 0px;
+  width: 100%;
+}
+
+.eye {
+  position: absolute;
+  width: 20px;
+  top: 34%;
+  right: 5%;
+  opacity: 0.6;
+}
+.eye:hover {
+  cursor: pointer;
+}
+
+.error-message {
+  margin: 20px auto 0;
+  color: red;
+  font-size: small;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.form > button {
+  padding: 12px 10px;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 0 auto;
+  background-color: #0000006e;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.form > button:hover {
+  box-shadow: 0px 0px 6px #ffffffe1;
+}
+
+/* ANIMATION */
+
+.animation {
+  animation-name: move;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+
+.a1 {
+  animation-delay: 1s;
+}
+
+.a2 {
+  animation-delay: 1.1s;
+}
+
+.a3 {
+  animation-delay: 1.2s;
+}
+
+.a4 {
+  animation-delay: 1.3s;
+}
+
+.a5 {
+  animation-delay: 1.4s;
+}
+
+.a6 {
+  animation-delay: 1.5s;
+}
+
+.forgetPassword:link, .forgetPassword:visited, .forgetPassword:active {
+  color: #ddd;
+}
+
+.forgetPassword:hover { 
+  box-shadow: 0px 0px 6px #ffffffe1;
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .login-form, .registration-form {
+    width: 80%;
+    height: 75vh;
+    margin: auto;
+  }
+
+  .form > button {
+    width: 50%;
+  }
+
+  .error-message {
+ font-size: 12px;
+  }
+}

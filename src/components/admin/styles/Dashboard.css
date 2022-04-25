@@ -1,0 +1,31 @@
+.ant-table-thead > tr > th {
+  color: black !important;
+}
+
+.ant-layout-sider-trigger {
+  background: transparent;
+}
+
+.title {
+  color: black;
+  margin: 0 20px 30px 20px;
+  font-size: 2.2rem;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-actu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ant-modal-title {
+  color: black !important;
+}
+
+@media (max-width: 768px) {}

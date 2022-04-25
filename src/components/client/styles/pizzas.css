@@ -35,13 +35,14 @@
   margin: auto;
   justify-content: center;
   padding-bottom: 70px;
+  color: #ffffffe1;
 }
 
 .originale-container {
   padding-bottom: 30px;
 }
 
-/* Box ombragée pour chaque pizza */
+/* Big container ombragée pour chaque pizza */
 .pizza-container {
   width: 40%;
   padding: 20px;
@@ -49,36 +50,42 @@
   display: flex;
   background-color: #0000006e;
 }
-
+/* name/description container */
 .pizza-container-1 {
   display: flex;
   flex-direction: column;
   width: 80%;
 }
 
+/* name */
 .pizza-container-1 > h2 {
   color: #ffffffe1;
   font-family: "Playfair Display", serif;
   font-style: italic;
   margin: 5px 0;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
+
+  font-weight: 600;
 }
 
+/* description */
 .pizza-container-1 > p {
   color: #ffffffe1;
   margin: 5px 0;
 }
 
+/* price container */
 .pizza-container-2 {
   width: 20%;
   text-align: center;
   margin: auto;
 }
-
+/* price */
 .pizza-container-2 > h4 {
   color: #ff6233;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-family: cursive;
+  font-weight: bold;
 }
 
 .tomato {
@@ -88,7 +95,7 @@
 
 .originale {
   background-image: url("../../images/2.png");
-  background-position: 20% 0%;
+  background-size: cover;
 }
 
 #originale > div.originale-container > div:nth-child(4) {
@@ -114,7 +121,7 @@
   }
   /* Box ombragée pour chaque pizza */
   .pizza-container {
-    width: 30%;
+    width: 40%;
     margin: 5px;
     flex-direction: column;
   }
@@ -125,7 +132,7 @@
 
   .pizza-container-1 > p {
     font-size: 0.8rem;
-    min-height: 60px;
+    min-height: 100px;
     display: flex;
     align-items: center;
   }
@@ -153,7 +160,12 @@
 
   .originale {
     background-image: url("../../images/2mobile.png");
-
     background-position: 40% 117%;
+    background-size: inherit;
   }
+}
+
+@media  (orientation: landscape) {
+  .pizza-container {
+    width: 30%;}
 }

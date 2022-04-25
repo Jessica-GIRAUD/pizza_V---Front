@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { loginIn } from "../../../services/Authentification";
-import eye from "../../images/yeux.png";
-import invisible from "../../images/invisible.png";
-import "./Register.css";
-import { useNavigate } from "react-router-dom";
+import { login } from "../../../services/Authentification";
+import "../styles//Register.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 const Login = () => {
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/admin/dashboard/pizzas";
 
   const [formValues, setFormValues] = useState({
     email: "",
@@ -17,7 +20,6 @@ const Login = () => {
 
   const [errorMessage, setErrorMessage] = useState({
     hasError: false,
-    input: null,
     message: null,
   });
 
@@ -28,7 +30,6 @@ const Login = () => {
 
     setErrorMessage({
       hasError: false,
-      input: null,
       message: null,
     });
 
@@ -36,27 +37,27 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
-    loginIn(formValues).then((res) => {
-      console.log("res", res);
+    login(formValues).then((res) => {
       if (res.status === 200) {
-        console.log("tout est ok redirection vers blbalblabla");
-        navigate("/admin/dashboard");
+        setAuth(res?.data);
+        navigate(from, { replace: true });
+      }
+      if (res.status === 500) {
+        navigate("/error");
       } else {
         setErrorMessage({
           hasError: true,
-          input: res.data.input,
           message: res.data.message,
         });
       }
     });
-    console.log("logged in");
     event.preventDefault();
   };
 
   return (
     <div className="login">
-      <div className="login-left">
-        <div className="header">
+      <div className="login-form animation a1">
+        <div className="login-header">
           <h2 className="animation a1">Bienvenue chez Pizza Kika</h2>
           <h4 className="animation a2">Identifiez-vous</h4>
         </div>
@@ -67,27 +68,53 @@ const Login = () => {
             id="email"
             name="email"
             placeholder="E-mail"
-            className={`animation a4 ${
-              errorMessage.input === "email" ? "error" : ""
-            }`}
+            className={`input animation a4 ${
+              errorMessage.hasError ? "error" : ""
+            } `}
             onChange={(event) => handleChange(event)}
           />
 
           <div className="pass-wrapper animation a5">
             <input
-              className={`${errorMessage.input === "password" ? "error" : ""}`}
+              className={`input animation a5 ${
+                errorMessage.hasError ? "error " : ""
+              }`}
               type={passwordShown ? "text" : "password"}
               id="password"
               name="password"
               placeholder="Mot de passe"
               onChange={(event) => handleChange(event)}
             />
-            <img
-              src={passwordShown ? invisible : eye}
-              alt={passwordShown ? "invisible" : "eye"}
-              onClick={() => setPasswordShown(!passwordShown)}
-            />
+            {passwordShown ? (
+              <div
+                onClick={() => setPasswordShown(!passwordShown)}
+                style={{ height: "100%" }}
+              >
+                <EyeOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            ) : (
+              <div onClick={() => setPasswordShown(!passwordShown)}>
+                <EyeInvisibleOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            )}
           </div>
+          <a
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "10px",
+            }}
+            className="animation a5 forgetPassword"
+            href="/admin/register"
+          >
+            Mot de passe oublié ?
+          </a>
 
           {errorMessage.message ? (
             <span className="error-message">{errorMessage.message}</span>
@@ -98,11 +125,10 @@ const Login = () => {
             className="animation a6"
             type="submit"
           >
-            S'inscrire
+            Se connecter
           </button>
         </form>
       </div>
-      <div className="right"></div>
     </div>
   );
 };

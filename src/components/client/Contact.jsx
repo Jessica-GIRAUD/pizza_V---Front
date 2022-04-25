@@ -1,31 +1,45 @@
 import React from "react";
-import phone from "../images/appel-telephonique.png";
+import Tel from "../images/appel-telephonique.png";
 import "./styles/contact.css";
+import useAuth from "../admin/hooks/useAuth";
 
 const Contact = () => {
+  const { contact, format } = useAuth();
+
   return (
-    <div className="container-contact">
+    <div className="container-contact" id="contact">
       <h1>Contact</h1>
       <div className="horaire-adresse">
         <div className="horaire">
           <h4>Horaires d'ouverture</h4>
           <p>
-            Du mardi au samedi de 11h30 à 13h30 et de 17h30 à 21h30 <br />
-            Le dimanche de 17h30 à 21h30 <br /> <br />
-            Fermé le lundi
+            {contact?.open?.split("\\n")?.map((item, idx) => {
+              return (
+                <React.Fragment key={idx}>
+                  {item}
+                  <br />
+                </React.Fragment>
+              );
+            })}
+            <br />
+            {contact?.close}
           </p>
         </div>
 
         <div className="adresse">
           <h4>Adresse</h4>
           <a
-            href="https://ul.waze.com/ul?place=ChIJtRvCRN5SqRIRfmL-ZdigGl4&ll=43.66648280%2C1.19464110&navigate=yes&utm_campaign=waze_website&utm_source=waze_website&utm_medium=lm_share_location"
+            href={`http://maps.google.com/?daddr=${contact?.address
+              ?.split(" ")
+              ?.join("+")}+${contact?.post_code}+${contact?.city}+FRANCE`}
             target="_blank"
             rel="noreferrer"
           >
             <p>
-              52 Avenue de la République <br />
-              31530 LEVIGNAC
+              {contact?.address ? contact?.address : ""} <br />
+              {`${contact?.post_code ? contact?.post_code : ""} ${
+                contact?.city ? contact?.city : ""
+              }`}
             </p>
           </a>
         </div>
@@ -39,7 +53,7 @@ const Contact = () => {
           }}
         >
           <img
-            src={phone}
+            src={Tel}
             alt="telephone"
             style={{
               width: "25px",
@@ -48,8 +62,8 @@ const Contact = () => {
               alignItems: "center  ",
             }}
           />
-          <a href="tel:+33534520388">
-            <p>05 34 52 03 88</p>
+          <a href={`tel:+33${contact?.phone}`}>
+            <p>{format(contact?.phone)}</p>
           </a>
         </div>
       </div>

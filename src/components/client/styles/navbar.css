@@ -1,6 +1,6 @@
 /* LOGO */
 
-.logo {
+.navbar-logo {
   height: 120px;
   position: relative;
   top: 20px;
@@ -138,7 +138,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 @media (max-width: 768px) {
-  .logo {
+  .navbar-logo {
     width: 140px;
     height: 70px;
     margin: 10px 0;

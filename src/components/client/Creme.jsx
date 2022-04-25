@@ -11,9 +11,10 @@ const Creme = ({ allPizzas }) => {
       <h1>Base crème</h1>
 
       <div className="cream-container">
-        {filteredCreamyPizza?.map(({ description, idpizza, name, price }) => {
+        {filteredCreamyPizza?.map((pizza, key) => {
+          const { description, name, price } = pizza;
           return (
-            <div key={idpizza} className="pizza-container">
+            <div key={key} className="pizza-container">
               <div className="pizza-container-1">
                 <h2>{name}</h2>
                 <p>{description}</p>

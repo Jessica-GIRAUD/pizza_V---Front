@@ -1,0 +1,106 @@
+.logo {
+  float: left;
+  width: 150px;
+  height: 70px;
+  margin: 5px 50px 25px 50px;
+  background: url("../../images/logo.png");
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.ant-layout-header .ant-menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header {
+  background-color: #fff !important;
+  padding: 0px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header > span {
+ 
+  margin-right: 30px;
+
+}
+
+::selection {
+  background-color: #accef7 !important;
+}
+
+.ant-layout-sider,
+.ant-menu.ant-menu-dark,
+.ant-menu-dark {
+  background: url("../../images/ardoise.jpg") !important;
+  background-size: cover !important;
+  box-shadow: 2px 0px 6px #00152959;
+}
+
+.ant-menu-sub {
+  background: transparent !important;
+}
+
+.disconnect {
+  cursor: pointer;
+  border-radius: 3px;
+  color: #ff6233;
+  padding: 0px 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+.disconnect:hover {
+  box-shadow: 0px 0px 6px #919191;
+}
+
+.collapsed {
+  width: 80px;
+  height: 60px;
+  margin: 15px 0;
+}
+
+
+
+@media (max-width: 768px) {
+ 
+
+  .ant-layout.ant-layout-has-sider > .ant-layout, .ant-layout.ant-layout-has-sider > .ant-layout-content {
+    width: inherit !important;
+  }
+
+  .header {
+    width: initial;
+  
+  }
+
+  .ant-layout-header {
+display: flex !important;
+justify-content: flex-start;
+  }
+
+  .header > span {
+    font-size: small;
+    margin-right: 20px;
+
+  }
+
+  .disconnect-txt {
+    display: none;
+  }
+
+  .disconnect {
+    font-size: 25px;
+  }
+}

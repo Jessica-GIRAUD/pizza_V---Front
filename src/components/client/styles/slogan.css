@@ -8,7 +8,7 @@
 
 .slogan {
   width: 80%;
-  height: 100vh;
+  height: 80vh;
 
   margin: auto;
 
@@ -27,11 +27,14 @@
   font-size: 4.5rem;
   margin: 0 auto;
   display: flex;
+  font-weight: 500;
   justify-content: space-evenly;
+  
 }
 
 .slogan > h4 {
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .slogan > a {
@@ -112,7 +115,7 @@
   -webkit-animation: arrow 2s infinite;
 }
 
-svg {
+.svg {
   width: 70px;
   height: 90px;
 }
@@ -197,12 +200,89 @@ path.a3 {
   -webkit-animation-delay: 0s; /* Safari 和 Chrome */
 }
 
+
+
+/* Défilement de droite à gauche */
+
+.position {
+  position: relative;
+  top: 170px;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.bandeau {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.486);
+  height: 100px;
+}
+
+.actu {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  white-space: nowrap;
+  color: #ffffffe1;
+  padding-left: 100%;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: actu;
+  animation-name: actu;
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+}
+
+.actu:hover {
+  animation-play-state: paused; /* met en pause le défilement */
+}
+
+.actu_titre {
+  display: inline-block;
+  padding: 0 200px;
+  font-size: 18px;
+  color: #ffffffe1;
+  font-weight: 600;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+@-webkit-keyframes actu {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes actu {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+
 @media (max-width: 768px) {
   .slogan > h1:after {
     content: "Profiter";
     color: #ff6233;
     animation: topToBottom 8s infinite 0s;
-    width: 60px;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 500;
   }
 
   .slogan {
@@ -213,7 +293,11 @@ path.a3 {
 
   .slogan > h1 {
     width: 90%;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+    font-weight: bold;
   }
 
   .slogan h4 {
@@ -242,7 +326,49 @@ path.a3 {
   }
 
   .type {
-    font-size: 0.8em;
+    font-size: 0.9em;
     text-align: center;
   }
+
+  .bandeau {
+    height: 60px;
+  }
+
+  .position {
+    top: 110px;
+  }
+
+  .actu_titre {
+    font-size: 14px;
+  }
 }
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .slogan {
+    bottom: 2%;
+  }
+
+  .slogan > h1 {
+     padding-bottom: 0px;
+    flex-direction: row;
+  }
+
+  .slogan > h1:after {
+    width: 30%;}
+
+    .position {
+      top: 90px;
+  }
+
+  .bandeau {
+    height: 40px;
+  }
+
+  .svg {
+    height: 75px;
+}
+
+.type, .type:visited {
+  padding: 5px;
+  margin-bottom: 5px;
+}}
