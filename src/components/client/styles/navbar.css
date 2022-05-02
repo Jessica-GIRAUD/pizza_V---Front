@@ -9,7 +9,6 @@
 }
 
 .logo-link {
-  height: 120px;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -18,8 +17,6 @@
 /* NAVBAR */
 
 .navbar-container {
-  display: flex;
-  position: fixed;
   width: 100%;
   z-index: 1;
 }
@@ -72,7 +69,7 @@
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;
   width: 36px;
   height: 30px;
   right: 36px;
@@ -137,7 +134,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: #fff5f0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 844px) {
   .navbar-logo {
     width: 140px;
     height: 70px;
@@ -147,7 +144,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
   .logo-link {
-    height: 70px;
     display: flex;
     justify-content: center;
   }

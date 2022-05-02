@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table, Button, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import "../../styles/Dashboard.css";
-import CustomModal from "../Components/Modal";
+import CustomModal from "../Components/CustomModal";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import columns from "./columns";
 import { basicFields } from "./fields";

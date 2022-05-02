@@ -111,7 +111,7 @@ const Login = () => {
               marginTop: "10px",
             }}
             className="animation a5 forgetPassword"
-            href="/admin/register"
+            href="/admin/resetpassword"
           >
             Mot de passe oublié ?
           </a>

@@ -21,7 +21,7 @@
 }
 
 .container-contact h1 {
-  font-size: 3rem;
+  font-size: 5vw;
   margin: 0;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .container-contact h4 {
-  font-size: 1.5rem;
+  font-size: 2vw;
   margin-bottom: 3%;
 }
 
@@ -38,7 +38,7 @@
 
 .tel-container p {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4vw;
   font-weight: bold;
   padding: 0 15px;
   margin-bottom: 0;
@@ -51,7 +51,6 @@
   margin-bottom: 20px;
   border-radius: 5px;
   width: 220px;
-  font-size: 1.2em;
   height: 50px;
 }
 
@@ -84,23 +83,41 @@
     margin: 20px;
   }
   .container-contact h1 {
-    font-size: 2.5rem;
+    font-size: 8.5vw;
   }
 
   .container-contact h4 {
-    font-size: 1.4em;
+    font-size: 5vw;
     margin-bottom: 20px;
   }
 
   .adresse p,
   .horaire p {
     margin: 0 5px;
-    font-size: 0.8rem;
+    font-size: 3.5vw;
     font-weight: bold;
   }
 
   .adresse,
   .horaire {
     width: 100%;
+  }
+}
+
+@media (max-width: 844px) and (orientation: landscape) {
+  .container-contact > h1 {
+    margin-bottom: 20px;
+    font-size: 7vw;
+  }
+  .tel-container p {
+    font-size: 2vw;
+  }
+
+  .container-contact h4 {
+    font-size: 2.5vw;
+  }
+
+  .container-contact {
+    padding-bottom: 35px;
   }
 }

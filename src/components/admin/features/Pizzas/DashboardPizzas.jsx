@@ -4,7 +4,7 @@ import { Table, Button, AutoComplete, message } from "antd";
 import columns from "./columns";
 import "../../styles/Dashboard.css";
 import { PlusOutlined } from "@ant-design/icons";
-import CustomModal from "../Components/Modal";
+import CustomModal from "../Components/CustomModal";
 import { deleteOne } from "../../../../services/Routes";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { basicFields } from "./fields";

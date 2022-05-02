@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "antd";
 import "../../styles/Dashboard.css";
-import CustomModal from "../Components/Modal";
+import CustomModal from "../Components/CustomModal";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import columns from "./columns";
 import { basicFields } from "./fields";

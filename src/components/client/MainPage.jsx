@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import HeaderNavbar from "./HeaderNavbar";
 import Pizzas from "./Pizzas";
 import Accueil from "./Accueil";
@@ -9,29 +9,11 @@ import useAuth from "../admin/hooks/useAuth";
 
 const HomePage = () => {
   const { resources } = useAuth();
-  // state for scrolling navbar
-  const [disappear, setDisappear] = useState();
-
-  // navbar scroll changeBackground function
-  const changeBackground = () => {
-    if (window.scrollY >= 150) {
-      setDisappear(true);
-    } else {
-      setDisappear(false);
-    }
-  };
-
-  useEffect(() => {
-    changeBackground();
-    // adding the event when scroll change background
-    window.addEventListener("scroll", changeBackground);
-  });
 
   return (
     <div>
       <HeaderNavbar />
-
-      <Accueil disappear={disappear} />
+      <Accueil />
       <Pizzas allPizzas={resources} />
       <Tomato allPizzas={resources} />
       <Originale allPizzas={resources} />

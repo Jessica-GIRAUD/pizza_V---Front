@@ -24,7 +24,7 @@ const App = () => {
       <Route path="/admin" element={<Layout />}>
         {/* Public routes*/}
         <Route path="/admin" element={<Login />} />
-        <Route path="/admin/register" element={<ResetPassword />} />
+        <Route path="/admin/resetpassword" element={<ResetPassword />} />
 
         {/* Protected Routes */}
         <Route element={<PersistLogin />}>

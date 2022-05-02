@@ -3,13 +3,13 @@ import useAuth from "../admin/hooks/useAuth";
 import Arrows from "./Arrows";
 import "./styles/slogan.css";
 
-const Accueil = ({ disappear }) => {
+const Accueil = () => {
   const { contact, format, actus } = useAuth();
 
   return (
     <div id="accueil" className="background">
-      {actus?.length && (
-        <div className="position bandeau">
+      <div className="position bandeau">
+        {actus?.length && (
           <div className="actu">
             {actus?.map((actu, index) => {
               const { description, name } = actu;
@@ -23,9 +23,10 @@ const Accueil = ({ disappear }) => {
               );
             })}
           </div>
-        </div>
-      )}
-      <div className={disappear ? "slogan disappeared" : "slogan"}>
+        )}
+      </div>
+
+      <div className="slogan">
         <h1>Prenez un moment pour </h1>
         <h4>Commandez vite vos pizzas cuites au feu de bois</h4>
         <a href={`tel:+33${contact?.phone}`}>{format(contact?.phone)}</a>

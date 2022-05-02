@@ -2,7 +2,7 @@ import axios from "./Axios";
 
 export const register = async (data) => {
   try {
-    const response = await axios.post(`/auth/register`, data);
+    const response = await axios.post(`/auth/forgot-password`, data);
     if (response.status === 200) {
       return response;
     }

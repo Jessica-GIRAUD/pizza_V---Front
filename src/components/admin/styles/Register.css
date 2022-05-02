@@ -165,12 +165,17 @@
   animation-delay: 1.5s;
 }
 
-.forgetPassword:link, .forgetPassword:visited, .forgetPassword:active {
+.forgetPassword {
+  font-family: "Rubik", sans-serif;
   color: #ddd;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
 }
 
-.forgetPassword:hover { 
-  box-shadow: 0px 0px 6px #ffffffe1;
+.forgetPassword:hover {
+  text-shadow: 0px 0px 6px #ffffffe1;
 }
 
 @keyframes move {
@@ -187,12 +192,11 @@
   }
 }
 
-
 @media (max-width: 768px) {
-
-  .login-form, .registration-form {
+  .login-form,
+  .registration-form {
     width: 80%;
-    height: 75vh;
+    min-height: 60vh;
     margin: auto;
   }
 
@@ -201,6 +205,6 @@
   }
 
   .error-message {
- font-size: 12px;
+    font-size: 12px;
   }
 }

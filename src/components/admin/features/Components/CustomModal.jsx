@@ -12,7 +12,6 @@ const CustomModal = ({
   topic,
   setResources,
 }) => {
-  console.log("topic", topic);
   const [options, setOptions] = useState({
     disabled: true,
     bounds: { left: 0, top: 0, bottom: 0, right: 0 },
