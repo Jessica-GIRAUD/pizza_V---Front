@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles//Register.css";
 import { useNavigate } from "react-router-dom";
-import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import { register } from "../../../services/Authentification";
 import { message } from "antd";
 
@@ -15,9 +14,6 @@ const ResetPassword = () => {
     message: null,
     input: null,
   });
-
-  const [passwordShown, setPasswordShown] = useState(false);
-  const [confirmedPasswordShown, setConfirmedPasswordShown] = useState(false);
 
   const handleChange = (event) => {
     const {
