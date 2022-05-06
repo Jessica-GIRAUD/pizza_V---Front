@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import "../styles//Register.css";
-import { useNavigate } from "react-router-dom";
-import { register } from "../../../services/Authentification";
+import { useNavigate, useParams } from "react-router-dom";
+import { changePassword } from "../../../services/Authentification";
 import { message } from "antd";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
+  let { id } = useParams();
 
-  const [email, setEmail] = useState(null);
+  const [formValues, setFormValues] = useState({
+    password: "",
+    confirmedPassword: "",
+    token: id,
+  });
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [confirmedPasswordShown, setConfirmedPasswordShown] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState({
     hasError: false,
@@ -17,7 +25,7 @@ const ResetPassword = () => {
 
   const handleChange = (event) => {
     const {
-      target: { value },
+      target: { value, name },
     } = event;
 
     setErrorMessage({
@@ -26,15 +34,15 @@ const ResetPassword = () => {
       input: null,
     });
 
-    setEmail(value);
+    setFormValues({ ...formValues, [name]: value });
   };
 
   const handleSubmit = (event) => {
-    register(email).then((res) => {
+    changePassword(formValues).then((res) => {
       if (res.status === 200) {
         navigate("/admin");
         message.success(
-          "Votre demande de réinitialisation a bien été demandée. Veuillez consulter vos e-mails."
+          "Votre mot de passe a été réinitialisé avec succès. Veuillez vous identifier."
         );
       }
       if (res.status === 500) {
@@ -42,7 +50,9 @@ const ResetPassword = () => {
       } else {
         setErrorMessage({
           hasError: true,
-          message: res.data.message,
+          message:
+            res.data.message ||
+            "Votre réinitialisation de mot de passe a échouée, contactez votre administrateur.",
           input: res.data.input,
         });
       }
@@ -50,37 +60,94 @@ const ResetPassword = () => {
     event.preventDefault();
   };
 
+  const toggleShowPassword = (origin) => {
+    if (origin === "password") {
+      setPasswordShown(!passwordShown);
+    } else {
+      setConfirmedPasswordShown(!confirmedPasswordShown);
+    }
+  };
+
   return (
     <div className="registration">
-      <div className="registration-form animation a1">
+      <div className="registration-form">
         <div className="register-header">
-          <h2 className="animation a1">Bienvenue chez Pizza Kika</h2>
-          <h4 className="animation a2">Réinitialisez votre mot de passe</h4>
+          <h2>Bienvenue chez Pizza Kika</h2>
+          <h4>Réinitialisez votre mot de passe</h4>
         </div>
 
         <form className="form">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="E-mail"
-            className={`input animation a3 ${
-              errorMessage.hasError && errorMessage.input !== "password"
-                ? "error"
-                : ""
-            }`}
-            onChange={(event) => handleChange(event)}
-          />
+          <div className="pass-wrapper">
+            <input
+              className={`input ${
+                errorMessage.hasError && errorMessage.input === "password"
+                  ? "error"
+                  : ""
+              }`}
+              type={passwordShown ? "text" : "password"}
+              id="password"
+              name="password"
+              placeholder="Nouveau mot de passe"
+              onChange={(event) => handleChange(event)}
+            />
+            {passwordShown ? (
+              <div
+                onClick={() => toggleShowPassword("password")}
+                style={{ height: "100%" }}
+              >
+                <EyeOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            ) : (
+              <div onClick={() => toggleShowPassword("password")}>
+                <EyeInvisibleOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="pass-wrapper">
+            <input
+              className={`input ${
+                errorMessage.hasError && errorMessage.input === "password"
+                  ? "error"
+                  : ""
+              }`}
+              type={confirmedPasswordShown ? "text" : "password"}
+              id="confirmedPassword"
+              name="confirmedPassword"
+              placeholder="Confirmation du mot de passe"
+              onChange={(event) => handleChange(event)}
+            />
+            {confirmedPasswordShown ? (
+              <div
+                onClick={() => toggleShowPassword("confirmedPassword")}
+                style={{ height: "100%" }}
+              >
+                <EyeOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            ) : (
+              <div onClick={() => toggleShowPassword("confirmedPassword")}>
+                <EyeInvisibleOutlined
+                  className="eye"
+                  style={{ color: "#fff", fontSize: "15px" }}
+                />
+              </div>
+            )}
+          </div>
 
           {errorMessage.message ? (
             <span className="error-message">{errorMessage.message}</span>
           ) : null}
 
-          <button
-            onClick={(e) => handleSubmit(e)}
-            className="animation a6"
-            type="submit"
-          >
+          <button onClick={(e) => handleSubmit(e)} type="submit">
             Envoyer
           </button>
         </form>

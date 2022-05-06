@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import ForgetPassword from "./components/admin/authentification/ForgetPassword";
 import ResetPassword from "./components/admin/authentification/ResetPassword";
 import Login from "./components/admin/authentification/Login";
 import HomePage from "./components/client/MainPage";
@@ -24,7 +25,8 @@ const App = () => {
       <Route path="/admin" element={<Layout />}>
         {/* Public routes*/}
         <Route path="/admin" element={<Login />} />
-        <Route path="/admin/resetpassword" element={<ResetPassword />} />
+        <Route path="/admin/resetpassword" element={<ForgetPassword />} />
+        <Route path="/admin/resetpassword/:id" element={<ResetPassword />} />
 
         {/* Protected Routes */}
         <Route element={<PersistLogin />}>

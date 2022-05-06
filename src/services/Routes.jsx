@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const url = "https://pizza-kika.herokuapp.com";
+const BASE_URL = "https://pizza-kika.herokuapp.com";
+// const BASE_URL = "http://localhost:5001";
 
 export const getAllPublic = async (topic) => {
   try {
-    const response = await axios.get(`${url}/${topic}`);
+    const response = await axios.get(`${BASE_URL}/${topic}`);
     if (response.status === 200) {
       return response;
     }
@@ -16,7 +17,7 @@ export const getAllPublic = async (topic) => {
 
 export const getAll = async (axiosPrivate, topic) => {
   try {
-    const response = await axiosPrivate.get(`${url}/${topic}`);
+    const response = await axiosPrivate.get(`${BASE_URL}/${topic}`);
     if (response.status === 200) {
       return response;
     }
@@ -28,7 +29,7 @@ export const getAll = async (axiosPrivate, topic) => {
 
 export const getOne = async (id, axiosPrivate, topic) => {
   try {
-    const response = await axiosPrivate.get(`${url}/${topic}/${id}`);
+    const response = await axiosPrivate.get(`${BASE_URL}/${topic}/${id}`);
     if (response.status === 200) {
       return response;
     }
@@ -40,7 +41,10 @@ export const getOne = async (id, axiosPrivate, topic) => {
 
 export const createOne = async (data, axiosPrivate, topic) => {
   try {
-    const response = await axiosPrivate.post(`${url}/${topic}/create`, data);
+    const response = await axiosPrivate.post(
+      `${BASE_URL}/${topic}/create`,
+      data
+    );
     if (response.status === 200) {
       return response;
     }
@@ -53,7 +57,7 @@ export const createOne = async (data, axiosPrivate, topic) => {
 export const updateOne = async (id, data, axiosPrivate, topic) => {
   try {
     const response = await axiosPrivate.put(
-      `${url}/${topic}/update/${id}`,
+      `${BASE_URL}/${topic}/update/${id}`,
       data
     );
     if (response.status === 200) {
@@ -67,7 +71,9 @@ export const updateOne = async (id, data, axiosPrivate, topic) => {
 
 export const deleteOne = async (id, axiosPrivate, topic) => {
   try {
-    const response = await axiosPrivate.delete(`${url}/${topic}/delete/${id}`);
+    const response = await axiosPrivate.delete(
+      `${BASE_URL}/${topic}/delete/${id}`
+    );
     if (response.status === 200) {
       return response;
     }

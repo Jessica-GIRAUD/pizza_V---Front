@@ -1,8 +1,20 @@
 import axios from "./Axios";
 
-export const register = async (data) => {
+export const reset = async (data) => {
+  console.log("data", data);
   try {
-    const response = await axios.post(`/auth/forgot-password`, data);
+    const response = await axios.post(`/auth/reset-password-email`, data);
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (err) {
+    return err.response;
+  }
+};
+
+export const changePassword = async (data) => {
+  try {
+    const response = await axios.post(`/auth/update-password`, data);
     if (response.status === 200) {
       return response;
     }

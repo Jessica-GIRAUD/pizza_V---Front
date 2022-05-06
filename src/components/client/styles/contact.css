@@ -98,6 +98,10 @@
     font-weight: bold;
   }
 
+  .tel-container p {
+    font-size: 4.5vw;
+  }
+
   .adresse,
   .horaire {
     width: 100%;

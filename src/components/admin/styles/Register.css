@@ -19,15 +19,10 @@
   justify-content: center;
   width: 35%;
   margin-left: 140px;
-  height: 60%;
   margin: auto 140px;
   padding: 20px;
   background-color: #0000006e;
   border-radius: 3px;
-}
-
-.registration-form {
-  height: 550px;
 }
 
 .register-header,
@@ -198,6 +193,15 @@
     width: 80%;
     min-height: 60vh;
     margin: auto;
+    background-color: #0000009c;
+  }
+
+  .login-header > h2 {
+    font-size: 2.5em;
+  }
+
+  .login {
+    background-position-x: 80%;
   }
 
   .form > button {
@@ -206,5 +210,10 @@
 
   .error-message {
     font-size: 12px;
+  }
+
+  .registration-form {
+    min-height: 0;
+    max-height: 50vh;
   }
 }
