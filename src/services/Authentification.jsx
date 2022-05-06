@@ -1,7 +1,6 @@
 import axios from "./Axios";
 
 export const reset = async (data) => {
-  console.log("data", data);
   try {
     const response = await axios.post(`/auth/reset-password-email`, data);
     if (response.status === 200) {
