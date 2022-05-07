@@ -70,9 +70,9 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="registration">
-      <div className="registration-form">
-        <div className="register-header">
+    <div className="reset-password">
+      <div className="reset-password-form">
+        <div className="reset-password-header">
           <h2>Bienvenue chez Pizza Kika</h2>
           <h4>Réinitialisez votre mot de passe</h4>
         </div>

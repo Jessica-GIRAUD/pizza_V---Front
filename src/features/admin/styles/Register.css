@@ -11,7 +11,8 @@
   animation-delay: 0s;
 }
 
-.forget {
+.forget,
+.reset-password {
   display: flex;
   height: 100vh;
   background-image: url("../../images/2.png");
@@ -21,7 +22,8 @@
 
 .login-form,
 .registration-form,
-.forget-form {
+.forget-form,
+.reset-password-form {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -36,13 +38,15 @@
 
 .register-header,
 .login-header,
-.forget-header {
+.forget-header,
+.reset-password-header {
   width: 80%;
   margin: 0 auto;
 }
 .register-header > h2,
 .login-header > h2,
-.forget-header > h2 {
+.forget-header > h2,
+.reset-password-header > h2 {
   font-size: 2.2em;
   margin: 0;
   color: #ff6233;
@@ -50,7 +54,8 @@
 
 .register-header > h4,
 .login-header > h4,
-.forget-header > h4 {
+.forget-header > h4,
+.reset-password-header > h4 {
   margin-top: 10px;
   font-weight: 600;
   font-size: 1.2em;
@@ -202,14 +207,16 @@
 @media (max-width: 768px) {
   .login-form,
   .registration-form,
-  .forget-form {
+  .forget-form,
+  .reset-password-form {
     width: 80%;
     min-height: 60vh;
     margin: auto;
     background-color: #0000009c;
   }
 
-  .forget-form {
+  .forget-form,
+  .reset-password-form {
     min-height: 50vh;
   }
 
