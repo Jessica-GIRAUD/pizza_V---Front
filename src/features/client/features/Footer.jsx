@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/footer.css";
+import "../styles/footer.css";
 import { HashLink as Link } from "react-router-hash-link";
 
 const Footer = () => {

@@ -1,7 +1,7 @@
 import React from "react";
-import useAuth from "../admin/hooks/useAuth";
 import Arrows from "./Arrows";
-import "./styles/slogan.css";
+import "../styles/slogan.css";
+import useAuth from "../../admin/hooks/useAuth";
 
 const Accueil = () => {
   const { contact, format, actus } = useAuth();

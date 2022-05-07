@@ -1,9 +1,9 @@
 import { Form, message } from "antd";
 import { useEffect } from "react";
-import { createOne, getOne, updateOne } from "../../../../services/Routes";
-import useGenerateFormItem from "../../hooks/generateInput";
-import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import "../../styles/Form.css";
+import { createOne, getOne, updateOne } from "../../../services/Routes";
+import useGenerateFormItem from "../hooks/generateInput";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import "../styles/Form.css";
 import FormButton from "./FormButton";
 
 const CustomForm = ({

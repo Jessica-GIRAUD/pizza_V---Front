@@ -1,7 +1,7 @@
 import React from "react";
 import Creme from "./Creme";
 
-import "./styles/pizzas.css";
+import "../styles/pizzas.css";
 
 const Pizzas = ({ allPizzas }) => {
   return (

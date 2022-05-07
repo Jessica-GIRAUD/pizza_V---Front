@@ -2,7 +2,8 @@ import { Modal } from "antd";
 import { createRef, useState } from "react";
 import Draggable from "react-draggable";
 import CustomForm from "./Form";
-import "../../styles/Form.css";
+import "../styles/Form.css";
+
 const CustomModal = ({
   openModal,
   setOpenModal,

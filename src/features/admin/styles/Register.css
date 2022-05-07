@@ -11,8 +11,17 @@
   animation-delay: 0s;
 }
 
+.forget {
+  display: flex;
+  height: 100vh;
+  background-image: url("../../images/2.png");
+  background-position-x: 80%;
+  background-size: cover;
+}
+
 .login-form,
-.registration-form {
+.registration-form,
+.forget-form {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -26,19 +35,22 @@
 }
 
 .register-header,
-.login-header {
+.login-header,
+.forget-header {
   width: 80%;
   margin: 0 auto;
 }
 .register-header > h2,
-.login-header > h2 {
+.login-header > h2,
+.forget-header > h2 {
   font-size: 2.2em;
   margin: 0;
   color: #ff6233;
 }
 
 .register-header > h4,
-.login-header > h4 {
+.login-header > h4,
+.forget-header > h4 {
   margin-top: 10px;
   font-weight: 600;
   font-size: 1.2em;
@@ -189,15 +201,20 @@
 
 @media (max-width: 768px) {
   .login-form,
-  .registration-form {
+  .registration-form,
+  .forget-form {
     width: 80%;
     min-height: 60vh;
     margin: auto;
     background-color: #0000009c;
   }
 
+  .forget-form {
+    min-height: 50vh;
+  }
+
   .login-header > h2 {
-    font-size: 2.5em;
+    font-size: 2.2em;
   }
 
   .login {

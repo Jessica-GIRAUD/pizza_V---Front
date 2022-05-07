@@ -1,7 +1,7 @@
 import React from "react";
-import Tel from "../images/appel-telephonique.png";
-import "./styles/contact.css";
-import useAuth from "../admin/hooks/useAuth";
+import Tel from "../../images/appel-telephonique.png";
+import "../styles/contact.css";
+import useAuth from "../../admin/hooks/useAuth";
 
 const Contact = () => {
   const { contact, format } = useAuth();

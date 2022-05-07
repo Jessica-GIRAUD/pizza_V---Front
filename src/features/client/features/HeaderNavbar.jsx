@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import logo from "../images/logo.png";
-import "./styles/navbar.css";
+import logo from "../../images/logo.png";
+import "../styles/navbar.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { push as Menu } from "react-burger-menu";
 import { HashLink as Link } from "react-router-hash-link";

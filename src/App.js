@@ -1,20 +1,20 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import ForgetPassword from "./components/admin/authentification/ForgetPassword";
-import ResetPassword from "./components/admin/authentification/ResetPassword";
-import Login from "./components/admin/authentification/Login";
-import HomePage from "./components/client/MainPage";
-import BasicLayout from "./components/admin/features/Layout/BasicLayout";
+import ForgetPassword from "./features/admin/authentification/ForgetPassword";
+import ResetPassword from "./features/admin/authentification/ResetPassword";
+import Login from "./features/admin/authentification/Login";
+import HomePage from "./features/client/features/MainPage";
+import BasicLayout from "./features/admin/features/Layout/BasicLayout";
 import React from "react";
-import Layout from "./components/admin/features/Components/Layout";
-import RequireAuth from "./components/admin/authentification/RequireAuth";
-import PersistLogin from "./components/admin/authentification/PersistLogin";
+import Layout from "./features/admin/components/Layout";
+import RequireAuth from "./features/admin/authentification/RequireAuth";
+import PersistLogin from "./features/admin/authentification/PersistLogin";
 import "./App.css";
 import "antd/dist/antd.less";
-import DashboardPizzas from "./components/admin/features/Pizzas/DashboardPizzas";
-import DashboardContact from "./components/admin/features/Contact/DashboardContact";
-import DashboardActu from "./components/admin/features/Actus/DashboardActu";
-import DashboardProfile from "./components/admin/features/Profil/DashboardProfile";
-import ErrorPage from "./components/admin/features/ErrorPage";
+import DashboardPizzas from "./features/admin/features/Pizzas/DashboardPizzas";
+import DashboardContact from "./features/admin/features/Contact/DashboardContact";
+import DashboardActu from "./features/admin/features/Actus/DashboardActu";
+import DashboardProfile from "./features/admin/features/Profil/DashboardProfile";
+import ErrorPage from "./features/admin/features/ErrorPage";
 
 const App = () => {
   return (

@@ -1,17 +1,17 @@
 import React from "react";
-import Contact from "./Contact";
-import Footer from "./Footer";
-import "./styles/pizzas.css";
+import "../styles/pizzas.css";
 
-const Originale = ({ allPizzas }) => {
-  const filteredOriginalPizza = allPizzas?.filter(
-    ({ base_name }) => base_name === "originale"
+const Tomato = ({ allPizzas }) => {
+  const filteredTomatoPizza = allPizzas?.filter(
+    ({ base_name }) => base_name === "tomate"
   );
+
   return (
-    <div className="originale" id="originale">
-      <h1>Les Originales</h1>
-      <div className="originale-container">
-        {filteredOriginalPizza?.map((pizza, key) => {
+    <div className="tomato" id="tomate">
+      <h1>Base tomate</h1>
+
+      <div className="tomato-container">
+        {filteredTomatoPizza?.map((pizza, key) => {
           const { description, name, price } = pizza;
           return (
             <div key={key} className="pizza-container">
@@ -26,10 +26,8 @@ const Originale = ({ allPizzas }) => {
           );
         })}
       </div>
-      <Contact />
-      <Footer />
     </div>
   );
 };
 
-export default Originale;
+export default Tomato;

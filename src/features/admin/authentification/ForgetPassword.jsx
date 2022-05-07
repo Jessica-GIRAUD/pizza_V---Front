@@ -35,7 +35,8 @@ const ForgetPassword = () => {
       if (res.status === 200) {
         navigate("/admin");
         message.success(
-          "Votre demande de réinitialisation a bien été effectuée. Veuillez consulter vos e-mails."
+          "Votre demande de réinitialisation a bien été effectuée. Veuillez consulter vos e-mails.",
+          10
         );
       }
       if (res.status === 500) {
@@ -54,9 +55,9 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="registration">
-      <div className="registration-form">
-        <div className="register-header">
+    <div className="forget">
+      <div className="forget-form">
+        <div className="forget-header">
           <h2>Bienvenue chez Pizza Kika</h2>
           <h4>Vous avez oublié votre mot de passe ?</h4>
         </div>

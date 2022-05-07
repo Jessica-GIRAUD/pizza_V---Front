@@ -5,7 +5,7 @@ import Accueil from "./Accueil";
 import Originale from "./Originale";
 import Tomato from "./Tomate";
 import ScrollArrow from "./ScrollArrow";
-import useAuth from "../admin/hooks/useAuth";
+import useAuth from "../../admin/hooks/useAuth";
 
 const HomePage = () => {
   const { resources } = useAuth();

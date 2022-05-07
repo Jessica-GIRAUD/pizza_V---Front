@@ -1,17 +1,17 @@
 import React from "react";
-import "./styles/pizzas.css";
+import Contact from "./Contact";
+import Footer from "./Footer";
+import "../styles/pizzas.css";
 
-const Creme = ({ allPizzas }) => {
-  const filteredCreamyPizza = allPizzas?.filter(
-    ({ base_name }) => base_name === "crème"
+const Originale = ({ allPizzas }) => {
+  const filteredOriginalPizza = allPizzas?.filter(
+    ({ base_name }) => base_name === "originale"
   );
-
   return (
-    <div className="creme" id="creme">
-      <h1>Base crème</h1>
-
-      <div className="cream-container">
-        {filteredCreamyPizza?.map((pizza, key) => {
+    <div className="originale" id="originale">
+      <h1>Les Originales</h1>
+      <div className="originale-container">
+        {filteredOriginalPizza?.map((pizza, key) => {
           const { description, name, price } = pizza;
           return (
             <div key={key} className="pizza-container">
@@ -26,8 +26,10 @@ const Creme = ({ allPizzas }) => {
           );
         })}
       </div>
+      <Contact />
+      <Footer />
     </div>
   );
 };
 
-export default Creme;
+export default Originale;

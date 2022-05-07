@@ -42,7 +42,8 @@ const ResetPassword = () => {
       if (res.status === 200) {
         navigate("/admin");
         message.success(
-          "Votre mot de passe a été réinitialisé avec succès. Veuillez vous identifier."
+          "Votre mot de passe a été réinitialisé avec succès. Veuillez vous identifier.",
+          10
         );
       }
       if (res.status === 500) {
