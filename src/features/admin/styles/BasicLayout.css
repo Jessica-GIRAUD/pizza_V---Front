@@ -29,9 +29,7 @@
 }
 
 .header > span {
- 
   margin-right: 30px;
-
 }
 
 ::selection {
@@ -71,29 +69,24 @@
   margin: 15px 0;
 }
 
-
-
-@media (max-width: 768px) {
- 
-
-  .ant-layout.ant-layout-has-sider > .ant-layout, .ant-layout.ant-layout-has-sider > .ant-layout-content {
+@media (max-width: 915px) {
+  .ant-layout.ant-layout-has-sider > .ant-layout,
+  .ant-layout.ant-layout-has-sider > .ant-layout-content {
     width: inherit !important;
   }
 
   .header {
     width: initial;
-  
   }
 
   .ant-layout-header {
-display: flex !important;
-justify-content: flex-start;
+    display: flex !important;
+    justify-content: flex-start;
   }
 
   .header > span {
     font-size: small;
     margin-right: 20px;
-
   }
 
   .disconnect-txt {

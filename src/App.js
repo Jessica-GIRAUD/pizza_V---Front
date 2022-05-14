@@ -37,11 +37,14 @@ const App = () => {
               <Route path="dashboard/contact" element={<DashboardContact />} />
               <Route path="dashboard/profile" element={<DashboardProfile />} />
             </Route>
+            <Route
+              path="*"
+              element={<Navigate to="/admin/dashboard/pizzas" />}
+            />
           </Route>
         </Route>
 
         {/* Catch All */}
-        <Route path="*" element={<Navigate to="/admin/dashboard/pizzas" />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
       <Route path="/error" element={<ErrorPage />} />

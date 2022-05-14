@@ -108,7 +108,7 @@
   background: linear-gradient(to left, #000000c7, #0000006e);
 }
 
-@media (max-width: 844px) {
+@media (max-width: 915px) {
   .pizzas-page > h1 {
     font-size: 9vw;
   }
@@ -139,6 +139,12 @@
   #originale > div.originale-container > div:nth-child(2) {
     background: #0000006e;
   }
+
+  #originale > div.originale-container > div:nth-child(3),
+  #originale > div.originale-container > div:nth-child(6) {
+    background: linear-gradient(to left, #000000c7, #0000006e);
+  }
+
   .pizza-container-1 > p {
     font-size: 3.5vw;
     min-height: 100px;
@@ -170,28 +176,27 @@
 
   .originale {
     background-image: url("../../images/2mobile.png");
-    background-position: 40% 117%;
-    background-size: inherit;
   }
 }
 
-@media (max-width: 844px) and (orientation: landscape) {
+@media (max-width: 915px) and (orientation: landscape) {
   .pizza-container {
     width: 30%;
   }
 
   .pizzas-page > h1 {
-    font-size: 8vw;
+    font-size: 7vw;
   }
 
   .pizzas-page > p {
     margin: 0px auto;
+    font-size: 2.2vw;
   }
 
   .creme > h1,
   .tomato > h1,
   .originale > h1 {
-    font-size: 7vw;
+    font-size: 6.5vw;
     margin-bottom: 20px;
     padding-top: 10px;
   }
@@ -219,7 +224,8 @@
   #originale > div.originale-container > div:nth-child(4) {
     background: #0000006e;
   }
-  #originale > div.originale-container > div:nth-child(3) {
+  #originale > div.originale-container > div:nth-child(3),
+  #originale > div.originale-container > div:nth-child(6) {
     background: linear-gradient(to left, #000000c7, #0000006e);
   }
 }

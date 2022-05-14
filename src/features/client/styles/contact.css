@@ -64,7 +64,7 @@
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 915px) {
   .container-contact {
     width: 90%;
     margin: auto;
@@ -108,7 +108,7 @@
   }
 }
 
-@media (max-width: 844px) and (orientation: landscape) {
+@media (max-width: 915px) and (orientation: landscape) {
   .container-contact > h1 {
     margin-bottom: 20px;
     font-size: 7vw;

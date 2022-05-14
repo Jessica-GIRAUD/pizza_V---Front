@@ -248,7 +248,7 @@ path.a2 {
   }
 }
 
-@media (max-width: 844px) {
+@media (max-width: 744px) {
   .position {
     margin-top: 15vh;
   }
@@ -317,7 +317,7 @@ path.a2 {
   }
 }
 
-@media (max-width: 844px) and (orientation: landscape) {
+@media (max-width: 915px) and (orientation: landscape) {
   .position {
     margin-top: 22vh;
   }
@@ -330,14 +330,14 @@ path.a2 {
   }
 
   .slogan {
-    margin: 0 auto;
+    margin: auto;
   }
 
   .slogan > h1 {
     padding-bottom: 0px;
     flex-direction: row;
     font-size: 4.8vw;
-    width: 85%;
+    width: 90%;
   }
 
   .slogan > h1:after {
@@ -362,11 +362,8 @@ path.a2 {
 
   .container-arrows {
     display: flex;
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    margin: auto;
+
     text-align: center;
   }
 }
