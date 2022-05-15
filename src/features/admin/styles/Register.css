@@ -118,7 +118,7 @@
 .error-message {
   margin: 20px auto 0;
   color: red;
-  font-size: small;
+  font-size: 1em;
 }
 
 .error {

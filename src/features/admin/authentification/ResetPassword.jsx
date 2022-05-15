@@ -143,6 +143,19 @@ const ResetPassword = () => {
               </div>
             )}
           </div>
+          {errorMessage.input === "expired" && (
+            <a
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                marginTop: "10px",
+              }}
+              className="forgetPassword"
+              href="/admin/resetpassword"
+            >
+              Besoin d'une 2e chance ?
+            </a>
+          )}
 
           {errorMessage.message ? (
             <span className="error-message">{errorMessage.message}</span>
