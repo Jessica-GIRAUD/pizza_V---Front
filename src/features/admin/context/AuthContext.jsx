@@ -22,10 +22,11 @@ export const AuthProvider = ({ children }) => {
     getAllPublic("contact").then((res) => {
       setContact(res?.data[0]);
     });
-    getAllPublic("actus").then((res) => {
-      setActus(res?.data);
-    });
-    setIsLoading(false);
+    getAllPublic("actus")
+      .then((res) => {
+        setActus(res?.data);
+      })
+      .finally(() => setIsLoading(false));
   };
 
   function format(number) {
