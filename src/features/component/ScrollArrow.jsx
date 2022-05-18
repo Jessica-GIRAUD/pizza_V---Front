@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowUpOutlined } from "@ant-design/icons";
-import "../styles/scrollArrow.css";
+import "./styles/scrollArrow.css";
 
 const ScrollArrow = () => {
   const [showScroll, setShowScroll] = useState(false);

@@ -4,19 +4,16 @@ import Pizzas from "./Pizzas";
 import Accueil from "./Accueil";
 import Originale from "./Originale";
 import Tomato from "./Tomate";
-import ScrollArrow from "./ScrollArrow";
-import useAuth from "../../admin/hooks/useAuth";
+import ScrollArrow from "../../component/ScrollArrow";
 
 const HomePage = () => {
-  const { resources } = useAuth();
-
   return (
     <div>
       <HeaderNavbar />
       <Accueil />
-      <Pizzas allPizzas={resources} />
-      <Tomato allPizzas={resources} />
-      <Originale allPizzas={resources} />
+      <Pizzas />
+      <Tomato />
+      <Originale />
 
       <ScrollArrow />
     </div>

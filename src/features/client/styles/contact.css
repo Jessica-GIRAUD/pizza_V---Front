@@ -12,6 +12,7 @@
   align-items: center;
   width: 50%;
   text-align: center;
+  min-width: 350px;
 }
 
 .horaire-adresse {
@@ -21,8 +22,7 @@
 }
 
 .container-contact h1 {
-  font-size: 5vw;
-  margin: 0;
+  font-size: 4vw;
 }
 
 .horaire-adresse h4 {

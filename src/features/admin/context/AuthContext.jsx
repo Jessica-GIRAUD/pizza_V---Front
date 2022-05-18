@@ -8,8 +8,10 @@ export const AuthProvider = ({ children }) => {
   const [resources, setResources] = useState([]);
   const [contact, setContact] = useState({});
   const [actus, setActus] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchAllRessources = () => {
+    setIsLoading(true);
     getAllPublic("pizzas").then((res) => {
       setResources(
         res?.data
@@ -23,6 +25,7 @@ export const AuthProvider = ({ children }) => {
     getAllPublic("actus").then((res) => {
       setActus(res?.data);
     });
+    setIsLoading(false);
   };
 
   function format(number) {
@@ -47,6 +50,7 @@ export const AuthProvider = ({ children }) => {
         contact,
         actus,
         format,
+        isLoading,
       }}
     >
       {children}

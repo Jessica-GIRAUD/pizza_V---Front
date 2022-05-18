@@ -11,7 +11,7 @@ export const getAllPublic = async (topic) => {
     }
   } catch (err) {
     console.log(err);
-    return err.response;
+    return [];
   }
 };
 

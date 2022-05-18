@@ -105,7 +105,7 @@
 }
 
 .arrows3 path {
-  stroke: #2e5227;
+  stroke: #4f674b;
   fill: transparent;
   stroke-width: 3px;
   animation: arrow 2s infinite;
@@ -136,7 +136,7 @@
 }
 
 .original-arrow:hover {
-  box-shadow: 1px 1px 4px #2e5227;
+  box-shadow: 1px 1px 4px #4f674b;
 }
 
 @keyframes arrow {

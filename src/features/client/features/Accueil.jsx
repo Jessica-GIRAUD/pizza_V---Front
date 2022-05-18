@@ -2,14 +2,17 @@ import React from "react";
 import Arrows from "./Arrows";
 import "../styles/slogan.css";
 import useAuth from "../../admin/hooks/useAuth";
+import Spinner from "../../component/Spinner";
 
 const Accueil = () => {
-  const { contact, format, actus } = useAuth();
+  const { contact, format, actus, isLoading } = useAuth();
 
   return (
     <div id="accueil" className="background">
       <div className="position bandeau">
-        {actus?.length && (
+        {isLoading ? (
+          <Spinner />
+        ) : (
           <div className="actu">
             {actus?.map((actu, index) => {
               const { description, name } = actu;

@@ -3,7 +3,7 @@ import Creme from "./Creme";
 
 import "../styles/pizzas.css";
 
-const Pizzas = ({ allPizzas }) => {
+const Pizzas = () => {
   return (
     <div className="pizzas-page" id="pizzas">
       <h1>Découvrez nos Pizzas</h1>
@@ -12,7 +12,7 @@ const Pizzas = ({ allPizzas }) => {
         nos produits sont issus de producteurs français et pour la plupart,
         locaux.
       </p>
-      <Creme allPizzas={allPizzas} />
+      <Creme />
     </div>
   );
 };
