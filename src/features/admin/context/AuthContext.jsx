@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [resources, setResources] = useState([]);
   const [contact, setContact] = useState({});
   const [actus, setActus] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchAllRessources = () => {
     setIsLoading(true);

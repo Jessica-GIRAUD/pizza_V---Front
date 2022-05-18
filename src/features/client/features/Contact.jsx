@@ -14,7 +14,7 @@ const Contact = () => {
       {isLoading ? (
         <Spinner spinner={true} />
       ) : (
-        <div>
+        <div className="container-horaire-adresse">
           <div className="horaire-adresse">
             <div className="horaire">
               <h4>Horaires d'ouverture</h4>
