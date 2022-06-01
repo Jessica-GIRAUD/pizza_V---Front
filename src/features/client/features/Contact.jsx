@@ -56,6 +56,7 @@ const Contact = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
+                padding: "15px",
               }}
             >
               <img
@@ -64,8 +65,7 @@ const Contact = () => {
                 style={{
                   width: "25px",
                   height: "25px",
-
-                  alignItems: "center  ",
+                  alignItems: "center",
                 }}
               />
               <a href={`tel:+33${contact?.phone}`}>

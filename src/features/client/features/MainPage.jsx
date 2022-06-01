@@ -14,7 +14,6 @@ const HomePage = () => {
       <Pizzas />
       <Tomato />
       <Originale />
-
       <ScrollArrow />
     </div>
   );

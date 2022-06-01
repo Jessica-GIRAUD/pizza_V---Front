@@ -248,7 +248,8 @@ path.a2 {
   }
 }
 
-@media (max-width: 744px) {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
   .position {
     margin-top: 15vh;
   }
@@ -258,7 +259,7 @@ path.a2 {
   }
 
   .actu_titre {
-    font-size: 4vw;
+    font-size: 3.3vw;
   }
 
   /* BOX SLOGAN */
@@ -273,7 +274,7 @@ path.a2 {
     color: #ff6233;
     animation: topToBottom 8s infinite 0s;
     width: 100%;
-    font-size: 15vw;
+    font-size: 10vw;
     text-align: center;
     font-weight: 500;
   }
@@ -297,7 +298,7 @@ path.a2 {
 
   /* SLOGAN TELEPHONE */
   .slogan > a {
-    font-size: 10vw;
+    font-size: 8vw;
   }
 
   .container-arrows {
@@ -311,59 +312,86 @@ path.a2 {
   }
 
   .type {
-    font-size: 3.5vw;
+    font-size: 3vw;
     text-align: center;
-    padding: 5px;
+    padding: 8px;
   }
 }
-
-@media (max-width: 915px) and (orientation: landscape) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
   .position {
     margin-top: 22vh;
   }
+
   .bandeau {
-    height: 40px;
+    height: 70px;
   }
 
   .actu_titre {
-    font-size: 1.6vw;
+    font-size: 2.3vw;
   }
 
   .slogan {
     margin: auto;
+    width: 90%;
   }
 
   .slogan > h1 {
     padding-bottom: 0px;
     flex-direction: row;
-    font-size: 4.8vw;
-    width: 90%;
+    font-size: 5.5vw;
+    width: 100%;
   }
 
   .slogan > h1:after {
     width: 30%;
-    font-size: 4.8vw;
+    font-size: 5.5vw;
   }
 
   .slogan h4 {
-    font-size: 2.8vw;
+    font-size: 3.5vw;
     margin-bottom: 0;
   }
 
   .slogan > a {
-    font-size: 4vw;
+    font-size: 5vw;
   }
 
   .type,
   .type:visited {
-    font-size: 1.6vw;
-    margin-bottom: 2px;
+    font-size: 2.3vw;
+    margin-bottom: 10px;
   }
 
   .container-arrows {
     display: flex;
     margin: auto;
-
+    margin-bottom: 10px;
     text-align: center;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .actu_titre {
+    font-size: 18px;
+  }
+
+  .slogan > h4 {
+    font-size: 1.8rem;
+  }
+
+  .slogan > h1 {
+    width: 90%;
+    font-size: 5vw;
+  }
+
+  .slogan > a {
+    font-size: 2.5rem;
+  }
+
+  .type,
+  .type:visited {
+    margin-bottom: 20px;
+    font-size: 1.2em;
   }
 }

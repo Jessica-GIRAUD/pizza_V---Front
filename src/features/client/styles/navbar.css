@@ -49,6 +49,10 @@
   left: 0;
 }
 
+.navbar-list:focus-visible {
+  outline: none;
+}
+
 /* Changement de couleur lorsqu'un onglet est actif */
 .navbar-list .active a {
   text-shadow: 2px 2px 2px #050705;

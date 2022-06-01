@@ -1,6 +1,6 @@
 import React from "react";
 import Arrows from "./Arrows";
-import "../styles/slogan.css";
+import "../styles/accueil.css";
 import useAuth from "../../admin/hooks/useAuth";
 import Spinner from "../../component/Spinner";
 

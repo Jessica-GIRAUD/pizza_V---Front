@@ -12,7 +12,6 @@
   align-items: center;
   width: 50%;
   text-align: center;
-  min-width: 350px;
 }
 
 .adresse p,
@@ -61,7 +60,7 @@
   background-color: rgba(0, 0, 0, 0.486);
   margin: 20px auto;
   border-radius: 5px;
-  width: 220px;
+  width: fit-content;
   height: 50px;
 }
 
@@ -75,7 +74,8 @@
   font-weight: bold;
 }
 
-@media (max-width: 915px) {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
   .container-contact {
     width: 90%;
     margin: auto;
@@ -106,7 +106,6 @@
   .horaire p {
     margin: 0 5px;
     font-size: 3.5vw;
-    font-weight: bold;
   }
 
   .tel-container p {
@@ -123,20 +122,51 @@
   }
 }
 
-@media (max-width: 915px) and (orientation: landscape) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #contact {
+    width: 90%;
+  }
+
   .container-contact > h1 {
     margin-bottom: 20px;
     font-size: 7vw;
   }
-  .tel-container p {
-    font-size: 2vw;
+
+  .adresse p,
+  .horaire p {
+    font-size: 2.3vw;
   }
 
   .container-contact h4 {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
   }
 
   .container-contact {
     padding-bottom: 35px;
+  }
+
+  .tel-container p {
+    font-size: 3vw;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .container-contact h1 {
+    font-size: 4vw;
+  }
+
+  .container-contact h4 {
+    font-size: 2vw;
+  }
+
+  .adresse p,
+  .horaire p {
+    font-size: 1.3vw;
+  }
+
+  .tel-container p {
+    font-size: 1.4vw;
   }
 }
