@@ -96,7 +96,7 @@
 .pizza-container-2 > h4 {
   color: #ff6233;
   font-size: 2vw;
-  font-family: cursive;
+  font-family: "Open Sans";
   font-weight: bold;
   margin: 0;
 }
@@ -113,6 +113,10 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .pizzas-page {
+    background-size: contain;
+  }
+
   .pizzas-page > h1 {
     font-size: 9vw;
   }
@@ -128,6 +132,7 @@
     font-size: 8.5vw;
     margin-bottom: 40px;
   }
+
   /* Box ombragée pour chaque pizza */
   .pizza-container {
     width: 90%;
