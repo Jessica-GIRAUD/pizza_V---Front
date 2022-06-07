@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import cream from "../../images/cream.png";
 import strings from "../utils/title.json";
+import Error from "./Error";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
@@ -25,7 +26,7 @@ const Creme = () => {
 
   // animation cards
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading && resources?.length > 0) {
       gsap.set(pizzaContainerRef.current, { y: 0 });
       ScrollTrigger.batch(pizzaContainerRef.current, {
         interval: 0.1, // time window (in seconds) for batching to occur.
@@ -41,33 +42,35 @@ const Creme = () => {
         end: "top top",
       });
     }
-  }, [isLoading, pizzaContainerRef]);
+  }, [isLoading, pizzaContainerRef, resources]);
 
   // animation title
   useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: titleRefCream.current,
-          start: "20px bottom",
-          end: "top top",
-          scrub: 1,
-          // markers: true,
-        },
-      })
-      .fromTo(
-        titleRefCream.current,
-        { x: 100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          stagger: 0.2,
-          duration: 1,
-        }
-      )
-      .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
-      .to(".letter", { margin: "0" });
-  }, []);
+    if (!isLoading && resources?.length > 0) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: titleRefCream.current,
+            start: "20px bottom",
+            end: "top top",
+            scrub: 1,
+            // markers: true,
+          },
+        })
+        .fromTo(
+          titleRefCream.current,
+          { x: 100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 1,
+          }
+        )
+        .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
+        .to(".letter", { margin: "0" });
+    }
+  }, [isLoading, resources]);
 
   const filteredCreamyPizza = resources?.filter(
     ({ base_name }) => base_name === "crème"
@@ -84,10 +87,12 @@ const Creme = () => {
           );
         })}
       </h1>
-      <img src={cream} alt="tomate" className="creamImg" />
+      {resources?.length > 0 ? (
+        <img src={cream} alt="tomate" className="creamImg" />
+      ) : null}
       {isLoading ? (
         <Spinner spinner={true} />
-      ) : (
+      ) : resources?.length > 0 ? (
         <div className="cream-container">
           {filteredCreamyPizza?.map((pizza, key) => {
             const { description, name, price } = pizza;
@@ -113,6 +118,8 @@ const Creme = () => {
             );
           })}
         </div>
+      ) : (
+        <Error />
       )}
     </div>
   );

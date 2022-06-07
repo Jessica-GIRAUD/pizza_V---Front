@@ -5,6 +5,8 @@ import Spinner from "../../component/Spinner";
 import { IoPizzaOutline } from "react-icons/io5";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import strings from "../utils/title.json";
+import Error from "./Error";
 
 gsap.registerPlugin(ScrollTrigger);
 const Originale = () => {
@@ -22,7 +24,7 @@ const Originale = () => {
 
   // animation cards
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading && resources?.length > 0) {
       gsap.set(pizzaContainerRef.current, { y: 0 });
       ScrollTrigger.batch(pizzaContainerRef.current, {
         interval: 0.1, // time window (in seconds) for batching to occur.
@@ -38,33 +40,35 @@ const Originale = () => {
         end: "top top",
       });
     }
-  }, [isLoading, pizzaContainerRef]);
+  }, [isLoading, pizzaContainerRef, resources]);
 
   // animation title
   useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: titleRefOriginal.current,
-          start: "20px bottom",
-          end: "top top",
-          scrub: 1,
-          // markers: true,
-        },
-      })
-      .fromTo(
-        titleRefOriginal.current,
-        { x: 100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          stagger: 0.2,
-          duration: 1,
-        }
-      )
-      .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
-      .to(".letter", { margin: "0" });
-  }, []);
+    if (!isLoading && resources?.length > 0) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: titleRefOriginal.current,
+            start: "20px bottom",
+            end: "top top",
+            scrub: 1,
+            // markers: true,
+          },
+        })
+        .fromTo(
+          titleRefOriginal.current,
+          { x: 100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 1,
+          }
+        )
+        .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
+        .to(".letter", { margin: "0" });
+    }
+  }, [isLoading, resources]);
 
   const filteredOriginalPizza = resources?.filter(
     ({ base_name }) => base_name === "originale"
@@ -72,20 +76,17 @@ const Originale = () => {
   return (
     <div className="originale" id="originale">
       <h1 ref={titleRefOriginal}>
-        <span className="letter">O</span>
-        <span className="letter">r</span>
-        <span className="letter">i</span>
-        <span className="letter">g</span>
-        <span className="letter">i</span>
-        <span className="letter">n</span>
-        <span className="letter">a</span>
-        <span className="letter">l</span>
-        <span className="letter">e</span>
-        <span className="letter">s</span>
+        {strings.originalTitle.split("").map((letter, index) => {
+          return (
+            <span key={index} className="letter">
+              {letter}
+            </span>
+          );
+        })}
       </h1>
       {isLoading ? (
         <Spinner spinner={true} />
-      ) : (
+      ) : resources?.length > 0 ? (
         <div className="originale-container">
           {filteredOriginalPizza?.map((pizza, key) => {
             const { description, name, price } = pizza;
@@ -111,6 +112,8 @@ const Originale = () => {
             );
           })}
         </div>
+      ) : (
+        <Error />
       )}
     </div>
   );

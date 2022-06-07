@@ -13,14 +13,20 @@ export const AuthProvider = ({ children }) => {
   const fetchAllRessources = () => {
     setIsLoading(true);
     getAllPublic("pizzas").then((res) => {
-      setResources(
-        res?.data
-          ?.map(({ id, ...d }) => ({ ...d, key: id }))
-          ?.sort((a, b) => a?.name?.localeCompare(b?.name))
-      );
+      if (res?.data) {
+        setResources(
+          res?.data
+            ?.map(({ id, ...d }) => ({ ...d, key: id }))
+            ?.sort((a, b) => a?.name?.localeCompare(b?.name))
+        );
+      } else setResources([]);
     });
     getAllPublic("contact").then((res) => {
-      setContact(res?.data[0]);
+      if (res?.data) {
+        setContact(res?.data[0]);
+      } else {
+        setContact({});
+      }
     });
     getAllPublic("actus")
       .then((res) => {

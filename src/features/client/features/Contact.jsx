@@ -5,36 +5,39 @@ import Spinner from "../../component/Spinner";
 import { FiPhoneCall } from "react-icons/fi";
 import strings from "../utils/title.json";
 import gsap from "gsap";
+import Error from "./Error";
 
 const Contact = () => {
-  const { contact, format, isLoading } = useAuth();
+  const { contact, format, isLoading, resources } = useAuth();
   const titleRefContact = useRef();
 
   // animation title
   useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: titleRefContact.current,
-          start: "20px bottom",
-          end: "top 30%",
-          scrub: 1,
-          // markers: true,
-        },
-      })
-      .fromTo(
-        titleRefContact.current,
-        { x: 100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          stagger: 0.2,
-          duration: 1,
-        }
-      )
-      .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
-      .to(".letter", { margin: "0" });
-  }, []);
+    if (!isLoading && resources.length > 0) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: titleRefContact.current,
+            start: "20px bottom",
+            end: "top 30%",
+            scrub: 1,
+            // markers: true,
+          },
+        })
+        .fromTo(
+          titleRefContact.current,
+          { x: 100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 1,
+          }
+        )
+        .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
+        .to(".letter", { margin: "0" });
+    }
+  }, [isLoading, resources]);
 
   return (
     <div className="container-contact" id="contact">
@@ -50,7 +53,7 @@ const Contact = () => {
 
       {isLoading ? (
         <Spinner spinner={true} />
-      ) : (
+      ) : resources?.length > 0 ? (
         <div className="container-horaire-adresse">
           <div className="horaire-adresse">
             <div className="horaire">
@@ -103,6 +106,8 @@ const Contact = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <Error errorType="contact" />
       )}
     </div>
   );

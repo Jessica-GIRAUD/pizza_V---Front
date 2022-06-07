@@ -42,7 +42,7 @@ const Footer = () => {
           >
             Jessica GIRAUD{" "}
           </a>
-          with - All rights reserved.{" "}
+          - All rights reserved.{" "}
         </p>
       </footer>
     </div>

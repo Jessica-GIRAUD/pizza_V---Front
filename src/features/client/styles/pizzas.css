@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   justify-content: center;
 }
 
@@ -70,6 +71,10 @@
   background: linear-gradient(to right, #0000005a, #000000be);
 }
 
+.no-data {
+  background-size: cover;
+}
+
 /* name/description container */
 .pizza-container-1 {
   display: flex;
@@ -84,7 +89,6 @@
   font-style: italic;
   margin: 5px 0;
   font-size: 2vw;
-
   font-weight: 600;
 }
 
@@ -107,6 +111,20 @@
   font-family: "Open Sans";
   font-weight: bold;
   margin: 0;
+}
+
+/* error no data */
+.error--no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  height: 130px;
+  width: 30%;
+  color: #ffffffe1;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #0000005a, #000000be);
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -141,6 +159,10 @@
     width: 90%;
     margin: 5px;
     min-height: 140px;
+  }
+
+  .error--no-data {
+    width: 90%;
   }
 
   .pizza-container-1 > h2 {
@@ -194,6 +216,10 @@
     width: 80%;
   }
 
+  .error--no-data {
+    width: 50%;
+  }
+
   .pizza-container-1 > h2 {
     font-size: 3.5vw;
   }
@@ -238,6 +264,10 @@
   }
 
   .pizza-container {
+    width: 30%;
+  }
+
+  .error--no-data {
     width: 30%;
   }
 
