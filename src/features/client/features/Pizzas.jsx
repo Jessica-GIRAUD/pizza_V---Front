@@ -2,6 +2,8 @@ import React from "react";
 import Creme from "./Creme";
 
 import "../styles/pizzas.css";
+import Tomato from "./Tomate";
+import Originale from "./Originale";
 
 const Pizzas = () => {
   return (
@@ -13,6 +15,8 @@ const Pizzas = () => {
         locaux.
       </p>
       <Creme />
+      <Tomato />
+      <Originale />
     </div>
   );
 };

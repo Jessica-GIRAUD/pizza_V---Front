@@ -1,15 +1,52 @@
-import React from "react";
-import Tel from "../../images/appel-telephonique.png";
+import React, { useEffect, useRef } from "react";
 import "../styles/contact.css";
 import useAuth from "../../admin/hooks/useAuth";
 import Spinner from "../../component/Spinner";
+import { FiPhoneCall } from "react-icons/fi";
+import strings from "../utils/title.json";
+import gsap from "gsap";
 
 const Contact = () => {
   const { contact, format, isLoading } = useAuth();
+  const titleRefContact = useRef();
+
+  // animation title
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: titleRefContact.current,
+          start: "20px bottom",
+          end: "top 30%",
+          scrub: 1,
+          // markers: true,
+        },
+      })
+      .fromTo(
+        titleRefContact.current,
+        { x: 100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 1,
+        }
+      )
+      .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
+      .to(".letter", { margin: "0" });
+  }, []);
 
   return (
     <div className="container-contact" id="contact">
-      <h1>Contact</h1>
+      <h1 ref={titleRefContact}>
+        {strings.contactTitle.split("").map((letter, index) => {
+          return (
+            <span key={index} className="letter">
+              {letter}
+            </span>
+          );
+        })}
+      </h1>
 
       {isLoading ? (
         <Spinner spinner={true} />
@@ -59,15 +96,7 @@ const Contact = () => {
                 padding: "15px",
               }}
             >
-              <img
-                src={Tel}
-                alt="telephone"
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  alignItems: "center",
-                }}
-              />
+              <FiPhoneCall color="#ffffffe1" fontSize={20} />
               <a href={`tel:+33${contact?.phone}`}>
                 <p>{format(contact?.phone)}</p>
               </a>

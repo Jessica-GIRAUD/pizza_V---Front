@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   background-image: url("../../images/ardoise.jpg");
-  background-size: cover;
+  background-size: contain;
 }
 
 .pizzas-page > h1 {
@@ -12,7 +12,7 @@
 }
 
 .pizzas-page > p {
-  margin: 20px auto 0 auto;
+  margin: 20px auto 40px auto;
   font-size: 1.2vw;
   text-align: center;
 }
@@ -31,12 +31,19 @@
 .creme > h1,
 .tomato > h1,
 .originale > h1 {
-  padding-top: 40px;
   margin-top: 0;
   font-style: italic;
   text-align: center;
   font-size: 3.5vw;
 }
+
+.tomatoImg,
+.creamImg {
+  width: 45%;
+  filter: brightness(50%);
+  position: absolute;
+}
+
 .tomato-container,
 .cream-container,
 .originale-container {
@@ -47,6 +54,7 @@
   justify-content: center;
   padding-bottom: 70px;
   color: #ffffffe1;
+  z-index: 1;
 }
 
 .originale-container {
@@ -101,16 +109,6 @@
   margin: 0;
 }
 
-.tomato {
-  background-image: url("../../images/1.png");
-  background-size: cover;
-}
-
-.originale {
-  background-image: url("../../images/2.png");
-  background-size: cover;
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .pizzas-page {
@@ -123,7 +121,12 @@
 
   .pizzas-page > p {
     font-size: 3.5vw;
-    width: 90%;
+    width: 95%;
+  }
+
+  .tomatoImg,
+  .creamImg {
+    width: 100%;
   }
 
   .creme > h1,
@@ -161,16 +164,6 @@
     margin: 0;
     font-size: 6.4vw;
   }
-
-  .tomato {
-    background-image: url("../../images/1mobile.png");
-    background-size: cover;
-    background-position-x: right;
-  }
-
-  .originale {
-    background-image: url("../../images/2mobile.png");
-  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -196,6 +189,11 @@
     padding-top: 10px;
   }
 
+  .tomatoImg,
+  .creamImg {
+    width: 80%;
+  }
+
   .pizza-container-1 > h2 {
     font-size: 3.5vw;
   }
@@ -212,10 +210,6 @@
   .pizza-container-2 > h4 {
     margin: 0;
     font-size: 3.5vw;
-  }
-  .originale {
-    background-image: url("../../images/2.png");
-    background-position: 55% -31%;
   }
 }
 
@@ -236,6 +230,11 @@
     padding-top: 40px;
     margin-top: 0;
     font-size: 3.5vw;
+  }
+
+  .tomatoImg,
+  .creamImg {
+    width: 45%;
   }
 
   .pizza-container {

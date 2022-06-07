@@ -3,10 +3,10 @@ import "./styles/spinner.css";
 
 const Spinner = ({ spinner }) => {
   return (
-    <div class={`loader ${spinner ? "spinner" : ""}`}>
-      <div class="inner one" />
-      <div class="inner two" />
-      <div class="inner three" />
+    <div className={`loader ${spinner ? "spinner" : ""}`}>
+      <div className="inner one" />
+      <div className="inner two" />
+      <div className="inner three" />
     </div>
   );
 };

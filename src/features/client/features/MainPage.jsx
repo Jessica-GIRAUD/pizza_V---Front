@@ -2,9 +2,10 @@ import React from "react";
 import HeaderNavbar from "./HeaderNavbar";
 import Pizzas from "./Pizzas";
 import Accueil from "./Accueil";
-import Originale from "./Originale";
-import Tomato from "./Tomate";
+
 import ScrollArrow from "../../component/ScrollArrow";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 const HomePage = () => {
   return (
@@ -12,8 +13,8 @@ const HomePage = () => {
       <HeaderNavbar />
       <Accueil />
       <Pizzas />
-      <Tomato />
-      <Originale />
+      <Contact />
+      <Footer />
       <ScrollArrow />
     </div>
   );
