@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import useAuth from "../../admin/hooks/useAuth";
 import Spinner from "../../component/Spinner";
 import "../styles/pizzas.css";
-import { IoPizzaOutline } from "react-icons/io5";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import cream from "../../images/cream.png";
@@ -27,7 +26,7 @@ const Creme = () => {
   // animation cards
   useEffect(() => {
     if (!isLoading && resources?.length > 0) {
-      gsap.set(pizzaContainerRef.current, { y: 0 });
+      gsap.set(pizzaContainerRef.current, { y: 0, opacity: 0 });
       ScrollTrigger.batch(pizzaContainerRef.current, {
         interval: 0.1, // time window (in seconds) for batching to occur.
         batchMax: 3, // maximum batch size (targets). Can be function-based for dynamic values
@@ -99,16 +98,7 @@ const Creme = () => {
             return (
               <div key={key} className="pizza-container" ref={addToRefs}>
                 <div className="pizza-container-1">
-                  <h2>
-                    <IoPizzaOutline
-                      style={{
-                        transform: "rotate(-90deg)",
-                        color: "#ffffffe1",
-                        fontSize: "20px",
-                      }}
-                    />{" "}
-                    {name}
-                  </h2>
+                  <h2>{name}</h2>
                   <p>{description}</p>
                 </div>
                 <div className="pizza-container-2">

@@ -9,6 +9,7 @@
 .pizzas-page > h1 {
   font-size: 4vw;
   padding-top: 40px;
+  text-shadow: 1px 1px 1px #030303;
 }
 
 .pizzas-page > p {
@@ -36,6 +37,7 @@
   font-style: italic;
   text-align: center;
   font-size: 3.5vw;
+  text-shadow: 1px 1px 1px #030303;
 }
 
 .tomatoImg,
@@ -90,6 +92,18 @@
   margin: 5px 0;
   font-size: 2vw;
   font-weight: 600;
+}
+
+#tomate > div > div > div.pizza-container-1 > h2 {
+  text-shadow: 0px 1px 0px #ff6233;
+}
+
+#creme > div > div > div.pizza-container-1 > h2 {
+  text-shadow: 1px 1px 1px #030303;
+}
+
+#originale > div > div > div.pizza-container-1 > h2 {
+  text-shadow: 1px 1px 1px #6ba362;
 }
 
 /* description */
