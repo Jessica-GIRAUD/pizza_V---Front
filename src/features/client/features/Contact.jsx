@@ -40,7 +40,7 @@ const Contact = () => {
   }, [isLoading, resources]);
 
   return (
-    <div className="container-contact" id="contact">
+    <section className="container-contact" id="contact">
       <h1 ref={titleRefContact}>
         {strings.contactTitle.split("").map((letter, index) => {
           return (
@@ -109,7 +109,7 @@ const Contact = () => {
       ) : (
         <Error errorType="contact" />
       )}
-    </div>
+    </section>
   );
 };
 

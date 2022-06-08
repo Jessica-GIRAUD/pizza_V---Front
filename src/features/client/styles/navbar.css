@@ -49,7 +49,8 @@
   left: 0;
 }
 
-.navbar-list:focus-visible {
+.navbar-list:focus-visible,
+.navbar-list:focus {
   outline: none;
 }
 
@@ -151,7 +152,4 @@ Note: Beware of modifying this element as it can break the animations - you shou
     display: flex;
     justify-content: center;
   }
-}
-
-@media (max-width: 915px) and (orientation: landscape) {
 }

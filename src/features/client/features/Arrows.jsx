@@ -1,5 +1,9 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import smoothscroll from "smoothscroll-polyfill";
+
+// kick off the polyfill!
+smoothscroll.polyfill();
 
 const Arrows = () => {
   return (

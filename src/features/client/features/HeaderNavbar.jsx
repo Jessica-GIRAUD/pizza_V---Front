@@ -26,16 +26,16 @@ const HeaderNavbar = () => {
   window.addEventListener("load", () => {
     const sections = document.querySelectorAll("section");
     const accueilSection = document.getElementById("accueil");
-    const titleId = document.getElementById("title");
+    const logoId = document.getElementById("logo");
     document.addEventListener("scroll", (e) => {
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        const rectAccueil = titleId.getBoundingClientRect();
+        const rectAccueil = logoId.getBoundingClientRect();
         if (rect.top > 0 && rect.top < 150) {
-          navigate.push("#" + section.id);
+          navigate("#" + section.id);
         }
         if (rectAccueil.top > 0 && rectAccueil.top < 150) {
-          navigate.push("#" + accueilSection.id);
+          navigate("#" + accueilSection.id);
         }
       });
     });

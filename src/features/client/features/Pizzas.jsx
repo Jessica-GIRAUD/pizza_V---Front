@@ -10,7 +10,7 @@ import useAuth from "../../admin/hooks/useAuth";
 const Pizzas = () => {
   const { resources } = useAuth();
   return (
-    <div
+    <section
       className={
         resources?.length === 0 ? "pizzas-page no-data" : "pizzas-page"
       }
@@ -25,7 +25,7 @@ const Pizzas = () => {
       <Creme />
       <Tomato />
       <Originale />
-    </div>
+    </section>
   );
 };
 
