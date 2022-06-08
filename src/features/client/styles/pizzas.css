@@ -21,7 +21,7 @@
 #creme,
 #tomate,
 #originale,
-#contact {
+.container-contact {
   min-height: 40vh;
   display: flex;
   flex-direction: column;
