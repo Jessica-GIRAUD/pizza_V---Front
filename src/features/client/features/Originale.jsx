@@ -73,7 +73,7 @@ const Originale = () => {
     ({ base_name }) => base_name === "originale"
   );
   return (
-    <div className="originale" id="originale">
+    <section className="originale" id="originale">
       <h1 ref={titleRefOriginal}>
         {strings.originalTitle.split("").map((letter, index) => {
           return (
@@ -105,7 +105,7 @@ const Originale = () => {
       ) : (
         <Error />
       )}
-    </div>
+    </section>
   );
 };
 

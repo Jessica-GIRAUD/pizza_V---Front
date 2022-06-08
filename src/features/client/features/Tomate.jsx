@@ -75,7 +75,7 @@ const Tomato = () => {
   );
 
   return (
-    <div className="tomato" id="tomate">
+    <section className="tomato" id="tomate">
       <h1 ref={titleRefTomato}>
         {strings.tomatoTitle.split("").map((letter, index) => {
           return (
@@ -110,7 +110,7 @@ const Tomato = () => {
       ) : (
         <Error />
       )}
-    </div>
+    </section>
   );
 };
 
