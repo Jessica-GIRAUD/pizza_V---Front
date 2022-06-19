@@ -16,7 +16,7 @@ import DashboardActu from "./features/admin/features/Actus/DashboardActu";
 import DashboardProfile from "./features/admin/features/Profil/DashboardProfile";
 import ErrorPage from "./features/admin/features/ErrorPage";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Routes>
       {/* Website */}

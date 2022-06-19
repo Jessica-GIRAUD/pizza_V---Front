@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import "./styles/scrollArrow.css";
 
-const ScrollArrow = () => {
-  const [showScroll, setShowScroll] = useState(false);
+const ScrollArrow = (): JSX.Element => {
+  const [showScroll, setShowScroll] = useState<boolean>(false);
 
   const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 400) {

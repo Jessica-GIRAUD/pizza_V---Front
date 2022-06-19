@@ -1,7 +1,11 @@
 import React from "react";
 import "./styles/spinner.css";
 
-const Spinner = ({ spinner }) => {
+interface SpinnerPropsInterface {
+  spinner?: string;
+}
+
+const Spinner =  ({ spinner }: SpinnerPropsInterface): JSX.Element => {
   return (
     <div className={`loader ${spinner ? "spinner" : ""}`}>
       <div className="inner one" />
