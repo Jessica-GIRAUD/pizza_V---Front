@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from "./App.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./features/admin/context/AuthContext";
 

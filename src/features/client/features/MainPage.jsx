@@ -3,7 +3,7 @@ import HeaderNavbar from "./HeaderNavbar";
 import Pizzas from "./Pizzas";
 import Accueil from "./Accueil";
 
-import ScrollArrow from "../../component/ScrollArrow";
+import ScrollArrow from "../../component/ScrollArrow.tsx";
 import Contact from "./Contact";
 import Footer from "./Footer";
 

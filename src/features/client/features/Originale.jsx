@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/pizzas.css";
 import useAuth from "../../admin/hooks/useAuth";
-import Spinner from "../../component/Spinner";
+import Spinner from "../../component/Spinner.tsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import strings from "../utils/title.json";
@@ -9,7 +9,7 @@ import Error from "./Error";
 
 gsap.registerPlugin(ScrollTrigger);
 const Originale = () => {
-  const { isLoading, resources } = useAuth();
+  const { isLoading, pizzas } = useAuth();
 
   const titleRefOriginal = useRef();
   const pizzaContainerRef = useRef([]);
@@ -23,7 +23,7 @@ const Originale = () => {
 
   // animation cards
   useEffect(() => {
-    if (!isLoading && resources?.length > 0) {
+    if (!isLoading && pizzas?.length > 0) {
       gsap.set(pizzaContainerRef.current, { y: 0, opacity: 0 });
       ScrollTrigger.batch(pizzaContainerRef.current, {
         interval: 0.1, // time window (in seconds) for batching to occur.
@@ -39,17 +39,17 @@ const Originale = () => {
         end: "top top",
       });
     }
-  }, [isLoading, pizzaContainerRef, resources]);
+  }, [isLoading, pizzaContainerRef, pizzas]);
 
   // animation title
   useEffect(() => {
-    if (!isLoading && resources?.length > 0) {
+    if (!isLoading && pizzas?.length > 0) {
       gsap
         .timeline({
           scrollTrigger: {
             trigger: titleRefOriginal.current,
             start: "20px bottom",
-            end: "top top",
+            end: "20% top",
             scrub: 1,
             // markers: true,
           },
@@ -63,29 +63,19 @@ const Originale = () => {
             stagger: 0.2,
             duration: 1,
           }
-        )
-        .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
-        .to(".letter", { margin: "0" });
+        );
     }
-  }, [isLoading, resources]);
+  }, [isLoading, pizzas]);
 
-  const filteredOriginalPizza = resources?.filter(
+  const filteredOriginalPizza = pizzas?.filter(
     ({ base_name }) => base_name === "originale"
   );
   return (
     <section className="originale" id="originale">
-      <h1 ref={titleRefOriginal}>
-        {strings.originalTitle.split("").map((letter, index) => {
-          return (
-            <span key={index} className="letter">
-              {letter}
-            </span>
-          );
-        })}
-      </h1>
+      <h1 ref={titleRefOriginal}>{strings.originalTitle}</h1>
       {isLoading ? (
         <Spinner spinner={true} />
-      ) : resources?.length > 0 ? (
+      ) : pizzas?.length > 0 ? (
         <div className="originale-container">
           {filteredOriginalPizza?.map((pizza, key) => {
             const { description, name, price } = pizza;

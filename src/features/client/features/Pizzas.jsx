@@ -8,12 +8,10 @@ import Originale from "./Originale";
 import useAuth from "../../admin/hooks/useAuth";
 
 const Pizzas = () => {
-  const { resources } = useAuth();
+  const { pizzas } = useAuth();
   return (
     <section
-      className={
-        resources?.length === 0 ? "pizzas-page no-data" : "pizzas-page"
-      }
+      className={pizzas?.length === 0 ? "pizzas-page no-data" : "pizzas-page"}
       id="pizzas"
     >
       <h1> {strings.discoverTitle}</h1>

@@ -1,38 +1,97 @@
 import { createContext, useEffect, useState } from "react";
-import { getAllPublic } from "../../../services/Routes";
+import { getAllPublic, getOne } from "../../../services/Routes";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
-  const [resources, setResources] = useState([]);
+  const [pizzas, setPizzas] = useState([]);
   const [contact, setContact] = useState({});
   const [actus, setActus] = useState([]);
+  const [profil, setProfil] = useState({ ...auth.user });
   const [isLoading, setIsLoading] = useState(false);
+  const [fileList, setFileList] = useState([]);
+  const axiosPrivate = useAxiosPrivate();
 
-  const fetchAllRessources = () => {
+  const getAllPizzas = () => {
     setIsLoading(true);
-    getAllPublic("pizzas").then((res) => {
-      if (res?.data) {
-        setResources(
-          res?.data
-            ?.map(({ id, ...d }) => ({ ...d, key: id }))
-            ?.sort((a, b) => a?.name?.localeCompare(b?.name))
-        );
-      } else setResources([]);
-    });
-    getAllPublic("contact").then((res) => {
-      if (res?.data) {
-        setContact(res?.data[0]);
-      } else {
-        setContact({});
-      }
-    });
-    getAllPublic("actus")
+    getAllPublic("pizzas")
       .then((res) => {
-        setActus(res?.data);
+        if (res?.data) {
+          setPizzas(
+            res?.data
+              ?.map(({ id, ...d }) => ({ ...d, key: id }))
+              ?.sort((a, b) => a?.name?.localeCompare(b?.name))
+          );
+        } else setPizzas([]);
       })
       .finally(() => setIsLoading(false));
+  };
+
+  const getContact = () => {
+    setIsLoading(true);
+    getAllPublic("contact")
+      .then((res) => {
+        if (res?.data) {
+          setContact(res.data);
+          setFileList([
+            {
+              url: res.data.logo,
+              id: res.data.id,
+              name: "Visualisez votre logo actuel",
+              status: "done",
+            },
+          ]);
+        } else {
+          setContact({});
+        }
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  const getAllActus = () => {
+    setIsLoading(true);
+    getAllPublic("actus")
+      .then((res) => {
+        if (res?.data) {
+          setActus(res?.data?.map(({ id, ...d }) => ({ ...d, key: id })));
+        } else setActus([]);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  const getProfil = () => {
+    setIsLoading(true);
+    getOne(auth?.user?.id, axiosPrivate, "profile")
+      .then((res) => {
+        if (res?.data) {
+          setProfil(res.data);
+        }
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  const fetchResources = (topic) => {
+    switch (topic) {
+      case "pizzas":
+        getAllPizzas();
+        break;
+      case "contact":
+        getContact();
+        break;
+      case "profil":
+        getProfil();
+        break;
+      case "actus":
+        getAllActus();
+        break;
+      default:
+        getAllPizzas();
+        getContact();
+        getAllActus();
+        break;
+    }
   };
 
   function format(number) {
@@ -43,7 +102,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    fetchAllRessources();
+    fetchResources();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -52,12 +111,17 @@ export const AuthProvider = ({ children }) => {
       value={{
         auth,
         setAuth,
-        resources,
-        setResources,
+        pizzas,
+        setPizzas,
+        profil,
+        setProfil,
         contact,
         actus,
         format,
         isLoading,
+        fileList,
+        setFileList,
+        fetchResources,
       }}
     >
       {children}

@@ -1,17 +1,21 @@
 /* LOGO */
 
 .navbar-logo {
-  height: 120px;
   position: relative;
   top: 20px;
-  right: 10px;
-  width: 260px;
+  right: -20px;
+  width: 160px;
+  z-index: 2;
 }
 
 .logo-link {
   display: flex;
   justify-content: center;
   position: absolute;
+}
+
+.logo-link > .loader {
+  margin: 40px;
 }
 
 /* NAVBAR */
@@ -142,7 +146,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 @media (max-width: 915px) {
   .navbar-logo {
     width: 140px;
-    height: 70px;
     margin: 10px 0;
     top: 0;
     right: 0;

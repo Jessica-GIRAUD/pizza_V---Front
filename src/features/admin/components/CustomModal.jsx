@@ -11,7 +11,7 @@ const CustomModal = ({
   purpose,
   fields,
   topic,
-  setResources,
+  extraFields,
 }) => {
   const [options, setOptions] = useState({
     disabled: true,
@@ -92,7 +92,7 @@ const CustomModal = ({
           setOpenModal={setOpenModal}
           fields={fields}
           topic={topic}
-          setResources={setResources}
+          extraFields={extraFields}
         />
       </Modal>
     </>

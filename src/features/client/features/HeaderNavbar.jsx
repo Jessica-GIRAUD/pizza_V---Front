@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import logo from "../../images/logo.png";
 import "../styles/navbar.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { push as Menu } from "react-burger-menu";
 import { HashLink as Link } from "react-router-hash-link";
+import Spinner from "../../component/Spinner.tsx";
+import useAuth from "../../admin/hooks/useAuth";
+import logo2 from "../../images/logo.png";
 
 const HeaderNavbar = () => {
   const { hash } = useLocation();
   const navigate = useNavigate();
-
+  const { contact, isLoading } = useAuth();
+  const { logo } = contact;
   // state for mobile navbar
   const [isOpen, setOpen] = useState(false);
 
@@ -59,7 +62,16 @@ const HeaderNavbar = () => {
         }
         className="logo-link"
       >
-        <img src={logo} alt="Pizza Kika" id="logo" className="navbar-logo" />
+        {!isLoading ? (
+          <img
+            src={logo || logo2}
+            alt="Pizza Kika"
+            id="logo"
+            className="navbar-logo"
+          />
+        ) : (
+          <Spinner />
+        )}
       </Link>
 
       <nav className="mobile-menu">

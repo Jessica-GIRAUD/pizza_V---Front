@@ -18,7 +18,6 @@
 
 .adresse p,
 .horaire p {
-  font-size: 1.3vw;
   font-weight: 500;
   text-shadow: 1px 1px 1px #030303;
 }
@@ -46,7 +45,7 @@
 
 .container-contact h4 {
   font-size: 2vw;
-  margin-bottom: 3%;
+  margin-bottom: 10%;
   text-shadow: 1px 1px 1px #030303;
 }
 
@@ -57,7 +56,6 @@
 
 .tel-container p {
   text-align: center;
-  font-size: 1.4vw;
   font-weight: bold;
   padding: 0 15px;
   margin-bottom: 0;
@@ -114,11 +112,6 @@
   .adresse p,
   .horaire p {
     margin: 0 5px;
-    font-size: 3.5vw;
-  }
-
-  .tel-container p {
-    font-size: 4.5vw;
   }
 
   .adresse,
@@ -138,21 +131,12 @@
     font-size: 7vw;
   }
 
-  .adresse p,
-  .horaire p {
-    font-size: 2.3vw;
-  }
-
   .container-contact h4 {
     font-size: 3.5vw;
   }
 
   .container-contact {
     padding-bottom: 35px;
-  }
-
-  .tel-container p {
-    font-size: 3vw;
   }
 }
 
@@ -164,14 +148,5 @@
 
   .container-contact h4 {
     font-size: 2vw;
-  }
-
-  .adresse p,
-  .horaire p {
-    font-size: 1.3vw;
-  }
-
-  .tel-container p {
-    font-size: 1.4vw;
   }
 }

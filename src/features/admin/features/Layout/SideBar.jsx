@@ -1,17 +1,50 @@
 import React, { useState } from "react";
 import { Layout, Menu } from "antd";
 import { ToolOutlined, UserOutlined } from "@ant-design/icons";
-import logo from "../../../images/logo.png";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
-const { SubMenu } = Menu;
 const { Sider } = Layout;
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
-
+  const { contact } = useAuth();
+  const { logo } = contact;
   const onCollapse = (collapsed) => {
     setCollapsed(collapsed);
   };
+
+  const items = [
+    {
+      label: "Configuration",
+      key: "sub1",
+      icon: <ToolOutlined />,
+      children: [
+        {
+          key: "1",
+          label: <Link to="/admin/dashboard/actualites"> Actualités</Link>,
+        },
+        {
+          key: "2",
+          label: <Link to="/admin/dashboard/contact"> Contact</Link>,
+        },
+        {
+          key: "3",
+          label: <Link to="/admin/dashboard/pizzas"> Pizzas</Link>,
+        },
+      ],
+    },
+    {
+      label: "Profil",
+      key: "sub2",
+      icon: <UserOutlined />,
+      children: [
+        {
+          key: "4",
+          label: <Link to="/admin/dashboard/profile"> Modifier le profil</Link>,
+        },
+      ],
+    },
+  ];
 
   return (
     <Sider
@@ -31,28 +64,12 @@ const SideBar = () => {
       />
       <Menu
         mode="inline"
-        defaultSelectedKeys={["2"]}
+        defaultSelectedKeys={["3"]}
         defaultOpenKeys={["sub1"]}
         style={{ height: "100%", borderRight: 0 }}
         theme="dark"
-      >
-        <SubMenu key="sub1" icon={<ToolOutlined />} title="Configuration">
-          <Menu.Item key="1">
-            <Link to="/admin/dashboard/actualites"> Actualités</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/admin/dashboard/pizzas"> Pizzas</Link>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Link to="/admin/dashboard/contact"> Contact</Link>
-          </Menu.Item>
-        </SubMenu>
-        <SubMenu key="sub2" icon={<UserOutlined />} title="Profil">
-          <Menu.Item key="4">
-            <Link to="/admin/dashboard/profile"> Modifier le profil</Link>
-          </Menu.Item>
-        </SubMenu>
-      </Menu>
+        items={items}
+      />
     </Sider>
   );
 };

@@ -5,9 +5,17 @@ import React from "react";
 const columns = (setOpenModal, openModal, setPurpose) => {
   return [
     {
-      title: "Nom",
-      dataIndex: "name",
-      key: "name",
+      title: "Logo",
+      dataIndex: "logo",
+      key: "logo",
+      render: (image) => (
+        <img
+          src={image}
+          alt="logo"
+          style={{ width: "120px" }}
+          className="modal-img"
+        />
+      ),
     },
     {
       title: "Adresse",
@@ -31,25 +39,31 @@ const columns = (setOpenModal, openModal, setPurpose) => {
     },
 
     {
-      title: "Ouverture / Fermeture",
-      dataIndex: ["close", "open"],
-      key: "close",
-      render: (text, row) => (
-        <>
-          <div>
-            {row["open"]?.split("\\n").map((item, idx) => {
-              return (
-                <React.Fragment key={idx}>
-                  {item}
-                  <br />
-                </React.Fragment>
-              );
-            })}
-          </div>
-          <br />
-          <div> {row["close"]}</div>
-        </>
-      ),
+      title: "Horaires",
+      dataIndex: "horaires",
+      key: "horaires",
+      render: (text, row) => {
+        return row?.horaires?.map((horaire, index) => {
+          return (
+            <div
+              key={horaire.jour + index}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <p
+                style={{
+                  color: "#000000d9",
+                }}
+              >
+                {horaire.jour}
+              </p>
+              <p style={{ color: "#000000d9" }}>{horaire.horaire}</p>
+            </div>
+          );
+        });
+      },
     },
     {
       key: "action",
@@ -66,7 +80,7 @@ const columns = (setOpenModal, openModal, setPurpose) => {
           <div
             onClick={() => {
               setPurpose({ purpose: "edit", id: key });
-              setOpenModal(!openModal);
+              setOpenModal(true);
             }}
           >
             <Tooltip title="Modifier">

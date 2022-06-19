@@ -1,25 +1,25 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/contact.css";
 import useAuth from "../../admin/hooks/useAuth";
-import Spinner from "../../component/Spinner";
+import Spinner from "../../component/Spinner.tsx";
 import { FiPhoneCall } from "react-icons/fi";
 import strings from "../utils/title.json";
 import gsap from "gsap";
 import Error from "./Error";
 
 const Contact = () => {
-  const { contact, format, isLoading, resources } = useAuth();
+  const { contact, format, isLoading, pizzas } = useAuth();
   const titleRefContact = useRef();
 
   // animation title
   useEffect(() => {
-    if (!isLoading && resources.length > 0) {
+    if (!isLoading && pizzas.length > 0) {
       gsap
         .timeline({
           scrollTrigger: {
             trigger: titleRefContact.current,
             start: "20px bottom",
-            end: "top 30%",
+            end: "20% 30%",
             scrub: 1,
             // markers: true,
           },
@@ -33,43 +33,29 @@ const Contact = () => {
             stagger: 0.2,
             duration: 1,
           }
-        )
-        .to(".letter", { margin: "0 0.8vw 0 0.8vw", delay: 1, duration: 1.5 })
-        .to(".letter", { margin: "0" });
+        );
     }
-  }, [isLoading, resources]);
+  }, [isLoading, pizzas]);
 
   return (
     <section className="container-contact" id="contact">
-      <h1 ref={titleRefContact}>
-        {strings.contactTitle.split("").map((letter, index) => {
-          return (
-            <span key={index} className="letter">
-              {letter}
-            </span>
-          );
-        })}
-      </h1>
+      <h1 ref={titleRefContact}>{strings.contactTitle}</h1>
 
       {isLoading ? (
         <Spinner spinner={true} />
-      ) : resources?.length > 0 ? (
+      ) : pizzas?.length > 0 ? (
         <div className="container-horaire-adresse">
           <div className="horaire-adresse">
             <div className="horaire">
               <h4>Horaires d'ouverture</h4>
-              <p>
-                {contact?.open?.split("\\n")?.map((item, idx) => {
-                  return (
-                    <React.Fragment key={idx}>
-                      {item}
-                      <br />
-                    </React.Fragment>
-                  );
-                })}
-                <br />
-                {contact?.close}
-              </p>
+              {contact?.horaires?.map((horaire, index) => {
+                return (
+                  <div style={{ display: "flex", width: "300px" }} key={index}>
+                    <p>{horaire.jour}</p>
+                    <p>{horaire.horaire}</p>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="adresse">

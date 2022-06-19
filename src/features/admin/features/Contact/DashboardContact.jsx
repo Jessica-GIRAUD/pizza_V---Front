@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Table } from "antd";
 import "../../styles/Dashboard.css";
-import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import columns from "./columns";
-import { basicFields } from "./fields";
-import { getAll } from "../../../../services/Routes";
+import { useFields } from "./fields";
 import CustomModal from "../../components/CustomModal";
+import useAuth from "../../hooks/useAuth";
 
 const DashboardContact = () => {
-  const [dataTable, setDataTable] = useState();
+  const { contact } = useAuth();
+  const dataTable = [{ ...contact }].map(({ id, ...d }) => ({ ...d, key: id }));
 
-  const axiosPrivate = useAxiosPrivate();
+  const { basicFields, advancedFields } = useFields();
+
   const [openModal, setOpenModal] = useState(false);
   const [purpose, setPurpose] = useState({ purpose: "", id: null });
-
-  const fetchContact = () => {
-    getAll(axiosPrivate, "contact").then((res) => {
-      setDataTable(res.data.map(({ id, ...d }) => ({ ...d, key: id })));
-    });
-  };
-
-  useEffect(() => {
-    fetchContact();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div>
@@ -40,8 +30,8 @@ const DashboardContact = () => {
               : "Créer une nouvelle actualité"
           }
           fields={basicFields}
-          setResources={setDataTable}
           topic="contact"
+          extraFields={advancedFields}
         />
       )}
 
