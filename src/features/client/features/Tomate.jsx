@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import tomato from "../../images/tomato2.png";
+import tomato from "../../images/tomate.png";
 import useAuth from "../../admin/hooks/useAuth";
 import Spinner from "../../component/Spinner.tsx";
 import "../styles/pizzas.css";

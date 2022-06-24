@@ -67,28 +67,30 @@ const Contact = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <p>
+                <p className="adresse-text">
                   {contact?.address ? contact?.address : ""} <br />
                   {`${contact?.post_code ? contact?.post_code : ""} ${
                     contact?.city ? contact?.city : ""
                   }`}
                 </p>
               </a>
-            </div>
-          </div>
 
-          <div className="tel-container">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                padding: "15px",
-              }}
-            >
-              <FiPhoneCall color="#ffffffe1" fontSize={20} />
-              <a href={`tel:+33${contact?.phone}`}>
-                <p>{format(contact?.phone)}</p>
-              </a>
+              <div className="tel-container">
+                <h4>Commandez vite au</h4>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "15px",
+                    paddingBottom: 0,
+                  }}
+                >
+                  <FiPhoneCall color="#ffffffe1" fontSize={20} />
+                  <a href={`tel:+33${contact?.phone}`}>
+                    <p>{format(contact?.phone)}</p>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

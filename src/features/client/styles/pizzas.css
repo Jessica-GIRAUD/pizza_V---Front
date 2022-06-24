@@ -221,7 +221,7 @@
   .tomato > h1,
   .originale > h1 {
     font-size: 6.5vw;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     padding-top: 10px;
   }
 
@@ -269,7 +269,7 @@
   .originale > h1 {
     padding-top: 40px;
     margin-top: 0;
-    font-size: 3.5vw;
+    font-size: 4vw;
   }
 
   .tomatoImg,

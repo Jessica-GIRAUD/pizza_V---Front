@@ -1,10 +1,9 @@
 .container-contact {
   padding-top: 40px;
-  height: calc(100vh - 140px);
-  background-image: url("../../images/flour.png");
-  background-size: inherit;
-  background-position-x: 70%;
-  background-position-y: 90%;
+  min-height: calc(100vh - 140px);
+  background-image: url("../../images/pizza-ardoise.jpg");
+  background-size: cover;
+  background-position-y: 70%;
 }
 
 .adresse,
@@ -12,7 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 35%;
   text-align: center;
 }
 
@@ -29,7 +28,9 @@
 
 .horaire-adresse {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  width: 95%;
 }
 
 .container-contact h1 {
@@ -49,12 +50,39 @@
   text-shadow: 1px 1px 1px #030303;
 }
 
+.container-contact a {
+  text-decoration: none;
+  color: #c2ab90;
+  font-weight: bold;
+}
+
 .container-horaire-adresse {
   width: 100%;
 }
 /* CONTACT PAGE */
 
+.tel-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  border-radius: 5px;
+  width: fit-content;
+  background-color: #0000007c;
+  padding: 30px;
+}
+
+.tel-container:hover {
+  box-shadow: 1px 1px 4px #ffffffe1;
+}
+
+.tel-container h4 {
+  margin-bottom: 0;
+}
+
 .tel-container p {
+  font-size: x-large;
   text-align: center;
   font-weight: bold;
   padding: 0 15px;
@@ -62,43 +90,25 @@
   text-shadow: 1px 1px 1px #030303;
 }
 
-.tel-container {
-  display: flex;
-  justify-content: center;
-  background-color: #0000007c;
-  margin: 20px auto;
-  border-radius: 5px;
-  width: fit-content;
-  height: 50px;
-}
-
-.tel-container:hover {
-  box-shadow: 1px 1px 4px #ffffffe1;
-}
-
-.container-contact a {
-  text-decoration: none;
-  color: #c2ab90;
-  font-weight: bold;
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .container-contact {
     margin: auto;
     padding-bottom: 40px;
+    justify-content: start;
+    background-position-x: 35%;
   }
 
   .horaire-adresse {
     width: 100%;
     margin-top: 20px;
-
     flex-direction: column;
     align-items: center;
   }
 
   .tel-container {
-    margin: 30px auto;
+    margin: 10px auto;
+    padding: 10px;
   }
   .container-contact h1 {
     font-size: 8.5vw;
@@ -109,14 +119,22 @@
     margin-bottom: 20px;
   }
 
-  .adresse p,
+  .adresse-text,
   .horaire p {
     margin: 0 5px;
   }
 
+  .adresse-text {
+    margin-bottom: 30px;
+  }
+
+  .tel-container h4 {
+    margin-bottom: 0;
+  }
+
   .adresse,
   .horaire {
-    width: 100%;
+    width: 80%;
   }
 
   .horaire {
@@ -126,9 +144,27 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .container-contact {
+    margin: auto;
+    padding-bottom: 40px;
+    justify-content: start;
+    background-position-x: 35%;
+  }
+
+  .horaire-adresse {
+    width: 100%;
+    margin-top: 20px;
+
+    flex-direction: column;
+    align-items: center;
+  }
   .container-contact > h1 {
     margin-bottom: 20px;
     font-size: 7vw;
+  }
+
+  .adresse-text {
+    margin-bottom: 50%;
   }
 
   .container-contact h4 {
@@ -138,12 +174,32 @@
   .container-contact {
     padding-bottom: 35px;
   }
+
+  .tel-container p {
+    font-size: medium;
+  }
+
+  .tel-container {
+    padding: 10px;
+  }
+  .horaire {
+    margin-bottom: 30px;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .horaire-adresse {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    width: 95%;
+    align-items: flex-start;
+  }
+
   .container-contact h1 {
     font-size: 4vw;
+    margin-bottom: 60px;
   }
 
   .container-contact h4 {
