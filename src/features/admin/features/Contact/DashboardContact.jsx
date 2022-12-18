@@ -8,7 +8,7 @@ import useAuth from "../../hooks/useAuth";
 
 const DashboardContact = () => {
   const { contact } = useAuth();
-  const dataTable = [{ ...contact }].map(({ id, ...d }) => ({ ...d, key: id }));
+  const dataTable = contact.map(({ id, ...d }) => ({ ...d, key: id }));
 
   const { basicFields, advancedFields } = useFields();
 
