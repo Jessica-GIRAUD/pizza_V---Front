@@ -5,3 +5,36 @@
 .contact-modal {
   width: 800px !important;
 }
+
+.ant-upload-text {
+  color: black !important;
+}
+
+.formItem-horaire::before {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+  content: "*";
+}
+
+.ant-upload-list-picture-card .ant-upload-list-item-info,
+.modal-img {
+  background: url("../../images//backgroungPNG.jpeg");
+  background-size: cover;
+}
+
+.ant-upload-list-picture-card-container {
+  width: 150px;
+  height: 150px;
+}
+
+.ant-upload-list-item-name {
+  color: black;
+}
+
+.ant-upload-list-item-name:hover {
+  color: #ff4d4f;
+}

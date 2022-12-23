@@ -45,7 +45,7 @@
   right: 0%;
   bottom: 0%;
   animation: rotate-three 1s linear infinite;
-  border-top: 3px solid #4f674b;
+  border-top: 3px solid #6ba362;
 }
 
 @keyframes rotate-one {

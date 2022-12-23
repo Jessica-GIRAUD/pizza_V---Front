@@ -4,9 +4,9 @@ import "../styles/ErrorPage.css";
 const ErrorPage = () => {
   return (
     <div className="loading">
-      <h1 className="title500">500</h1>
+      <h1 className="title500"> Erreur 500</h1>
       <h2 className="titleError">
-        Oups ! Le serveur a commis une erreur <b>:(</b>
+        Oups ! Le serveur est en panne... <b>:(</b>
       </h2>
       <div className="gears">
         <div className="gear one">

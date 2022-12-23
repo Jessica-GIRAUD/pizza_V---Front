@@ -8,17 +8,20 @@ import { Layout } from "antd";
 const { Header } = Layout;
 
 const HeaderBar = () => {
-  const { setAuth, auth } = useAuth();
+  const { setAuth, auth, profil } = useAuth();
 
   const navigate = useNavigate();
 
   const onLogOutClick = () => {
     setAuth({});
+    localStorage.clear();
     logout().then(() => navigate("/"));
   };
   return (
     <Header className="site-layout-background header">
-      <span>{`Bienvenue, ${auth?.user.firstname} ${auth?.user.lastname}`}</span>
+      <span>{`Bienvenue, ${profil.firstname || auth.user.firstname} ${
+        profil.lastname || auth.user.lastname
+      }`}</span>
       <div onClick={() => onLogOutClick()} className="disconnect">
         <LogoutOutlined style={{ marginRight: "10px" }} />
         <span className="disconnect-txt">Se déconnecter</span>

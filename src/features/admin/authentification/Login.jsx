@@ -6,7 +6,7 @@ import useAuth from "../hooks/useAuth";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { setAuth, setProfil } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/admin/dashboard/pizzas";
@@ -39,7 +39,8 @@ const Login = () => {
   const handleSubmit = (event) => {
     login(formValues).then((res) => {
       if (res.status === 200) {
-        setAuth(res?.data);
+        setAuth(res.data);
+        setProfil(res.data.user);
         navigate(from, { replace: true });
       }
       if (res.status === 500) {

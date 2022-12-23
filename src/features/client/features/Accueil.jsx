@@ -1,8 +1,8 @@
 import React from "react";
 import Arrows from "./Arrows";
-import "../styles/slogan.css";
+import "../styles/accueil.css";
 import useAuth from "../../admin/hooks/useAuth";
-import Spinner from "../../component/Spinner";
+import Spinner from "../../component/Spinner.tsx";
 
 const Accueil = () => {
   const { contact, format, actus, isLoading } = useAuth();

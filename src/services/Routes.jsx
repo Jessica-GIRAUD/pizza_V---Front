@@ -1,7 +1,5 @@
 import axios from "axios";
-
-// const BASE_URL = "https://pizza-kika.herokuapp.com";
-const BASE_URL = "http://localhost:5001";
+import { BASE_URL } from "./Axios";
 
 export const getAllPublic = async (topic) => {
   try {

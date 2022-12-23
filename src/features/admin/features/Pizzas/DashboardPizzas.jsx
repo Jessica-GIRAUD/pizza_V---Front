@@ -10,15 +10,15 @@ import { basicFields } from "./fields";
 import CustomModal from "../../components/CustomModal";
 
 const DashboardPizzas = () => {
-  const { resources, setResources } = useAuth();
+  const { pizzas, fetchResources } = useAuth();
   const axiosPrivate = useAxiosPrivate();
   const [openModal, setOpenModal] = useState(false);
   const [purpose, setPurpose] = useState({ purpose: "", id: null });
-  const [dataTable, setDataTable] = useState(resources);
+  const [dataTable, setDataTable] = useState(pizzas);
 
   useEffect(() => {
-    setDataTable(resources);
-  }, [resources]);
+    setDataTable(pizzas);
+  }, [pizzas]);
 
   const onSearch = (value) => {
     if (value) {
@@ -27,17 +27,13 @@ const DashboardPizzas = () => {
   };
 
   const onClear = () => {
-    setDataTable([...resources]);
+    setDataTable([...pizzas]);
   };
 
   const onDeletePizza = (key) => {
     deleteOne(key, axiosPrivate, "pizzas").then((res) => {
       if (res.status === 200) {
-        setResources(
-          res.data
-            .map(({ id, ...d }) => ({ ...d, key: id }))
-            .sort((a, b) => a.name.localeCompare(b.name))
-        );
+        fetchResources("pizzas");
         message.success("Suppression réalisée avec succès.");
       } else {
         message.error("Un problème est survenu lors de la suppression.");
@@ -45,7 +41,7 @@ const DashboardPizzas = () => {
     });
   };
 
-  const options = resources.map((r) => {
+  const options = pizzas.map((r) => {
     return {
       value: r.name,
     };
@@ -88,7 +84,6 @@ const DashboardPizzas = () => {
                 : "Créer une nouvelle pizza"
             }
             fields={basicFields}
-            setResources={setResources}
             topic="pizzas"
           />
         )}

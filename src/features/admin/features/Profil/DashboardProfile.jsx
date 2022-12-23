@@ -8,7 +8,7 @@ import "../../styles/Dashboard.css";
 import useAuth from "../../hooks/useAuth";
 
 const DashboardProfile = () => {
-  const { auth, setAuth } = useAuth();
+  const { auth, fetchResources } = useAuth();
   const {
     user: { id: userId },
   } = auth;
@@ -24,6 +24,7 @@ const DashboardProfile = () => {
       if (res.status === 200) {
         form.resetFields();
         form.setFieldsValue(res?.data[0]);
+        fetchResources("profil");
         message.success("Modification réalisée avec succès.");
       } else {
         message.error(res?.data?.message);
@@ -34,15 +35,6 @@ const DashboardProfile = () => {
   const getResource = async () => {
     try {
       const { data } = await getOne(userId, axiosPrivate, "profile");
-      const { firstname, lastname, email, id } = data[0];
-      const newAuthUser = auth;
-      newAuthUser.user = {
-        firstname,
-        lastname,
-        email,
-        id,
-      };
-      setAuth(newAuthUser);
       form.resetFields();
       form.setFieldsValue(data[0]);
     } catch (e) {

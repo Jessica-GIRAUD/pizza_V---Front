@@ -1,0 +1,387 @@
+.background {
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("../../images/part.jpg");
+  display: flex;
+  flex-direction: column;
+}
+
+/* BOX SLOGAN */
+.slogan {
+  width: 80%;
+  margin: auto;
+  color: #ffffffe1;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+/* PRENEZ UN MOMENT POUR */
+.slogan > h1 {
+  font-size: 5vw;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 1px 1px #030303;
+}
+
+/* Commandez vite vos pizzas cuites au feu de bois */
+.slogan > h4 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 1px 1px #030303;
+}
+
+/* SLOGAN TELEPHONE */
+.slogan > a {
+  display: block;
+  text-align: center;
+  color: #ffffffe1;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 1px #030303;
+}
+
+/* PARTAGER VIVRE SORTIR RIRE */
+.slogan > h1:after {
+  content: "Profiter";
+  color: #ff6233;
+  animation: topToBottom 8s infinite 0s;
+  display: inline-block;
+  width: 150px;
+  text-align: start;
+}
+
+@keyframes topToBottom {
+  10% {
+    content: "Profiter";
+    width: 150px;
+  }
+  30% {
+    content: "Partager";
+    width: 150px;
+  }
+  50% {
+    content: "Rire";
+    width: 150px;
+  }
+  70% {
+    content: "Sortir";
+    width: 150px;
+  }
+  90% {
+    content: "Savourer";
+    width: 150px;
+  }
+}
+
+.container-arrows {
+  display: flex;
+  margin: 10px auto;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.arrows,
+.arrows2,
+.arrows3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.arrows path {
+  stroke: #ffffffe1;
+  fill: transparent;
+  stroke-width: 3px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+.arrows2 path {
+  stroke: #ff6233;
+  fill: transparent;
+  stroke-width: 3px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+.arrows3 path {
+  stroke: #6ba362;
+  fill: transparent;
+  stroke-width: 3px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+.svg {
+  width: 60px;
+  height: 55px;
+}
+
+.type,
+.type:visited {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.486);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.cream-arrow:hover {
+  box-shadow: 1px 1px 4px #ffffffe1;
+}
+
+.tomato-arrow:hover {
+  box-shadow: 1px 1px 4px #ff6233;
+}
+
+.original-arrow:hover {
+  box-shadow: 1px 1px 4px #6ba362;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+path.a1 {
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s; /* Safari 和 Chrome */
+}
+
+path.a2 {
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s; /* Safari 和 Chrome */
+}
+
+/* Défilement de droite à gauche */
+
+.position {
+  display: flex;
+  align-items: center;
+  margin-top: 25vh;
+}
+
+.bandeau {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.486);
+  height: 90px;
+}
+
+.actu {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  white-space: nowrap;
+  color: #ffffffe1;
+  padding-left: 100%;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: actu;
+  animation-name: actu;
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+}
+
+.actu:hover {
+  animation-play-state: paused; /* met en pause le défilement */
+}
+
+.actu_titre {
+  display: inline-block;
+  padding: 0 200px;
+  font-size: 18px;
+  color: #ffffffe1;
+  font-weight: 600;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+@-webkit-keyframes actu {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes actu {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .position {
+    margin-top: 15vh;
+  }
+
+  .bandeau {
+    height: 70px;
+  }
+
+  .actu_titre {
+    font-size: 4vw;
+  }
+
+  /* BOX SLOGAN */
+  .slogan {
+    width: 90%;
+    margin: auto;
+  }
+
+  /* PARTAGER VIVRE SORTIR RIRE */
+  .slogan > h1:after {
+    font-size: 10vw;
+    font-weight: 500;
+  }
+
+  /* PRENEZ UN MOMENT POUR */
+  .slogan > h1 {
+    font-size: 10vw;
+    text-align: center;
+    padding-bottom: 15px;
+    font-weight: bold;
+  }
+
+  /* Commandez vite vos pizzas cuites au feu de bois */
+  .slogan h4 {
+    font-size: 5vw;
+    text-align: center;
+  }
+
+  .container-arrows {
+    width: 90%;
+  }
+
+  .arrows,
+  .arrows2,
+  .arrows3 {
+    width: 30%;
+  }
+
+  .type {
+    font-size: 3.5vw;
+    text-align: center;
+    padding: 8px;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .position {
+    margin-top: 22vh;
+  }
+
+  .bandeau {
+    min-height: 50px;
+  }
+
+  .actu_titre {
+    font-size: 2.3vw;
+  }
+
+  .slogan {
+    margin: auto;
+    width: 90%;
+  }
+
+  .slogan > h1 {
+    padding-bottom: 0px;
+    flex-direction: row;
+    font-size: 5.5vw;
+  }
+
+  .slogan > h1:after {
+    font-size: 5.5vw;
+  }
+
+  .slogan h4 {
+    font-size: 3.5vw;
+    margin-bottom: 0;
+  }
+
+  .slogan > a {
+    font-size: 5vw;
+  }
+
+  .type,
+  .type:visited {
+    font-size: 2.3vw;
+    margin-bottom: 10px;
+  }
+
+  .container-arrows {
+    display: flex;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .actu_titre {
+    font-size: 18px;
+  }
+
+  .slogan > h4 {
+    font-size: 1.8rem;
+  }
+
+  .slogan > h1 {
+    font-size: 5vw;
+  }
+
+  .slogan > a {
+    font-size: 2.5rem;
+  }
+
+  .type,
+  .type:visited {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+}

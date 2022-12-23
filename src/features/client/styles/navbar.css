@@ -1,17 +1,21 @@
 /* LOGO */
 
 .navbar-logo {
-  height: 120px;
   position: relative;
   top: 20px;
-  right: 10px;
-  width: 260px;
+  right: -20px;
+  width: 160px;
+  z-index: 2;
 }
 
 .logo-link {
   display: flex;
   justify-content: center;
   position: absolute;
+}
+
+.logo-link > .loader {
+  margin: 40px;
 }
 
 /* NAVBAR */
@@ -49,6 +53,11 @@
   left: 0;
 }
 
+.navbar-list:focus-visible,
+.navbar-list:focus {
+  outline: none;
+}
+
 /* Changement de couleur lorsqu'un onglet est actif */
 .navbar-list .active a {
   text-shadow: 2px 2px 2px #050705;
@@ -69,7 +78,7 @@
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: absolute;
+  position: fixed;
   width: 36px;
   height: 30px;
   right: 36px;
@@ -137,7 +146,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 @media (max-width: 915px) {
   .navbar-logo {
     width: 140px;
-    height: 70px;
     margin: 10px 0;
     top: 0;
     right: 0;
@@ -147,7 +155,4 @@ Note: Beware of modifying this element as it can break the animations - you shou
     display: flex;
     justify-content: center;
   }
-}
-
-@media (max-width: 915px) and (orientation: landscape) {
 }
