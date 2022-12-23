@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../../../../services/Authentification";
+import { logout } from "../../../../services/Auth";
 import useAuth from "../../hooks/useAuth";
 import { LogoutOutlined } from "@ant-design/icons";
 import { Layout } from "antd";

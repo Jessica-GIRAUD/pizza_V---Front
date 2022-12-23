@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles//Register.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { changePassword } from "../../../services/Authentification";
+import { changePassword } from "../../../services/Auth";
 import { message } from "antd";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 

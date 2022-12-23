@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles//Register.css";
 import { useNavigate } from "react-router-dom";
-import { reset } from "../../../services/Authentification";
+import { reset } from "../../../services/Auth";
 import { message } from "antd";
 
 const ForgetPassword = () => {
