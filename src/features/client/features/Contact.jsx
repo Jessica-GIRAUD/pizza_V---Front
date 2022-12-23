@@ -74,23 +74,23 @@ const Contact = () => {
                   }`}
                 </p>
               </a>
+              <a href={`tel:+33${contact?.phone}`}>
+                <div className="tel-container">
+                  <h4>Commandez vite au</h4>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      padding: "15px",
+                      paddingBottom: 0,
+                    }}
+                  >
+                    <FiPhoneCall color="#ffffffe1" fontSize={20} />
 
-              <div className="tel-container">
-                <h4>Commandez vite au</h4>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "15px",
-                    paddingBottom: 0,
-                  }}
-                >
-                  <FiPhoneCall color="#ffffffe1" fontSize={20} />
-                  <a href={`tel:+33${contact?.phone}`}>
                     <p>{format(contact?.phone)}</p>
-                  </a>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>

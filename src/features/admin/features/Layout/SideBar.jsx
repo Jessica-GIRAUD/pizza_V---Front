@@ -8,7 +8,7 @@ const { Sider } = Layout;
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { contact } = useAuth();
-  const { logo } = contact[0];
+  const { logo } = contact;
   const onCollapse = (collapsed) => {
     setCollapsed(collapsed);
   };
