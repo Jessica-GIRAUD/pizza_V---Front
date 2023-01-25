@@ -257,7 +257,7 @@ path.a2 {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .position {
-    margin-top: 15vh;
+    margin-top: 20vh;
   }
 
   .bandeau {
